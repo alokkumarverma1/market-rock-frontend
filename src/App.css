@@ -1,0 +1,20 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+/* text */
+
+.metal-green{
+background: linear-gradient(
+  180deg,
+  #4dbb97 0%,
+  #1f9d75 25%,
+  #018b62 50%,
+  #0ba275 75%,
+  #7ce0c0 100%
+);
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
