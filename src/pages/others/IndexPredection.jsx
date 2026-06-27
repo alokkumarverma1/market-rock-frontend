@@ -133,11 +133,8 @@ function IndexPredection({ value = -50 }) {
             {Math.abs(score)}%
           </h1>
 
-          <p
-            className={`mt-2 text-sm sm:text-lg font-semibold ${sentimentColor}`}
-          >
-            {sentiment}
-          </p>
+          <p className={`mt-2 text-sm sm:text-lg font-semibold ${sentimentColor}`}>{sentiment}</p>
+          <p className="text-[14px] text-gray-700 mt-3">22-03-2006</p>
         </div>
       </div>
     </div>

@@ -20,21 +20,10 @@ function Footer() {
             </p>
 
             <div className="flex gap-4 mt-6 text-xl">
-              <a href="#">
-                <i className="fa-brands fa-instagram hover:text-green-400 duration-300"></i>
-              </a>
-
-              <a href="#">
-                <i className="fa-brands fa-youtube hover:text-green-400 duration-300"></i>
-              </a>
-
-              <a href="#">
-                <i className="fa-brands fa-linkedin hover:text-green-400 duration-300"></i>
-              </a>
-
-              <a href="#">
-                <i className="fa-brands fa-x-twitter hover:text-green-400 duration-300"></i>
-              </a>
+              <a href="#"><i className="fa-brands fa-instagram hover:text-green-400 duration-300"></i></a>
+              <a href="#"><i className="fa-brands fa-youtube hover:text-green-400 duration-300"></i></a>
+              <a href="#"><i className="fa-brands fa-linkedin hover:text-green-400 duration-300"></i></a>
+              <a href="#"><i className="fa-brands fa-x-twitter hover:text-green-400 duration-300"></i></a>
             </div>
           </div>
 
