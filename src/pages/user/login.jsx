@@ -23,17 +23,14 @@ setLogin({...login, [e.target.name]: e.target.value})
      e.preventDefault(); 
     try{
      const auth = getAuth();
-     const userCredential = await signInWithEmailAndPassword(auth, login.email, login.password)
-     const user = userCredential.user;
-     console.log(auth.currentUser)
-    navigate("/result" , {state:{message:"success" , value:"true" , next:"/"}})
+     const user = await signInWithEmailAndPassword(auth, login.email, login.password)
+     navigate("/result" , {state:{ code:200, value:true , next:"/"}})
     }catch(error){
-      console.log(error.message)
-    navigate("/result" , {state:{message:error.message , value:"false" , next:"/"}})
-
+    navigate("/result" , {state:{code:error.code , value:"false" , next:"/"}})
     }
      
  }
+
 
 
 

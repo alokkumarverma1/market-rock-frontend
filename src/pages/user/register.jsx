@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../others/footer";
 import Navbar from "../others/navbar";
@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore"; 
 import { db } from "../../firebase/firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 
 
@@ -43,22 +44,18 @@ const registerHandle = async(e)=>{
     const auth = getAuth();
     const userdata = await createUserWithEmailAndPassword(auth, register.email, register.password)
     const user = userdata.user;
-     await addDoc(collection(db, "register"), {
-        name: register.name,
-        email: register.email,
-        number: register.number,
-        city: register.city,
-        role:userRole,
-        uid: user.uid,
-      });
-    
-  navigate("/result" , {state:{message:"success" , value:"true" , next:"/"}})
-
+    await setDoc(doc(db, "register", user.uid), {
+     name: register.name,
+    email: register.email,
+    number: register.number,
+    city: register.city,
+    role: userRole,
+    uid: user.uid,
+    });
+  navigate("/result" , {state:{code:200 , value:true , next:"/"}})
   }
   catch(error){
-     navigate("/result" , {state:{message:"no success" , value:"true" , next:"/"}})
-    console.log(error.code);
-   console.log(error.message);
+     navigate("/result" , {state:{code:error.code , value:false, next:"/register"}})
   };
 
 }

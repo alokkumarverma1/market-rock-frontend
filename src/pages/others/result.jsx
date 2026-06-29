@@ -1,64 +1,48 @@
-import React, { useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-function Result() {
-  const navigate = useNavigate();
-  const location = useLocation();
 
-  const data = location.state;
+function Result(){
 
-  useEffect(() => {
-    if (!data) return;
+    const location = useLocation();
+    const states = location.state?.next || "/";
+    const navigate = useNavigate();
+    const messages = {
+  200: "Success",
+  400: "Bad Request: Invalid input",
+  401: "Unauthorized: Login failed",
+  404: "Not Found: User does not exist",
+  500: "Server Error: Try again later",
+};
 
-    const timer = setTimeout(() => {
-      navigate(data.next);
-    }, 2000);
 
-    return () => clearTimeout(timer);
-  }, [navigate, data]);
 
-  if (!data) {
-    return (
-      <div className="w-screen h-screen flex justify-center items-center text-white">
-        <h1 className="text-2xl font-bold">
-          No Data Found
-        </h1>
-      </div>
-    );
-  }
+   useEffect(()=>{
+   setTimeout(()=>{
+    navigate(states)
+   },2000)
+    })
 
-  return (
-    <div className="w-screen h-screen flex justify-center items-center bg-gray-950 px-4">
-      <div className="w-full max-w-md bg-gray-900 border border-gray-700 rounded-3xl p-10 text-center shadow-2xl">
 
-        {data.value ? (
-          <div className="text-green-500 text-7xl mb-5">
-            ✓
+
+    return(<>
+    <div className="result w-full h-dvh flex justify-center items-center">
+        <div className="middle flex justify-center items-center flex-col gap-5 h-60 w-60 sm:w-100 rounded-2xl shadow-xl ">
+          <div className="icon w-20 h-20 rounded-full bg-gray-200 flex justify-center items-center">
+            {
+                location.state?.value ? <i class="fa-solid fa-circle-check text-green-300 text-4xl"></i> : <i class="fa-solid fa-circle-xmark text-4xl text-red-400"></i>
+            }
           </div>
-        ) : (
-          <div className="text-red-500 text-7xl mb-5">
-            ✕
+          <div className="bottom flex flex-col gap-2 justify-center">
+            <p className="mb-2">{location.state?.code}</p>
+            <p className="test[15px]">{messages[location.state?.code] || "something went wrong"}</p>
           </div>
-        )}
-
-        <h1
-          className={`text-3xl font-bold ${
-            data.value ? "text-green-400" : "text-red-400"
-          }`}
-        >
-          {data.message}
-        </h1>
-
-        <p className="text-gray-400 mt-4">
-          Redirecting...
-        </p>
-
-        <div className="mt-6 h-2 w-full bg-gray-700 rounded-full overflow-hidden">
-          <div className="h-full bg-green-500 animate-pulse w-full"></div>
         </div>
-      </div>
     </div>
-  );
+    
+    </>)
 }
+
 
 export default Result;

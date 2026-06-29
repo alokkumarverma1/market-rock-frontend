@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
 
 function Navbar(){
 
     const [show,setShow] = useState(true);
     const [login , setLogin] = useState(false)
+    const navigate = useNavigate()
 
     let change = ()=>{
         setShow(!show);
@@ -14,23 +18,29 @@ function Navbar(){
     // chek user login or not 
  useEffect(() => {
   const auth = getAuth();
-
   const unsubscribe = onAuthStateChanged(auth, (user) => {
-    console.log("USER:", user);
-
     if (user) {
       setLogin(true);
     } else {
       setLogin(false);
     }
   });
-  console.log("user"+ login)
   return () => unsubscribe();
 }, []);
 
 useEffect(() => {
-  console.log("LOGIN STATE UPDATED:", login);
 }, [login]);
+
+
+ // singout
+ const userLogout = async ()=>{
+  const auth = getAuth();
+  await signOut(auth);
+  navigate("/login")
+ }
+
+
+
 
     return(<>
     <div className="navbar bg-white  flex fixed  right-0  sm:w-full w-40 z-50 top-0 sm:justify-center justify-end items-center">
@@ -54,12 +64,12 @@ useEffect(() => {
                       <li  className="cursor-pointer h-10 rounded-2xl w-full hover:bg-gray-100 text-center flex justify-center items-center ">My Course</li>
                       <li  className="cursor-pointer h-10 rounded-2xl w-full hover:bg-gray-100 text-center flex justify-center items-center ">About us</li>
                       <li  className="cursor-pointer h-10 rounded-2xl mb-2 w-full hover:bg-gray-100 text-center flex justify-center items-center ">Contact us</li>
-                      <button className="border-red-600 border-2 bg-red-100 mb-3 w-full rounded-2xl h-9">Logout</button> 
+                      <button className="border-red-600 border-2 bg-red-100 mb-3 w-full rounded-2xl h-9 cursor-pointer" onClick={userLogout}>Logout</button> 
                 </ul>
             </div>
         </div>
          {
-          <Link to={"/login"}> <li  className={`cursor-pointer ${login == true ? "hidden" : "block"} `}><button className="shape text-white border-white shadow-md h-9 w-20 rounded-2xl">Login</button></li></Link>
+          <Link to={"/login"}> <li  className={`cursor-pointer ${login == true ? "hidden" : "block"} `}><button className="shape text-white border-white shadow-md h-9 w-20 rounded-2xl cursor-pointer">Login</button></li></Link>
          
         }
       </ul>
