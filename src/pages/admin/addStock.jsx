@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { db } from "../../firebase/firebaseinit";
+import { db } from "../../firebase/firebase";
+import { collection, addDoc } from "firebase/firestore"; 
 
 function AddStock() {
-  const [stock, setStock] = useState({
-    name: "",
-    date: "",
-    price: "",
-  });
+  const [stock, setStock] = useState({name: "",date: "",price: "",});
 
   const handleChange = (e) => {
     setStock({
@@ -16,9 +13,17 @@ function AddStock() {
   };
  
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(stock);
+  
+// add data in firebase
+const docRef = await addDoc(collection(db, "stocks"), {
+  name: stock.name,
+  date : new Date(),
+  price:stock.price,
+});
+console.log(docRef.id)
+
   };
 
   return (

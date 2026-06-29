@@ -1,7 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "./navbar";
+import Navbar from "../others/navbar";
+import { useNavigate } from "react-router-dom";
+
+// firebase
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+
+
 function Login() {
+
+ const navigate = useNavigate();
+ const [login , setLogin] = useState({
+  email:"",
+  password:""
+ }) 
+ const handledata = (e)=>{
+setLogin({...login, [e.target.name]: e.target.value})
+ }
+
+ const LoignHandle =async (e)=>{
+     e.preventDefault(); 
+    try{
+     const auth = getAuth();
+     const userCredential = await signInWithEmailAndPassword(auth, login.email, login.password)
+     const user = userCredential.user;
+     console.log(auth.currentUser)
+    navigate("/result" , {state:{message:"success" , value:"true" , next:"/"}})
+    }catch(error){
+      console.log(error.message)
+    navigate("/result" , {state:{message:error.message , value:"false" , next:"/"}})
+
+    }
+     
+ }
+
+
+
   return (
     <>
     <Navbar></Navbar>
@@ -14,14 +49,14 @@ function Login() {
           <p className="text-gray-400 mt-2 text-sm">Welcome back! Login to your account.</p>
         </div>
         {/* Form */}
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={LoignHandle}>
           <div>
             <label className=" text-sm block mb-2">Email Address</label>
-            <input type="email" placeholder="Enter your email" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" />
+            <input type="email" name="email" value={login.email} onChange={handledata}  placeholder="Enter your email" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" required />
           </div>
           <div>
             <label className=" text-sm block mb-2">password</label>
-            <input type="password" placeholder="Enter your email" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" />
+            <input type="password" name="password" value={login.password} onChange={handledata} placeholder="Enter your email" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" required/>
           </div>
 
           <div className="flex justify-between items-center text-sm">

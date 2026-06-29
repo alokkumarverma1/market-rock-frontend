@@ -6,9 +6,13 @@ import Home from './pages/homepage/home'
 import Rock from './pages/rockpage/rock'
 import FullDetailsPost from './pages/rockpage/rockPost/fullDetailsPost'
 import Learn from './pages/learn/learn'
-import Login from './pages/others/login'
-import Register from './pages/others/register'
+import Register from './pages/user/register'
+import Login from './pages/user/login'
 import AddStock from './pages/admin/addStock'
+import Admin from './pages/admin/admin'
+import UserProfile from './pages/user/userProfile'
+import Result from './pages/others/result'
+import Profile from './pages/user/userProfile'
 
 function App() {
  
@@ -41,6 +45,12 @@ function App() {
       element:<><Learn></Learn></>
     },
 
+    // user profile
+    {
+      path:"/profile",
+      element:<><UserProfile></UserProfile></>
+    },
+
     // login 
       {
       path:"/login",
@@ -53,9 +63,24 @@ function App() {
 
     // admin pannel
     {
+      path:"/admin",
+      element:<><Admin></Admin></>
+    },
+    {
       path:"/addStock",
       element:<><AddStock></AddStock></>
+    },
+
+ // other page
+    {
+      path:"/profile",
+      element:<><Profile></Profile></>
+    },
+    {
+      path:"/result",
+      element:<><Result></Result></>
     }
+
 
 
   ])

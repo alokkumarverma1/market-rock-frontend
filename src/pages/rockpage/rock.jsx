@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../others/navbar";
 import StockCard from "./rockStocks/StockCard,";
 import RockHeading from "./rockHeading";
@@ -9,7 +9,29 @@ import IndexPredection from "../others/IndexPredection";
 import MyNetWorth from "./rockPnlReport/mynetworth";
 import Footer from "../others/footer";
 
+// firebase 
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/firebase";
+
 function Rock(){
+
+// firebase data
+const [stock , setStock] = useState([])    
+
+
+// firebase
+
+useEffect(()=>{
+const res = async ()=>{
+     const querySnapshot =  await getDocs(collection(db, "stocks"));
+     const datas = querySnapshot.docs.map((doc) => ({
+     id:doc.id,
+      ...doc.data(),
+    }));
+     setStock(datas)
+  }
+res();
+},[])
 
 
     // networt
@@ -40,12 +62,11 @@ function Rock(){
 {/* stock suggestion section  */}
 <RockHeading heading={"Trending Stock"}></RockHeading>
 <div className="stocks scroller h-60 gap-10 p-5">
-<StockCard name={"Adani"} price={"1423"} date={"18-6-2026"} time={"9:30 Am"} color={"#7ce0c0"}></StockCard>
-<StockCard name={"Adani"} price={"1423"} date={"18-6-2026"} time={"9:30 Am"} color={"#7ce0c0"}></StockCard>
-<StockCard name={"Adani"} price={"1423"} date={"18-6-2026"} time={"9:30 Am"} color={"#7ce0c0"}></StockCard>
-<StockCard name={"Adani"} price={"1423"} date={"18-6-2026"} time={"9:30 Am"} color={"#7ce0c0"}></StockCard>
-<StockCard name={"Adani"} price={"1423"} date={"18-6-2026"} time={"9:30 Am"} color={"#7ce0c0"}></StockCard>
-
+{
+    stock.map((data , key)=>(
+        <StockCard name={data.name} price={data.price} date={data.data} time={"9:30 Am"} color={"#7ce0c0"}></StockCard>
+    ))
+}
 </div>
 
 
