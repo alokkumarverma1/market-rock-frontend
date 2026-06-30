@@ -13,6 +13,8 @@ import Admin from './pages/admin/admin'
 import UserProfile from './pages/user/userProfile'
 import Result from './pages/others/result'
 import Profile from './pages/user/userProfile'
+import About from './pages/more/about'
+import Contact from './pages/more/contact'
 
 function App() {
  
@@ -79,7 +81,16 @@ function App() {
     {
       path:"/result",
       element:<><Result></Result></>
-    }
+    },
+     {
+      path:"/about",
+      element:<><About></About></>
+    },
+     {
+      path:"/contact",
+      element:<><Contact></Contact></>
+    },
+
 
 
 

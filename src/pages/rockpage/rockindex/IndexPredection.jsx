@@ -28,10 +28,7 @@ function IndexPredection({ value = -50 }) {
         w-full
         max-w-[420px]
         rounded-3xl
-        border
-        border-gray-200
         bg-white
-        shadow-xl
         p-5
         sm:p-8
       ">
@@ -118,23 +115,14 @@ function IndexPredection({ value = -50 }) {
 />
 
           {/* Labels */}
-          <div className="absolute bottom-0 left-0 text-green-600 font-semibold text-sm sm:text-lg">
-            CALL
-          </div>
-
-          <div className="absolute bottom-0 right-0 text-red-600 font-semibold text-sm sm:text-lg">
-            PUT
-          </div>
-        </div>
+         <div className="absolute bottom-0 left-0 text-green-600 font-semibold text-sm sm:text-lg"> CALL</div>
+          <div className="absolute bottom-0 right-0 text-red-600 font-semibold text-sm sm:text-lg"> PUT</div>
+         </div>
 
         {/* Percentage */}
-        <div className="text-center mt-4">
-          <h1 className="text-2xl sm:text-2xl font-bold text-slate-900">
-            {Math.abs(score)}%
-          </h1>
-
-          <p className={`mt-2 text-sm sm:text-lg font-semibold ${sentimentColor}`}>{sentiment}</p>
-          <p className="text-[14px] text-gray-700 mt-3">22-03-2006</p>
+        <div className="text-center bg-white h-15 shadow-xl border-2 border-green-300 rounded-2xl flex gap-2 justify-center items-center mt-4">
+          <h1 className="text-[17px] font-bold">{Math.abs(score)}%</h1>
+          <p className={` text-[17px] font-semibold ${sentimentColor}`}>{sentiment}</p>
         </div>
       </div>
     </div>

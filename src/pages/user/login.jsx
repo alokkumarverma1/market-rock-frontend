@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../others/navbar";
 import { useNavigate } from "react-router-dom";
+import { Oval } from "react-loader-spinner";
 
 // firebase
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -11,6 +12,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 function Login() {
 
  const navigate = useNavigate();
+ const [loading , setLoading] = useState(true)
  const [login , setLogin] = useState({
   email:"",
   password:""
@@ -21,12 +23,14 @@ setLogin({...login, [e.target.name]: e.target.value})
 
  const LoignHandle =async (e)=>{
      e.preventDefault(); 
+    setLoading(false);
     try{
      const auth = getAuth();
-     const user = await signInWithEmailAndPassword(auth, login.email, login.password)
+      const user = await signInWithEmailAndPassword(auth, login.email, login.password)
      navigate("/result" , {state:{ code:200, value:true , next:"/"}})
+     setLoading(true)
     }catch(error){
-    navigate("/result" , {state:{code:error.code , value:"false" , next:"/"}})
+    navigate("/result" , {state:{code:77 , value:false , next:"/"}})
     }
      
  }
@@ -53,7 +57,7 @@ setLogin({...login, [e.target.name]: e.target.value})
           </div>
           <div>
             <label className=" text-sm block mb-2">password</label>
-            <input type="password" name="password" value={login.password} onChange={handledata} placeholder="Enter your email" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" required/>
+            <input type="password" name="password" value={login.password} onChange={handledata} placeholder="Enter your password" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" required/>
           </div>
 
           <div className="flex justify-between items-center text-sm">
@@ -66,10 +70,8 @@ setLogin({...login, [e.target.name]: e.target.value})
           </div>
 
           <button
-            type="submit"
-            className="w-full py-3 rounded-xl shape text-white font-semibold transition duration-300 border shadow-md border-white"
-          >
-            Login
+            type="submit" className="w-full py-3 rounded-xl shape text-white font-semibold transition duration-300 border shadow-md border-white">
+            {!loading ? <div className=" h-full w-full flex items-center justify-center"><Oval height={20} width={20} color="#22c55e" /></div> : "Login"}
           </button>
         </form>
 
@@ -77,7 +79,7 @@ setLogin({...login, [e.target.name]: e.target.value})
         <p className="text-center text-gray-400 text-sm mt-6">
           Don't have an account?{" "}
           <span className="text-green-400 cursor-pointer hover:underline">
-           <Link to={"/register"}> Register</Link>
+           <Link to={"/register"}>Registr</Link>
           </span>
         </p>
       </div>

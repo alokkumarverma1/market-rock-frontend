@@ -10,10 +10,10 @@ function Result(){
     const navigate = useNavigate();
     const messages = {
   200: "Success",
-  400: "Bad Request: Invalid input",
-  401: "Unauthorized: Login failed",
-  404: "Not Found: User does not exist",
-  500: "Server Error: Try again later",
+  400: " Invalid input",
+  401: "Login failed",
+  404: "User does not exist",
+  500: "Server error Try again",
 };
 
 
@@ -34,8 +34,7 @@ function Result(){
                 location.state?.value ? <i class="fa-solid fa-circle-check text-green-300 text-4xl"></i> : <i class="fa-solid fa-circle-xmark text-4xl text-red-400"></i>
             }
           </div>
-          <div className="bottom flex flex-col gap-2 justify-center">
-            <p className="mb-2">{location.state?.code}</p>
+          <div className="bottom flex flex-col gap-2 justify-center items-center">
             <p className="test[15px]">{messages[location.state?.code] || "something went wrong"}</p>
           </div>
         </div>

@@ -5,7 +5,7 @@ import RockHeading from "./rockHeading";
 import RockPostCard from "./rockPost/rockPostCard";
 import RockIndexCard from "./rockindex/rockIndexCard";
 import Heading from "../others/heading";
-import IndexPredection from "../others/IndexPredection";
+import IndexPredection from "./rockindex/IndexPredection";
 import MyNetWorth from "./rockPnlReport/mynetworth";
 import Footer from "../others/footer";
 
@@ -67,23 +67,28 @@ res();
         <StockCard name={data.name} price={data.price} date={data.data} time={"9:30 Am"} color={"#7ce0c0"}></StockCard>
     ))
 }
+<StockCard></StockCard>
 </div>
 
 
 {/* index suggestion section  */}
-<RockHeading heading={"Index Update"}></RockHeading>
+<RockHeading heading={"Today index anlaysis"}></RockHeading>
 <div className="index h-80 sm:h-120 mb-20 sm:mb-2 mt-2 w-full">
 <IndexPredection vlaue={"60"}></IndexPredection>
 </div>
-
-
 </div>
+
 <RockHeading heading={"Today tagete price"}></RockHeading>
 <div className=" w-full p-5 scroller flex gap-5 mb-20">
 <RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
 <RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
 <RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
 <RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
+</div>
+
+{/* most popular sip */}
+<RockHeading heading={"Popular ipo stocks"}></RockHeading>
+<div className="sipw-full min-h-80 border mb-20">
 
 </div>
 

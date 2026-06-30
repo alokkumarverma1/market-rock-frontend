@@ -95,6 +95,14 @@ body {
     #7ce0c0 100%
   );
 }
+.shape2{
+   background: linear-gradient(
+    to right,
+    #bbf7d0 0%,
+    #86efac 50%,
+    #bbf7d0 100%
+  );
+}
 
 
 .scroller{
