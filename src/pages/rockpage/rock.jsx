@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../others/navbar";
-import StockCard from "./rockStocks/StockCard,";
 import RockHeading from "./rockHeading";
 import RockPostCard from "./rockPost/rockPostCard";
 import RockIndexCard from "./rockindex/rockIndexCard";
@@ -12,6 +11,7 @@ import Footer from "../others/footer";
 // firebase 
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
+import SwingStockCard from "./rockSwingStock/swingStockCard";
 
 function Rock(){
 
@@ -20,7 +20,6 @@ const [stock , setStock] = useState([])
 
 
 // firebase
-
 useEffect(()=>{
 const res = async ()=>{
      const querySnapshot =  await getDocs(collection(db, "stocks"));
@@ -60,20 +59,25 @@ res();
 
 
 {/* stock suggestion section  */}
-<RockHeading heading={"Trending Stock"}></RockHeading>
+<RockHeading heading={"Swing Stock"}></RockHeading>
+
 <div className="stocks scroller h-60 gap-10 p-5">
-{
-    stock.map((data , key)=>(
-        <StockCard name={data.name} price={data.price} date={data.data} time={"9:30 Am"} color={"#7ce0c0"}></StockCard>
-    ))
-}
-<StockCard></StockCard>
+   <SwingStockCard></SwingStockCard>
+    <SwingStockCard></SwingStockCard>
+     <SwingStockCard></SwingStockCard>
 </div>
 
 
 {/* index suggestion section  */}
 <RockHeading heading={"Today index anlaysis"}></RockHeading>
-<div className="index h-80 sm:h-120 mb-20 sm:mb-2 mt-2 w-full">
+<div className="all-index w-full flex p-3 gap-2 scroller">
+     <div className="factor h-15 min-w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">BANKNIFTY</h1><p className="font-extralight">58700</p></div>
+     <div className="factor h-15 min-w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">BANKNIFTY</h1><p className="font-extralight">21.68</p></div>
+     <div className="factor h-15 min-w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">BANKNIFTY</h1><p className="font-extralight">21.68</p></div>
+
+</div>
+
+<div className="index-chart h-80 sm:h-120 mb-20 sm:mb-2 mt-2 w-full">
 <IndexPredection vlaue={"60"}></IndexPredection>
 </div>
 </div>

@@ -15,6 +15,8 @@ import Result from './pages/others/result'
 import Profile from './pages/user/userProfile'
 import About from './pages/more/about'
 import Contact from './pages/more/contact'
+import SwingStockDetails from './pages/rockpage/rockSwingStock/swingStockDetails'
+import RockAi from './pages/homepage/rockAi/rockAi'
 
 function App() {
  
@@ -26,8 +28,8 @@ function App() {
       element:<><Home></Home></>
     },
      {
-      path:"/rock",
-      element:<><Rock></Rock></>
+      path:"/rockAi",
+      element:<><RockAi></RockAi></>
     },
 
     // rock page
@@ -35,6 +37,10 @@ function App() {
     {
       path:"/rock",
       element:<><Rock></Rock></>
+    },
+    {
+      path:"/swingStockDetails",
+      element:<><SwingStockDetails></SwingStockDetails></>
     },
       {
       path:"/rockPostDetails",
@@ -46,6 +52,7 @@ function App() {
       path:"/learn",
       element:<><Learn></Learn></>
     },
+    
 
     // user profile
     {

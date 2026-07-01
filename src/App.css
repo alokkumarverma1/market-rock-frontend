@@ -84,6 +84,17 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* ai border */
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(160deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 6s linear infinite;
+}
+
+
 /* shape gradient */
 .shape {
   background: linear-gradient(

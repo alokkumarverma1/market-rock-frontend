@@ -10,7 +10,7 @@ function Result(){
     const navigate = useNavigate();
     const messages = {
   200: "Success",
-  400: " Invalid input",
+  400: "user not found",
   401: "Login failed",
   404: "User does not exist",
   500: "Server error Try again",

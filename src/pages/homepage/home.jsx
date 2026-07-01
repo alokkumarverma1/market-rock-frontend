@@ -59,7 +59,26 @@ function Home(){
     <Homecard number={"#1"} data={"Stock market learning"}></Homecard>
     </div>
 
-  
+
+{/* rock ai section  */}
+<div className="relative w-[90%] h-44 m-auto mb-20 rounded-2xl p-[2px] overflow-hidden">
+  {/* animated border */}
+  <div className="absolute inset-0 rounded-2xl animate-spin-slow bg-[conic-gradient(#22c55e,#bbf7d0,#22c55e,#22c55e)]"></div>
+  {/* inner card */}
+   <div className="relative gap-3 h-full w-full bg-white rounded-2xl flex flex-col justify-center items-center">
+    <div className="absolute w-40 h-40 bg-green-300 rounded-full blur-3xl top-[-20px] left-[-20px] animate-pulse opacity-70"></div>
+    <div className="absolute w-40 h-40 bg-green-300 rounded-full blur-3xl bottom-[-20px] right-[-20px] animate-pulse opacity-60"></div>
+    <div className="absolute w-2 h-2 bg-green-500 rounded-full top-8 left-16 animate-ping"></div>
+    <div className="absolute w-1.5 h-1.5 bg-green-400 rounded-full bottom-10 right-20 animate-bounce"></div>
+    <h1 className="relative font-semibold  sm:text-2xl text-gray-800">
+      Analysis with <span className="metal-green">Rock AI</span>
+    </h1>
+    <button className="relative px-6 py-2 shape text-white border rounded-xl
+      hover:bg-green-500 hover:text-white transition-all duration-300 hover:scale-105">
+      <Link to={"/rockAi"}>Explore</Link>
+    </button>
+  </div>
+</div>
 
       {/* learn section of home page */}
        <Heading heading={"First invest your time not money"}></Heading>

@@ -41,7 +41,10 @@ try{
     <Navbar></Navbar>
   <div className="min-h-screen bg-white pt-15 sm:mt-15 px-4 sm:px-8 pb-10">
   {/* Profile Header */}
-  <div className="bg-green-200 rounded-3xl p-8 shadow-lg relative overflow-hidden">
+  <div className="bg-green-200  rounded-3xl p-8 shadow-lg relative overflow-hidden">
+    {/* edit button */}
+    <div className="absolute top-3 bg-white h-7 w-7 rounded-[7px] flex justify-center items-center right-5"><i class="fa-solid fa-pen-to-square"></i></div>
+    {/* card */}
     <div className="flex flex-col md:flex-row items-center gap-6">
 
       {/* Avatar */}

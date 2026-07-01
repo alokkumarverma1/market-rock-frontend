@@ -36,7 +36,8 @@ useEffect(() => {
  const userLogout = async ()=>{
   const auth = getAuth();
   await signOut(auth);
-  navigate("/login")
+   navigate("/result" , {state:{ code:200, value:true , next:"/"}})
+  
  }
 
 
@@ -69,7 +70,7 @@ useEffect(() => {
             </div>
         </div>
          {
-          <Link to={"/login"}> <li  className={`cursor-pointer ${login == true ? "hidden" : "block"} `}><button className="shape text-white border-white shadow-md h-9 w-20 rounded-2xl cursor-pointer">Login</button></li></Link>
+          <Link to={"/register"}> <li  className={`cursor-pointer mt-2 sm:mt-0 ${login == true ? "hidden" : "block"} `}><button className="shape text-white border-white shadow-md h-9 w-20 rounded-2xl cursor-pointer">sing in</button></li></Link>
          
         }
       </ul>

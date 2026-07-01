@@ -1,136 +1,63 @@
-import React, { use, useState } from "react";
-import { Link } from "react-router-dom";
-import Footer from "../others/footer";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../others/navbar";
-import { useNavigate } from "react-router-dom";
+import Footer from "../others/footer";
 
-// firebaes
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore"; 
-import { db } from "../../firebase/firebase";
-import { doc, setDoc } from "firebase/firestore";
-
-
-
-
-// Add a new document with a generated id.
-
+// firebase
+import { userRegisterWithGoodle } from "../../firebase/services/profileService";
 
 function Register() {
-
-
   const navigate = useNavigate();
- const [conform , setConform] = useState("")
- const [message , setMessage] = useState()
-  const [register, setRegister] = useState({
-    name:"",
-    email:"",
-    number:"",
-    password:"",
-    city:"",
-    role:"",
-  })
+  const [message, setMessage] = useState("");
 
-  const dataHandle = (e)=>{
-     setRegister({...register , [e.target.name] : e.target.value}) 
+  //  Google Login + Register (same button)
+  const googleHandle = async () => {
+  try{
+    const res = await userRegisterWithGoodle();
+    console.log(res)
+    navigate("/result" , {state:{code:200 , value:true , next:"/"}})
+  }catch(error){
+    navigate("/result" , {state:{code:400 , value:false , next:"/register"}})
   }
-
-// register data in firestore
-const registerHandle = async(e)=>{
-  e.preventDefault(); 
-  const userRole = register.email == "rockteamsupport@gmail.com" ? "admin" : "user";
-  if(register.password != conform) return setMessage("password not match")
-   try{
-    const auth = getAuth();
-    const userdata = await createUserWithEmailAndPassword(auth, register.email, register.password)
-    const user = userdata.user;
-    await setDoc(doc(db, "register", user.uid), {
-     name: register.name,
-    email: register.email,
-    number: register.number,
-    city: register.city,
-    role: userRole,
-    uid: user.uid,
-    });
-  navigate("/result" , {state:{code:200 , value:true , next:"/"}})
-  }
-  catch(error){
-     navigate("/result" , {state:{code:error.code , value:false, next:"/register"}})
   };
 
-}
-
-
- 
-
-
-
-
-
   return (
-   <>
-   <Navbar></Navbar>
-    <div className="min-h-screen mb-20 mt-10 sm:mt-20  flex items-center justify-center px-4">
-      <div className="w-full max-w-160 backdrop-blur-lg border border-green-500/20 rounded-3xl p-8 shadow-md">
+    <>
+      <Navbar />
 
-        {/* Logo / Title */}
-        <div className="text-center mb-8"><h1 className="text-3xl font-bold">Market rock</h1>
-          <p className="text-gray-400 mt-2 text-sm">Create your account and start your journey.</p>
+      <div className="min-h-screen flex items-center justify-center px-4">
+        <div className="w-full max-w-md border-2 border-green-300 h-70 rounded-3xl pt-5 p-3 pb-5 shadow-md bg-white">
+          <p className=" text-3xl font-semibold text-center mt-2">
+            Sing in
+          </p>
+
+          {/* Google Button */}
+          <button onClick={googleHandle} className="w-full mt-6 py-3 rounded-xl shadow-xl flex items-center justify-center gap-2 hover:bg-gray-100">
+            <i className="fa-brands fa-google text-red-500"></i>With Google
+          </button>
+
+         <div className=" w-full mt-2 text-gray-500 flex justify-center items-center"><p>or</p></div>
+        {/* phone number */}
+          <button className="w-full mt-4 py-3 rounded-xl shadow-xl flex items-center justify-center gap-2 hover:bg-gray-100" >
+            <i className="fa-solid fa-phone text-green-500"></i>Continue with Phone
+          </button>
+          <p className="text-red-500 text-center mt-3">{message}</p>
+          
+
+          {/* Login */}
+          {/* <p className="text-center text-gray-400 text-sm mt-6">
+            Already have an account?{" "}
+            <Link to="/login" className="text-green-500 hover:underline">
+              Login
+            </Link>
+          </p> */}
+
         </div>
-
-        {/* Form */}
-        <form className="space-y-5" onSubmit={registerHandle}>
-           <div>
-            <label className=" text-sm block mb-2">Full Name</label>
-            <input type="text" name="name" value={register.name} onChange={dataHandle} placeholder="Enter your email" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" required />
-          </div>
-
-         <div>
-            <label className=" text-sm block mb-2">Number</label>
-            <input type="number" name="number" value={register.number} onChange={dataHandle} placeholder="Enter your email" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" required/>
-          </div>
-
-          <div>
-            <label className=" text-sm block mb-2">Email Address</label>
-            <input type="email" name="email" value={register.email} onChange={dataHandle} placeholder="Enter your email" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" required/>
-          </div>
-
-            <div>
-            <label className=" text-sm block mb-2">City</label>
-            <input type="text" name="city" value={register.city} onChange={dataHandle} placeholder="Enter your email" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" required/>
-          </div>
-
-           <div>
-            <label className=" text-sm block mb-2">Password</label>
-            <input type="password" name="password" value={register.password} onChange={dataHandle} placeholder="Enter your email" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" required/>
-          </div>
-
-           <div>
-            <label className=" text-sm block mb-2"> Conform Password</label>
-            <input type="text" placeholder="Enter your email" className="w-full px-4 py-3 rounded-xl bg-gray-100 outline-none focus:border-green-400 transition" onChange={(e)=> setConform(e.target.value)} required />
-          </div>
-
-          <button type="submit" className="w-full py-3 rounded-xl shape border border-white text-white font-semibold transition duration-300 "> Create Account </button>
-        
-        </form>
-        <p>{message}</p>
-        {/* otehr  */}
-        {/* <div className="other w-full flex-col flex justify-center items-center rounded-2xl gap-3 mt-6">
-          <p>sing in with</p>
-          <div className=" w-full h-15  rounded-2xl flex justify-center gap-5">
-           <div className="google h-11 w-11 rounded-full bg-gray-400"></div>
-           <div className="facebook h-11 w-11 rounded-full bg-gray-400"></div>
-          </div>
-        </div> */}
-        {/* Login Link */}
-        <p className="text-center text-gray-400 text-sm mt-6"> Already have an account?{" "} <span className="text-green-400 cursor-pointer hover:underline"><Link to={"/login"}>Login</Link></span></p>
       </div>
-    </div>
-   <Footer></Footer>
-   
-   </>
+
+      <Footer />
+    </>
   );
 }
-
 
 export default Register;
