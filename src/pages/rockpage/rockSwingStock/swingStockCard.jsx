@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function SwingStockCard() {
+function SwingStockCard({name}) {
   return (
     <div className="rockcard h-50 min-w-60 max-w-60 p-4 bg-green-100 text-black rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between border border-white/20">
       {/* Header */}
@@ -16,7 +16,7 @@ function SwingStockCard() {
       <div className="flex flex-col items-center gap-2">
         <div className="bg-white shadow-lg rounded-2xl px-6 py-2">
           <p className=" font-bold text-gray-800">
-            Ambani 
+            {name}
           </p>
         </div>
       </div>

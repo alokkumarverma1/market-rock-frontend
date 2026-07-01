@@ -15,7 +15,7 @@ import Result from './pages/others/result'
 import Profile from './pages/user/userProfile'
 import About from './pages/more/about'
 import Contact from './pages/more/contact'
-import SwingStockDetails from './pages/rockpage/rockSwingStock/swingStockDetails'
+import SwingStockDetails from './pages/rockpage/rockSwingStock/swingStockDetails/stockDetails'
 import RockAi from './pages/homepage/rockAi/rockAi'
 
 function App() {

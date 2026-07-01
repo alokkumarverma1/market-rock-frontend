@@ -61,7 +61,7 @@ function Home(){
 
 
 {/* rock ai section  */}
-<div className="relative w-[90%] h-44 m-auto mb-20 rounded-2xl p-[2px] overflow-hidden">
+<div className="relative w-[90%] border-gray-200 shadow-md h-44 m-auto mb-20 rounded-2xl p-[2px] overflow-hidden">
   {/* animated border */}
   <div className="absolute inset-0 rounded-2xl animate-spin-slow bg-[conic-gradient(#22c55e,#bbf7d0,#22c55e,#22c55e)]"></div>
   {/* inner card */}
@@ -115,11 +115,11 @@ function Home(){
       </div>
 
 
-      {/* cirtificate area */}
-   <Heading heading={"Show your experience with certificate"}></Heading>   
-<div className="certificate min-h-90 gap-4 mb-10 p-5 minh-90 w-full flex sm:flex-row flex-col justify-around items-center">
+  {/* cirtificate area */}
+  <Heading heading={"Show your experience with certificate"}></Heading>   
+<div className="certificate min-h-90  mb-10 p-5 minh-90 w-full flex sm:flex-row flex-col gap-5 justify-around items-center">
    {/* left side */}
-<div className="left w-full sm:w-1/2 flex flex-col gap-4 border-green-300 border-2 p-5 rounded-2xl bg-white shadow-xl">
+<div className="left w-full  sm:w-1/2 flex flex-col gap-4 border-green-300 border-2 p-5 rounded-2xl bg-white shadow-xl">
   {/* Card 1 */}
   <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition">
     <i className="fa-solid fa-certificate text-blue-500 text-xl"></i>
@@ -146,13 +146,11 @@ function Home(){
       <p className="text-sm text-gray-500">Clear all doubts and learn more things</p>
     </div>
   </div>
-
 </div>
-
-   <div className="right min-w-50 h-full flex justify-center items-center">
-         <div className="min-h-40 max-h-50 min-w-60 max-w-70 rounded-2xl bg-gray-300"><img src="certificate.png" alt="" /></div>
+   {/* right side */}
+ <div className="right min-w-50 h-full flex justify-center items-center">
+ <div className="min-h-40 max-h-50 min-w-60 max-w-70 rounded-2xl bg-gray-300"><img src="certificate.png" alt="" /></div>
    </div>
-
 </div>    
 
   {/* review section */}

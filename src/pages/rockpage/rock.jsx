@@ -62,9 +62,9 @@ res();
 <RockHeading heading={"Swing Stock"}></RockHeading>
 
 <div className="stocks scroller h-60 gap-10 p-5">
-   <SwingStockCard></SwingStockCard>
-    <SwingStockCard></SwingStockCard>
-     <SwingStockCard></SwingStockCard>
+   <SwingStockCard name={"Adani"}></SwingStockCard>
+    <SwingStockCard name={"Relience"}></SwingStockCard>
+     <SwingStockCard name={"Tata"}></SwingStockCard>
 </div>
 
 
@@ -72,8 +72,8 @@ res();
 <RockHeading heading={"Today index anlaysis"}></RockHeading>
 <div className="all-index w-full flex p-3 gap-2 scroller">
      <div className="factor h-15 min-w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">BANKNIFTY</h1><p className="font-extralight">58700</p></div>
-     <div className="factor h-15 min-w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">BANKNIFTY</h1><p className="font-extralight">21.68</p></div>
-     <div className="factor h-15 min-w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">BANKNIFTY</h1><p className="font-extralight">21.68</p></div>
+     <div className="factor h-15 min-w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">NIFTY</h1><p className="font-extralight">26400</p></div>
+     <div className="factor h-15 min-w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">SENSEX</h1><p className="font-extralight">68500</p></div>
 
 </div>
 
