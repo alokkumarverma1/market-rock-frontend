@@ -17,6 +17,7 @@ import About from './pages/more/about'
 import Contact from './pages/more/contact'
 import SwingStockDetails from './pages/rockpage/rockSwingStock/swingStockDetails/stockDetails'
 import RockAi from './pages/homepage/rockAi/rockAi'
+import IpoDetails from './pages/rockpage/rockIpos/ipoDetails'
 
 function App() {
  
@@ -46,6 +47,11 @@ function App() {
       path:"/rockPostDetails",
       element:<><FullDetailsPost></FullDetailsPost></>
     },
+    {
+      path:"/ipoDetails",
+      element:<><IpoDetails></IpoDetails></>
+    },
+
 
     // learn section 
     {

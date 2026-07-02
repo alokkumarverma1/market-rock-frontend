@@ -2,7 +2,7 @@ import React from "react";
 
 function RockIndexCard({ name, direction, price, date, time }) {
   return (<>
-    <div className="rockcard h-50 text-bl min-w-60 p-4 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-white/20 bg-red-100 ">
+    <div className="rockcard h-50  text-bl min-w-60 p-4 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-white/20 bg-red-100 ">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>

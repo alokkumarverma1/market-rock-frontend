@@ -12,6 +12,7 @@ import Footer from "../others/footer";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import SwingStockCard from "./rockSwingStock/swingStockCard";
+import IpoCard from "./rockIpos/ipoCard";
 
 function Rock(){
 
@@ -77,23 +78,26 @@ res();
 
 </div>
 
-<div className="index-chart h-80 sm:h-120 mb-20 sm:mb-2 mt-2 w-full">
+<div className="index-chart h-60 sm:h-100 mb-20 sm:mb-0 mt-2 w-full">
 <IndexPredection vlaue={"60"}></IndexPredection>
 </div>
 </div>
 
+{/* rock index card */}
 <RockHeading heading={"Today tagete price"}></RockHeading>
-<div className=" w-full p-5 scroller flex gap-5 mb-20">
+<div className=" w-full p-5 scroller flex gap-5 mb-20 sm:mb-10">
 <RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
 <RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
 <RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
 <RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
 </div>
 
-{/* most popular sip */}
-<RockHeading heading={"Popular ipo stocks"}></RockHeading>
-<div className="sipw-full min-h-80 border mb-20">
-
+{/* most popular ipo*/}
+<RockHeading heading={"Best upcoming ipos"}></RockHeading>
+<div className="sipw-full h-60 p-5 sm:mb-1 mb-20  flex scroller gap-3">
+<IpoCard></IpoCard>
+<IpoCard></IpoCard>
+<IpoCard></IpoCard>
 </div>
 
 {/* personal pnl of rock team */}

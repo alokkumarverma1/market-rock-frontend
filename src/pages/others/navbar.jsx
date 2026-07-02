@@ -51,7 +51,7 @@ useEffect(() => {
         <li className="w-full sm:hidden mb-5  flex justify-startpl-2"><i class="fa-solid fa-xmark cursor-pointer" onClick={change}></i></li>
         <div className={`profile flex gap-2 sm:hidden w-full h-15 mb-2 flex-col justify-center items-center ${login ? "block" : "hidden"}` }>
            <Link to={"/profile"} >
-            <div className="profile h-15 w-15 rounded-full bg-red-200 "></div>
+            <div className="profile h-15 w-15 rounded-full bg-green-300 flex justify-center items-center"> <i className="fa-solid fa-user text-3xl text-white"></i></div>
            </Link>
         </div>
         <li  className="cursor-pointer  rounded-2xl w-full hover:bg-gray-100 p-1 h-9 sm:w-20"><Link to={"/"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <i class="fa-solid fa-house font-serif"></i><span>Home</span> </Link></li>
@@ -77,7 +77,7 @@ useEffect(() => {
      </div>
 
      {/* icon */}
-     <div className="h-10 sm:hidden w-10 absolute z-50 right-0 top-3 rounded-2xl" onClick={change}>
+     <div className="h-10 sm:hidden w-10 absolute z-30 right-0 top-3 rounded-2xl" onClick={change}>
       <i class="fa-solid fa-bars text-[20px]"></i>
      </div>
 

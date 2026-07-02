@@ -1,6 +1,6 @@
 import { auth, db } from "../firebase";
 import { getAuth , onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc,setDoc } from "firebase/firestore";
 import {signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 
@@ -13,9 +13,10 @@ export const userRegisterWithGoodle = async ()=>{
     // chek user data
     const docRef = doc(db, "register", user.uid);
     const docSnap = await getDoc(docRef);
-    if(!docSnap.exists)
+       if(!docSnap.exists())
      {
-         await setDoc(doc(db, "register", user.uid), {
+       try{
+          await setDoc(doc(db, "register", user.uid), {
           uid: user.uid,
           name: user.displayName || "",
           email: user.email || "",
@@ -23,14 +24,18 @@ export const userRegisterWithGoodle = async ()=>{
           city: "",
           number: "",
         });
+       }catch(error){
+        console.log(error.message)
+       }
      }
         return user;
 }
 
 
 // user profile data 
- export const userProfileService = async(user)=>{
- const docRef = doc(db, "register", user);
+ export const userProfileData = async(user)=>{
+ const docRef =await doc(db, "register", user.uid);
  const docSnap = await getDoc(docRef);
- return docSnap.exists ? docSnap.data() : null;
+ const data = docSnap.data();
+ return docSnap.exists() ? docSnap.data() : null;
 }

@@ -14,7 +14,7 @@ function RockPostCard({ heading, details, date }) {
             <h1 className="font-semibold">{heading}</h1>
           </div>
 
-          <p className="ml-3 text-gray-800 text-xs sm:text-sm xl:text-base line-clamp-3 xl:line-clamp-1">
+          <p className="ml-3 text-gray-800 text-xs sm:text-2xl xl:text-[15px] line-clamp-3 xl:line-clamp-1">
             {details}
           </p>
 

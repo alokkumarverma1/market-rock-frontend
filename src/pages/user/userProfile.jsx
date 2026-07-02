@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../others/navbar";
 import Heading from "../others/heading";
-import { userProfileService } from "../../firebase/services/profileService";
+import { userProfileData } from "../../firebase/services/profileService";
 import { useNavigate } from "react-router-dom";
 import Result from "../others/result";
 import { onAuthStateChanged , getAuth } from "firebase/auth";
@@ -20,7 +20,7 @@ try{
   const auth = getAuth();
   const unsub = onAuthStateChanged(auth ,async(user)=>{
    if(!user) navigate("/result" , {state:{ code:500, value:false , next:"/login"}});
-   const userdata = await userProfileService(user.uid)
+   const userdata = await userProfileData(user)
    setUser(userdata)  
    setLoading(false)
   })
