@@ -6,15 +6,20 @@ import Footer from "../others/footer";
 import ReviewCard from "./reviewCard";
 import IndexPredection from "../rockpage/rockindex/IndexPredection";
 import { Link } from "react-router-dom";
-
+import { FaInstagram, FaYoutube, FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
+import {
+  BookOpen,
+  ChartCandlestick,
+  ShieldCheck,
+  MessageCircleMore,
+} from "lucide-react";
 
 
 
 function Home(){
     return(<>
     <Navbar></Navbar>
-   <div className="home min-h-screen w-full">
-
+<div className="home-page min-h-screen w-full pl-3 pr-3">
   {/* hero section */}
   <div className="relative h-screen  flex lg:flex-row justify-center md:justify-around  flex-col-reverse items-center w-full overflow-hidden">
     {/* LEFT SECTION */}
@@ -26,17 +31,24 @@ function Home(){
         from beginner to advanced, and make smarter buy and sell decisions with powerful analysis.
       </p>
        <Link to={"/rock"}> <button className="h-10 font-semibold cursor-pointer w-28 text-white shape rounded-2xl mt-5 shadow-md shadow-gray-300 border border-white">Start</button></Link>
-      <div className="iconsarea border-2 border-green-300 mt-8 flex justify-around items-center text-green-700 text-[20px]  h-10  sm:mt-10 sm:w-50  rounded-2xl w-full">
-              <a href="#"><i className="fa-brands  fa-instagram hover:text-green-600 duration-300"></i></a>
-              <a href="#"><i className="fa-brands fa-youtube hover:text-green-400 duration-300"></i></a>
-              <a href="#"><i className="fa-brands fa-whatsapp hover:text-green-400 duration-300"></i></a>
-              <a href="#"><i className="fa-brands fa-telegram hover:text-green-400 duration-300"></i></a>
+      <div className="iconsarea border-2 border-green-300 mt-8 flex justify-around items-center text-green-700 text-[20px]  h-10  sm:mt-10 sm:w-50  rounded-2xl w-full">  
+        <a href="#" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
+        <FaInstagram size={22} />
+        </a>
+        <a href="#" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
+        <FaYoutube size={22} />
+        </a>
+        <a href="#" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
+        <FaWhatsapp size={22} />
+        </a>
+        <a href="#" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
+        <FaTelegramPlane size={22} />
+        </a>
       </div>
-    </div>
+  </div>
 
     {/* RIGHT SECTION */}
 <div className="secend mt-10 relative flex justify-center items-center">
-
   {/* Outer Ring */}
   <div className="outer-circle sm:h-60 sm:w-60 h-50 w-50 md:h-70 md:w-70 lg:h-[300px] lg:w-[300px] rounded-full flex justify-center items-center">
     {/* Middle Ring */}
@@ -49,7 +61,7 @@ function Home(){
   </div>
 </div>
   </div>
-</div>
+
 
 
      {/* other section  */}
@@ -61,7 +73,7 @@ function Home(){
 
 
 {/* rock ai section  */}
-<div className="relative w-[90%] border-gray-200 shadow-md h-44 m-auto mb-20 rounded-2xl p-[2px] overflow-hidden">
+<div className="relative w-[90%] border-gray-200 shadow-md h-44 m-auto  rounded-2xl overflow-hidden">
   {/* animated border */}
   <div className="absolute inset-0 rounded-2xl animate-spin-slow bg-[conic-gradient(#22c55e,#bbf7d0,#22c55e,#22c55e)]"></div>
   {/* inner card */}
@@ -80,48 +92,65 @@ function Home(){
   </div>
 </div>
 
-      {/* learn section of home page */}
-       <Heading heading={"First invest your time not money"}></Heading>
-      <div className="learn h-140 sm:h-100 mt-10  w-full flex justify-start flex-col items-center">
-      
-        <div className="top w-full min-h-20 flex sm:flex-row flex-col justify-around items-center gap-4">
-            <div className="left text-center w-[90%] sm:w-60 bg-green-50 border-2 border-green-700 rounded-2xl p-3 ">
-                <h1 className="font-bold text-[15px]">All concept</h1>
-                <p>learn all important concept</p>
-            </div>
-            <div className="right text-center w-[90%] sm:w-60 bg-green-50 border-2 border-green-700 rounded-2xl p-3">
-                <h1 className="font-bold text-[15px]">live market </h1>
-                <p>anlaysis is live market</p>
-            </div>
+{/* Learn Section */}
+<Heading heading={"First invest your time, not money"} />
+    <div className="grid md:grid-cols-2 gap-6 ">
+      {/* Card 1 */}
+      <div className="group bg-white border border-green-300 rounded-3xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+        <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
+          <BookOpen size={30} className="text-green-700" />
         </div>
-
-        <div className="middle h-40 w-full flex justify-center items-center">
-           <div className="middle h-40 w-60 rounded-2xl">
-            <img src="learn-home1.png" className="h-full w-full" alt="" />
-           </div>
-        </div>
-
-           <div className="top w-full h-20  flex sm:flex-row flex-col justify-around items-center gap-4">
-            <div className="left text-center w-[90%] sm:w-60 bg-green-50 border-2 border-green-700 rounded-2xl p-3">
-                <h1 className="font-bold text-[15px] ">Proper discipline</h1>
-                <p>Know how to manage discipline</p>
-            </div>
-            <div className="right text-center w-[90%] sm:w-60 bg-green-50 border-2 border-green-700 rounded-2xl p-3">
-                <h1 className="font-bold text-[15px]">Discuss with us</h1>
-                <p>proper doubt clear in market</p>
-            </div>
-        </div>
-
+        <h2 className="text-2xl font-bold text-gray-800">Learn Every Concept</h2>
+        <p className="text-gray-500 mt-3 leading-7">
+          Master stock market basics, technical analysis, candlestick patterns,
+          investing strategies and risk management from beginner to advanced.
+        </p>
       </div>
 
+      {/* Card 2 */}
+      <div className="group bg-white border border-green-300 rounded-3xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+        <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
+          <ChartCandlestick size={30} className="text-green-700" />
+        </div>
+        <h2 className="text-2xl font-bold text-gray-800">Live Market Analysis</h2>
+        <p className="text-gray-500 mt-3 leading-7">
+          Watch live market movements and understand the logic behind every
+          trade with real-time examples.
+        </p>
+      </div>
+
+      {/* Card 3 */}
+      <div className="group bg-white border border-green-300 rounded-3xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+        <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
+          <ShieldCheck size={30} className="text-green-700" />
+        </div>
+        <h2 className="text-2xl font-bold text-gray-800">Proper Discipline</h2>
+        <p className="text-gray-500 mt-3 leading-7">
+          Develop the right mindset, patience and discipline required to become
+          a successful long-term investor.
+        </p>
+      </div>
+
+      {/* Card 4 */}
+      <div className="group bg-white border border-green-300 rounded-3xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+        <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
+          <MessageCircleMore size={30} className="text-green-700" />
+        </div>
+        <h2 className="text-2xl font-bold text-gray-800">Discuss With Us</h2>
+        <p className="text-gray-500 mt-3 leading-7">
+          Connect with our community, ask your doubts and learn together through
+          meaningful discussions.
+        </p>
+      </div>
+    </div>
 
   {/* cirtificate area */}
-  <Heading heading={"Show your experience with certificate"}></Heading>   
-<div className="certificate min-h-90  mb-10 p-5 minh-90 w-full flex sm:flex-row flex-col gap-5 justify-around items-center">
+  <Heading heading={"Learn & Get Certified"}></Heading>   
+  <div className="certificate min-h-90 border-2 shadow-md border-green-300  mb-10 rounded-2xl p-5 minh-90 w-full flex sm:flex-row flex-col gap-5 justify-around items-center">
    {/* left side */}
-<div className="left w-full  sm:w-1/2 flex flex-col gap-4 border-green-300 border-2 p-5 rounded-2xl bg-white shadow-xl">
+ <div className="left w-full  sm:w-1/2 flex flex-col gap-4 p-5 rounded-2xl bg-white">
   {/* Card 1 */}
-  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition">
+  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-100 hover:bg-gray-100 transition">
     <i className="fa-solid fa-certificate text-blue-500 text-xl"></i>
     <div>
       <h2 className="font-semibold">Course Completion</h2>
@@ -130,7 +159,7 @@ function Home(){
   </div>
 
   {/* Card 2 */}
-  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition">
+  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-100 hover:bg-gray-100 transition">
     <i className="fa-solid fa-laptop-code text-green-500 text-xl"></i>
     <div>
       <h2 className="font-semibold">Practical </h2>
@@ -139,7 +168,7 @@ function Home(){
   </div>
 
   {/* Card 3 */}
-  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition">
+  <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-100 hover:bg-gray-100 transition">
     <i className="fa-solid fa-diagram-project text-purple-500 text-xl"></i>
     <div>
       <h2 className="font-semibold">Clear doubts</h2>
@@ -148,14 +177,14 @@ function Home(){
   </div>
 </div>
    {/* right side */}
- <div className="right min-w-50 h-full flex justify-center items-center">
- <div className="min-h-40 max-h-50 min-w-60 max-w-70 rounded-2xl bg-gray-300"><img src="certificate.png" alt="" /></div>
+ <div className="right min-w-50 h-full p-3 flex justify-center items-center">
+ <div className="min-h-40  max-h-50 min-w-55 max-w-70 rounded-2xl bg-gray-300"><img src="certificate.png" alt="" /></div>
    </div>
-</div>    
+</div>   
 
   {/* review section */}
  <Heading heading={"Some reviews"}></Heading>
-<div className="review w-full mb-20 mt-10  scroller p-3 gap-10 bg-gray-50">
+<div className="review w-full mb-20  scroller p-3 gap-10 bg-gray-50">
 <ReviewCard
   name={"Rahul Sharma"}
   review={"Market Rock helped me understand market trends easily. The interface is simple and clean."}
@@ -201,7 +230,7 @@ function Home(){
       </div>
 
 
-
+</div>
       {/* footer */}
       <Footer></Footer>
    </>)

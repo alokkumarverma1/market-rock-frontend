@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../others/navbar";
+import { Link } from "react-router-dom";
 import {
   Search,
   User,
@@ -99,7 +100,7 @@ function Help() {
    <div className="grid md:grid-cols-3 gap-6">
      {cards.map((item, index) => (
       <div
-       key={index} className="bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-2 duration-300 cursor-pointer border z-50 border-transparent hover:border-green-300" >
+       key={index} className="bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-2 duration-300 cursor-pointer border z-20 border-transparent hover:border-green-300" >
             <div className="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center text-green-600 mb-6">
              {item.icon}
             </div>
@@ -135,7 +136,7 @@ function Help() {
 <section className="px-5 sm:px-16 py-20  text-center">
           <div className="shape2 rounded-3xl p-10">
             <h2 className="text-3xl font-bold text-white">If you have other problem contact with us </h2>
-             <button className="h-10 cursor-pointer w-40 rounded-2xl shadow-md bg-white text-green-400 font-semibold text-[16px] mt-5">contact us</button>
+            <Link to={"/contact"}> <button className="h-10 cursor-pointer w-40 rounded-2xl shadow-md bg-white text-green-400 font-semibold text-[16px] mt-5">contact us</button></Link>
           </div>
 </section>
       </div>
