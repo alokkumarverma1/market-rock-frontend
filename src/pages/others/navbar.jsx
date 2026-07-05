@@ -65,6 +65,8 @@ useEffect(() => {
                       <li  className="cursor-pointer h-10 rounded-2xl w-full hover:bg-gray-100 text-center flex justify-center items-center ">My Course</li>
                       <li  className="cursor-pointer h-10 rounded-2xl w-full hover:bg-gray-100 text-center flex justify-center items-center "><Link to={"/about"}>About</Link></li>
                       <li  className="cursor-pointer h-10 rounded-2xl mb-2 w-full hover:bg-gray-100 text-center flex justify-center items-center "><Link to={"/contact"}>Contact</Link></li>
+                      <li  className="cursor-pointer h-10 rounded-2xl mb-2 w-full hover:bg-gray-100 text-center flex justify-center items-center "><Link to={"/help"}>Help</Link></li>
+                
                       <button className="border-red-600 border-2 bg-red-100 mb-3 w-full rounded-2xl h-9 cursor-pointer" onClick={userLogout}>Logout</button> 
                 </ul>
             </div>

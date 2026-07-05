@@ -18,6 +18,7 @@ import Contact from './pages/more/contact'
 import SwingStockDetails from './pages/rockpage/rockSwingStock/swingStockDetails/stockDetails'
 import RockAi from './pages/homepage/rockAi/rockAi'
 import IpoDetails from './pages/rockpage/rockIpos/ipoDetails'
+import Help from './pages/more/help'
 
 function App() {
  
@@ -99,9 +100,13 @@ function App() {
       path:"/about",
       element:<><About></About></>
     },
-     {
+    {
       path:"/contact",
       element:<><Contact></Contact></>
+    },
+    {
+      path:"/help",
+      element:<><Help></Help></>
     },
 
 

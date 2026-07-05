@@ -25,7 +25,7 @@ function Home(){
         Track real-time market data, uncover hidden opportunities, master investing
         from beginner to advanced, and make smarter buy and sell decisions with powerful analysis.
       </p>
-       <Link to={"/rock"}> <button className="h-10 cursor-pointer w-28 text-white shape rounded-2xl mt-5 shadow-md shadow-gray-300 border border-white">Start</button></Link>
+       <Link to={"/rock"}> <button className="h-10 font-semibold cursor-pointer w-28 text-white shape rounded-2xl mt-5 shadow-md shadow-gray-300 border border-white">Start</button></Link>
       <div className="iconsarea border-2 border-green-300 mt-8 flex justify-around items-center text-green-700 text-[20px]  h-10  sm:mt-10 sm:w-50  rounded-2xl w-full">
               <a href="#"><i className="fa-brands  fa-instagram hover:text-green-600 duration-300"></i></a>
               <a href="#"><i className="fa-brands fa-youtube hover:text-green-400 duration-300"></i></a>

@@ -5,6 +5,7 @@ import StockChart from "./stockChart";
 import StockFinanceChart from "./stockFinancialChart";
 import StockHoldings from "./stockHoldings";
 import Footer from "../../../others/footer";
+import StockMiniData from "./stockminiData";
 
 function SwingStockDetails(){
     return(<>
@@ -17,29 +18,23 @@ function SwingStockDetails(){
        <p>Comming soon...</p>
      </div>
 
+     {/* return of stock */}
+     <RockHeading heading={"Return data data"}></RockHeading>
+     <div className="return-data p-2 mb-10 flex flex-wrap gap-3 w-full">
+       <StockMiniData name={"Last year"} data={"21.04"}></StockMiniData>
+       <StockMiniData name={"last 6 month"} data={"21.04"}></StockMiniData>
+       <StockMiniData name={"last week"} data={"21.04"}></StockMiniData>
+       <StockMiniData name={"last day"} data={"21.04"}></StockMiniData>
+     </div>
+
      {/* key fector */}
      <RockHeading heading={"key factor"} ></RockHeading>
-     <div className="fundamentaldata p-3 mb-10 flex flex-wrap gap-3 w-full">
-       <div className="factor border-green-300 border-2 flex flex-col justify-center items-center h-15 w-30 rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75">
-        <h1 className="text-[12px]">PE RATIO</h1>
-        <p className="font-semibold">21.68</p>
-       </div>
-       <div className="factor h-15 w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75">
-       <h1 className="text-[12px]">PE RATIO</h1>
-        <p className="font-semibold">21.68</p>
-       </div>
-       <div className="factor h-15 w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75">
-        <h1 className="text-[12px]">PE RATIO</h1>
-        <p className="font-semibold">21.68</p>
-       </div>
-       <div className="factor h-15 w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75">
-        <h1 className="text-[12px]">PE RATIO</h1>
-        <p className="font-semibold">21.68</p>
-       </div>
-        <div className="factor h-15 w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75">
-        <h1 className="text-[12px]">PE RATIO</h1>
-        <p className="font-semibold">21.68</p>
-       </div>
+     <div className="fundamentaldata p-2 mb-10 flex flex-wrap gap-3 w-full">
+       <StockMiniData name={"PE RATIO"} data={"21.04"}></StockMiniData>
+       <StockMiniData name={"PE RATIO"} data={"21.04"}></StockMiniData>
+       <StockMiniData name={"PE RATIO"} data={"21.04"}></StockMiniData>
+       <StockMiniData name={"PE RATIO"} data={"21.04"}></StockMiniData>
+       <StockMiniData name={"PE RATIO"} data={"21.04"}></StockMiniData>
      </div>
 
      {/* financial data */}

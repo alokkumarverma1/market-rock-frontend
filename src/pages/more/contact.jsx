@@ -37,13 +37,13 @@ function Contact() {
               {
                 icon: "fa-envelope",
                 title: "Email Address",
-                value: "support@marketrock.com",
+                value: "rockteamsupport@gmail.com",
               },
-              {
-                icon: "fa-phone",
-                title: "Phone Number",
-                value: "+91 XXXXX XXXXX",
-              },
+              // {
+              //   icon: "fa-phone",
+              //   title: "Phone Number",
+              //   value: "+91 XXXXX XX",
+              // },
               {
                 icon: "fa-location-dot",
                 title: "Location",
@@ -111,10 +111,7 @@ function Contact() {
               placeholder="Write your message..."
               className="w-full bg-green-50 rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3 sm:py-4 resize-none outline-none focus:ring-2 focus:ring-green-300"
             />
-
-            <button className="mt-6 sm:mt-8 w-full sm:w-auto shape text-white px-6 sm:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold hover:scale-[1.02] transition">
-              Send Message
-            </button>
+            <button className="shape rounded-2xl text-white w-30 h-10 font-bold border border-white shadow-md text-[17px]">Send</button>
 
           </div>
 
