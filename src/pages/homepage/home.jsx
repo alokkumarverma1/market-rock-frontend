@@ -31,7 +31,7 @@ function Home(){
         from beginner to advanced, and make smarter buy and sell decisions with powerful analysis.
       </p>
        <Link to={"/rock"}> <button className="h-10 font-semibold cursor-pointer w-28 text-white shape rounded-2xl mt-5 shadow-md shadow-gray-300 border border-white">Start</button></Link>
-      <div className="iconsarea border-2 border-green-300 mt-8 flex justify-around items-center text-green-700 text-[20px]  h-10  sm:mt-10 sm:w-50  rounded-2xl w-full">  
+      <div className="iconsarea border border-green-300 mt-8 flex justify-around items-center text-green-700 text-[20px]  h-10  sm:mt-10 sm:w-50  rounded-2xl w-full">  
         <a href="#" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
         <FaInstagram size={22} />
         </a>
@@ -100,7 +100,7 @@ function Home(){
         <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
           <BookOpen size={30} className="text-green-700" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-800">Learn Every Concept</h2>
+        <h2 className="text-[20px] font-bold text-gray-800">Learn Every Concept</h2>
         <p className="text-gray-500 mt-3 leading-7">
           Master stock market basics, technical analysis, candlestick patterns,
           investing strategies and risk management from beginner to advanced.
@@ -112,7 +112,7 @@ function Home(){
         <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
           <ChartCandlestick size={30} className="text-green-700" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-800">Live Market Analysis</h2>
+        <h2 className="text-[20px] font-bold text-gray-800">Live Market Analysis</h2>
         <p className="text-gray-500 mt-3 leading-7">
           Watch live market movements and understand the logic behind every
           trade with real-time examples.
@@ -124,7 +124,7 @@ function Home(){
         <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
           <ShieldCheck size={30} className="text-green-700" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-800">Proper Discipline</h2>
+        <h2 className="text-[20px] font-bold text-gray-800">Proper Discipline</h2>
         <p className="text-gray-500 mt-3 leading-7">
           Develop the right mindset, patience and discipline required to become
           a successful long-term investor.
@@ -136,7 +136,7 @@ function Home(){
         <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
           <MessageCircleMore size={30} className="text-green-700" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-800">Discuss With Us</h2>
+        <h2 className="text-[20px] font-bold text-gray-800">Discuss With Us</h2>
         <p className="text-gray-500 mt-3 leading-7">
           Connect with our community, ask your doubts and learn together through
           meaningful discussions.
@@ -146,10 +146,9 @@ function Home(){
 
   {/* cirtificate area */}
   <Heading heading={"Learn & Get Certified"}></Heading>   
-  <div className="certificate min-h-90 border-2 shadow-md border-green-300  mb-10 rounded-2xl p-5 minh-90 w-full flex sm:flex-row flex-col gap-5 justify-around items-center">
+  <div className="certificate min-h-90 border shadow-md border-green-300  mb-10 rounded-2xl p-1 minh-90 w-full flex sm:flex-row flex-col gap-5 justify-around items-center">
    {/* left side */}
- <div className="left w-full  sm:w-1/2 flex flex-col gap-4 p-5 rounded-2xl bg-white">
-  {/* Card 1 */}
+ <div className="left w-full  sm:w-1/2 flex flex-col gap-4 p-2 rounded-2xl bg-white">
   <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-100 hover:bg-gray-100 transition">
     <i className="fa-solid fa-certificate text-blue-500 text-xl"></i>
     <div>
@@ -157,8 +156,6 @@ function Home(){
       <p className="text-sm text-gray-500">Successfully completed rock course</p>
     </div>
   </div>
-
-  {/* Card 2 */}
   <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-100 hover:bg-gray-100 transition">
     <i className="fa-solid fa-laptop-code text-green-500 text-xl"></i>
     <div>
@@ -166,8 +163,6 @@ function Home(){
       <p className="text-sm text-gray-500">practis in live market with rock team</p>
     </div>
   </div>
-
-  {/* Card 3 */}
   <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-100 hover:bg-gray-100 transition">
     <i className="fa-solid fa-diagram-project text-purple-500 text-xl"></i>
     <div>

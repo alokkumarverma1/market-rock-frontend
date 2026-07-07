@@ -6,47 +6,88 @@ import StockFinanceChart from "./stockFinancialChart";
 import StockHoldings from "./stockHoldings";
 import Footer from "../../../others/footer";
 import StockMiniData from "./stockminiData";
+import { data, useLocation } from "react-router-dom";
 
 function SwingStockDetails(){
+
+const location = useLocation();
+const stock = location.state;
+
+
+
+
     return(<>
     <Navbar></Navbar>
     <div className="swingstockdetails mt-15">
+     {/* about stock */}
+     {/* <div className="about-stock">
 
+     </div> */}
      {/* stock chart */}
      <RockHeading heading={"Stock chart"} ></RockHeading>
      <div className="chartarea h-60 w-full flex justify-center items-center">
        <p>Comming soon...</p>
      </div>
 
+
+{/* Rock Team Analysis */}
+
+<RockHeading heading={"Rock Team Analysis"} />
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-5 p-1">
+    <div className="bg-gray-50 rounded-xl p-4">
+      <p className="text-gray-500 text-sm">current price</p>
+      <h3 className="sm:text-2xl text-[18px] font-bold mt-1">₹{stock.rockAnalysis.currentPrice}</h3>
+    </div>
+    <div className="bg-gray-50 rounded-xl p-4">
+      <p className="text-gray-500 text-sm">Expected  Range</p>
+      <h3 className="sm:text-2xl text-[18px] font-bold text-green-600 mt-1">
+       ₹{stock.rockAnalysis.minTarget} -  {stock.rockAnalysis.maxTarget}
+      </h3>
+    </div>
+    <div className="bg-gray-50 rounded-xl p-4">
+      <p className="text-gray-500 text-sm">Key Support</p>
+      <h3 className="sm:text-2xl text-[18px] font-bold text-red-500 mt-1">
+        ₹{stock.rockAnalysis.support}
+      </h3>
+    </div>
+    <div className="bg-gray-50 rounded-xl p-4">
+      <p className="text-gray-500 text-sm">Confidence</p>
+      <div className="w-full bg-gray-200 h-2 rounded-full mt-3">
+      <div className="bg-green-600 h-2 rounded-full" style={{ width: `${stock.rockAnalysis.confidence}%` }}/>
+      </div>
+      <p className="mt-2 font-semibold">{stock.rockAnalysis.confidence}%</p>
+    </div>
+  </div>
+
      {/* return of stock */}
      <RockHeading heading={"Return data data"}></RockHeading>
      <div className="return-data p-2 mb-10 flex flex-wrap gap-3 w-full">
-       <StockMiniData name={"Last year"} data={"21.04"}></StockMiniData>
-       <StockMiniData name={"last 6 month"} data={"21.04"}></StockMiniData>
-       <StockMiniData name={"last week"} data={"21.04"}></StockMiniData>
-       <StockMiniData name={"last day"} data={"21.04"}></StockMiniData>
+       <StockMiniData name={"Last year"} data={stock.returnData.lastYear + "%"}></StockMiniData>
+       <StockMiniData name={"last 6 month"} data={stock.returnData.last6Month + "%"}></StockMiniData>
+       <StockMiniData name={"last week"} data={stock.returnData.lastWeek + "%"}></StockMiniData>
+       <StockMiniData name={"last day"} data={stock.returnData.lastDay + "%"}></StockMiniData>
      </div>
 
      {/* key fector */}
      <RockHeading heading={"key factor"} ></RockHeading>
      <div className="fundamentaldata p-2 mb-10 flex flex-wrap gap-3 w-full">
-       <StockMiniData name={"PE RATIO"} data={"21.04"}></StockMiniData>
-       <StockMiniData name={"PE RATIO"} data={"21.04"}></StockMiniData>
-       <StockMiniData name={"PE RATIO"} data={"21.04"}></StockMiniData>
-       <StockMiniData name={"PE RATIO"} data={"21.04"}></StockMiniData>
-       <StockMiniData name={"PE RATIO"} data={"21.04"}></StockMiniData>
+       <StockMiniData name={"pe ration"} data={stock.keyFactors.peRatio}></StockMiniData>
+       <StockMiniData name={"marketCap"} data={stock.keyFactors.marketCap}></StockMiniData>
+       <StockMiniData name={"bookValue"} data={stock.keyFactors.bookValue}></StockMiniData>
+       <StockMiniData name={"roe"} data={stock.keyFactors.roe}></StockMiniData>
+       <StockMiniData name={"eps"} data={stock.keyFactors.eps}></StockMiniData>
      </div>
 
      {/* financial data */}
      <RockHeading heading={"Financial revenue"}></RockHeading>
      <div className="financial-data min-h-40 w-full p-2">
-      <StockFinanceChart></StockFinanceChart>
+      <StockFinanceChart year={stock.year} revenue={stock.profit}></StockFinanceChart>
      </div>
      
      {/* holding statement */}
      <RockHeading heading={"Holding data"}></RockHeading>
      <div className="holding-data h-80 w-full">
-      <StockHoldings></StockHoldings>
+      <StockHoldings holding={stock.holding}></StockHoldings>
      </div>
      
      {/* disclamer */}

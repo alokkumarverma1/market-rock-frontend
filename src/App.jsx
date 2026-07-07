@@ -8,7 +8,6 @@ import FullDetailsPost from './pages/rockpage/rockPost/fullDetailsPost'
 import Learn from './pages/learn/learn'
 import Register from './pages/user/register'
 import Login from './pages/user/login'
-import AddStock from './pages/admin/addStock'
 import Admin from './pages/admin/admin'
 import UserProfile from './pages/user/userProfile'
 import Result from './pages/others/result'
@@ -19,6 +18,7 @@ import SwingStockDetails from './pages/rockpage/rockSwingStock/swingStockDetails
 import RockAi from './pages/homepage/rockAi/rockAi'
 import IpoDetails from './pages/rockpage/rockIpos/ipoDetails'
 import Help from './pages/more/help'
+import AddSwingStock from './pages/admin/addStock'
 
 function App() {
  
@@ -84,7 +84,7 @@ function App() {
     },
     {
       path:"/addStock",
-      element:<><AddStock></AddStock></>
+      element:<><AddSwingStock></AddSwingStock></>
     },
 
  // other page

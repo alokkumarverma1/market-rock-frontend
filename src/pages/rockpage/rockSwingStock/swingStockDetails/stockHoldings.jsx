@@ -2,13 +2,13 @@ import React from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList } from "recharts";
 
 
-function StockHoldings(){
+function StockHoldings({holding}){
 
      const data = [
-    { type: "Promoter",revenue: 44 },
-    {type: "Fii", revenue: 14 },
-    { type: "retail", revenue: 30 },
-    { type: "other", revenue: 10 },
+    { type: "Promoter",revenue: holding.promoter },
+    {type: "Fii", revenue: holding.fii },
+    { type: "retail", revenue: holding.dii },
+    { type: "other", revenue: holding.public },
   ];
 
 

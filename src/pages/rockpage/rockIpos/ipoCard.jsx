@@ -16,7 +16,7 @@ function IpoCard({ onClick }) {
     <Link to={"/ipoDetails"}>
     <div
       onClick={onClick}
-      className="cursor-pointer max-h-45  min-w-60 rounded-2xl  shadow-md border-green-300 border-2 bg-white p-5 transition hover:border-green-300 hover:shadow-xl"
+      className="cursor-pointer max-h-45  min-w-60 rounded-2xl  shadow-md border-green-300 border bg-white p-5 transition hover:border-green-300 hover:shadow-xl"
     >
       {/* Header */}
       <div className="flex items-center justify-between">

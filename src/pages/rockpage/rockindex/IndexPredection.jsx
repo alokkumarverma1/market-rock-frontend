@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-function IndexPredection({ value = -50 }) {
+function IndexPredection({ value = -70 }) {
   // Clamp value between -100 and 100
   const score = Math.max(-100, Math.min(100, value));
 
@@ -61,7 +61,7 @@ function IndexPredection({ value = -50 }) {
          </div>
 
         {/* Percentage */}
-        <div className="text-center bg-white h-15 shadow-xl border-2 border-green-300 rounded-2xl flex gap-2 justify-center items-center mt-4">
+        <div className="text-center bg-white h-15 shadow-xl border border-green-300 rounded-2xl flex gap-2 justify-center items-center mt-4">
           <h1 className="text-[17px] font-bold">{Math.abs(score)}%</h1>
           <p className={` text-[17px] font-semibold ${sentimentColor}`}>{sentiment}</p>
         </div>

@@ -7,35 +7,35 @@ import Heading from "../others/heading";
 import IndexPredection from "./rockindex/IndexPredection";
 import MyNetWorth from "./rockPnlReport/mynetworth";
 import Footer from "../others/footer";
-
-// firebase 
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase/firebase";
-import SwingStockCard from "./rockSwingStock/swingStockCard";
 import IpoCard from "./rockIpos/ipoCard";
 import RightArrow from "../others/rightArrow";
+import SwingStockCard from "./rockSwingStock/swingStockCard";
+import { AllSwingStocksService } from "../../firebase/services/rockService";
 
 function Rock(){
 
-// firebase data
-const [stock , setStock] = useState([])    
 
+const [swingstock , setSwingstock] = useState([])    
 
-// firebase
+// firebase functions
 useEffect(()=>{
-const res = async ()=>{
-     const querySnapshot =  await getDocs(collection(db, "stocks"));
-     const datas = querySnapshot.docs.map((doc) => ({
-     id:doc.id,
-      ...doc.data(),
-    }));
-     setStock(datas)
-  }
-res();
+
+// get all swing stock  
+const AllSwingStock = async ()=>{
+   try{
+     const data = await AllSwingStocksService();
+     setSwingstock(data)
+   }catch(error){
+    console.log("something wrong")
+   }}
+
+// get index data    
+
+// call all function    
+AllSwingStock();
 },[])
 
 
-    // networt
 
     const netWorthData = [
   { month: "Jan", worth: 10000 },
@@ -63,9 +63,11 @@ return(<>
 <RockHeading heading={"Swing Stock"}></RockHeading>
 
 <div className="stocks  scroller h-60 gap-10 p-5">
-   <SwingStockCard name={"Adani"}></SwingStockCard>
-    <SwingStockCard name={"Relience"}></SwingStockCard>
-     <SwingStockCard name={"Tata"}></SwingStockCard>
+  {swingstock.length == 0 ? <div className="h-full w-full flex justify-center items-center text-gray-500"><p>loading...</p></div>:
+    swingstock.map((data , key)=>(
+        <SwingStockCard data={data} key={data.id}></SwingStockCard>
+    ))
+  }
 </div>
 <RightArrow></RightArrow>
 
@@ -73,9 +75,9 @@ return(<>
 {/* index suggestion section  */}
 <RockHeading heading={"Today index anlaysis"}></RockHeading>
 <div className="all-index w-full mb-10 flex p-3 gap-2 scroller">
-     <div className="factor h-15 min-w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">BANKNIFTY</h1><p className="font-extralight">58700</p></div>
-     <div className="factor h-15 min-w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">NIFTY</h1><p className="font-extralight">26400</p></div>
-     <div className="factor h-15 min-w-30 border-green-300 border-2 flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">SENSEX</h1><p className="font-extralight">68500</p></div>
+     <div className="factor h-15 min-w-30 border-green-300 border flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">BANKNIFTY</h1><p className="font-extralight">58700</p></div>
+     <div className="factor h-15 min-w-30 border-green-300 border flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">NIFTY</h1><p className="font-extralight">26400</p></div>
+     <div className="factor h-15 min-w-30 border-green-300 border flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">SENSEX</h1><p className="font-extralight">68500</p></div>
 
 </div>
 
