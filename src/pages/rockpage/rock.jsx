@@ -11,11 +11,15 @@ import IpoCard from "./rockIpos/ipoCard";
 import RightArrow from "../others/rightArrow";
 import SwingStockCard from "./rockSwingStock/swingStockCard";
 import { AllSwingStocksService } from "../../firebase/services/rockService";
+import { AllIndexPrice } from "../../firebase/services/rockService";
+
 
 function Rock(){
 
 
 const [swingstock , setSwingstock] = useState([])    
+const [indexDirection , setIndexDirection] = useState({})
+const [indexPrice , setIndexPrice] = useState([])
 
 // firebase functions
 useEffect(()=>{
@@ -28,11 +32,20 @@ const AllSwingStock = async ()=>{
    }catch(error){
     console.log("something wrong")
    }}
-
-// get index data    
+ 
+// get all index prices
+const getAllIndexPrice = async ()=>{
+   try{
+     const data = await AllIndexPrice();
+     setIndexPrice(data)
+   }catch(error){
+    console.log("something wrong")
+   }}   
 
 // call all function    
 AllSwingStock();
+getAllIndexPrice()
+
 },[])
 
 
@@ -88,11 +101,12 @@ return(<>
 
 {/* rock index card */}
 <RockHeading heading={"Today tagete price"}></RockHeading>
-<div className=" w-full p-5 scroller flex gap-5 sm:mb-10">
-<RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
-<RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
-<RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
-<RockIndexCard name={"Adani"} price={"45500 put"} date={"18-6-2026"} time={"9:30 Am"} direction={true}></RockIndexCard>
+<div className=" w-full h-60 p-5 scroller flex gap-5 sm:mb-10">
+  {
+    indexPrice.length == 0 ? <div className="flex justify-center w-full h-full items-center text-gray-600">Loading...</div> : indexPrice.map((data ,key)=>(
+      <RockIndexCard data={data} key={key}></RockIndexCard>
+    ))
+  }
 </div>
 <RightArrow></RightArrow>
 

@@ -19,6 +19,7 @@ import RockAi from './pages/homepage/rockAi/rockAi'
 import IpoDetails from './pages/rockpage/rockIpos/ipoDetails'
 import Help from './pages/more/help'
 import AddSwingStock from './pages/admin/addStock'
+import AddIndexDirection from './pages/admin/addIndexDirection'
 
 function App() {
  
@@ -85,6 +86,10 @@ function App() {
     {
       path:"/addStock",
       element:<><AddSwingStock></AddSwingStock></>
+    },
+    {
+      path:"/addIndexDirection",
+      element:<><AddIndexDirection></AddIndexDirection></>
     },
 
  // other page

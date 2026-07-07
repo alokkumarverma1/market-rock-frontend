@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { db } from "../../../firebase/firebase";
+import { getDoc , doc } from "firebase/firestore";
 
-function IndexPredection({ value = -70 }) {
+function IndexPredection() {
+
+ const [indexDirection , setIndexdirection ] = useState({direction:0}) 
+
+useEffect(()=>{
+// get index drection 
+const indexDirectionData = async ()=>{
+  try{
+    const docRef =await doc(db, "indexDirection", "1");
+  const docSnap = await getDoc(docRef);
+  const data = docSnap.data();
+  setIndexdirection(data)
+  }catch(error){
+    console.log("something went wrong")
+  }
+}  
+indexDirectionData();
+},[])
+
+
   // Clamp value between -100 and 100
-  const score = Math.max(-100, Math.min(100, value));
-
+  const score = Math.max(-100, Math.min(100, indexDirection.direction));
   // -90° to 90°
   const angle = (score / 100) * 90;
 
@@ -41,9 +61,9 @@ function IndexPredection({ value = -70 }) {
 
           {/* Needle */}
          {/* Needle */}
-<motion.div animate={{ rotate: angle }}
+ <motion.div animate={{ rotate: angle }}
   transition={{duration: 1, type: "spring", stiffness: 90,  damping: 12,}}
-  className="absolute left-1/2 bottom-[15%] origin-bottom z-20"
+  className="absolute left-1/2 bottom-[19%] origin-bottom z-20"
   style={{ transform: "translateX(-50%)",}}>
   <div className="relative flex flex-col items-center">
     {/* Arrow Tip */}
