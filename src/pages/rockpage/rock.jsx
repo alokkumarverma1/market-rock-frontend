@@ -11,7 +11,7 @@ import IpoCard from "./rockIpos/ipoCard";
 import RightArrow from "../others/rightArrow";
 import SwingStockCard from "./rockSwingStock/swingStockCard";
 import { AllSwingStocksService } from "../../firebase/services/rockService";
-import { AllIndexPrice } from "../../firebase/services/rockService";
+import { AllIndexPrice ,getAllPost } from "../../firebase/services/rockService";
 
 
 function Rock(){
@@ -20,6 +20,7 @@ function Rock(){
 const [swingstock , setSwingstock] = useState([])    
 const [indexDirection , setIndexDirection] = useState({})
 const [indexPrice , setIndexPrice] = useState([])
+const [post , setPost] = useState([])
 
 // firebase functions
 useEffect(()=>{
@@ -42,9 +43,17 @@ const getAllIndexPrice = async ()=>{
     console.log("something wrong")
    }}   
 
+// get all post 
+const allRockPost = async()=>{
+  const res =await getAllPost();
+  setPost(res)
+  
+}
+
 // call all function    
 AllSwingStock();
 getAllIndexPrice()
+allRockPost();
 
 },[])
 
@@ -112,10 +121,8 @@ return(<>
 
 {/* most popular ipo*/}
 <RockHeading heading={"Best upcoming ipos"}></RockHeading>
-<div className="sipw-full h-55 p-5  flex scroller gap-3">
-<IpoCard></IpoCard>
-<IpoCard></IpoCard>
-<IpoCard></IpoCard>
+<div className="ipo-details w-full h-55 justify-center items-center p-5  flex scroller gap-3">
+<h1 className="text-gray-600">Comming soon...</h1>
 </div>
 <RightArrow></RightArrow>
 
@@ -129,19 +136,11 @@ return(<>
 {/* rock post for update */}
 <Heading heading={"All Post"}></Heading>
 <div className="rockpost mt-10 h-100 mb-20 sm:mb-5 w-full flex p-3 scroller flex-col gap-5">
-    
-    <RockPostCard date={"18-06-2026"} heading={"adani enterpricthe most important "} details={"this is one of the best adani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most important"}></RockPostCard>
-    <RockPostCard date={"18-06-2026"} heading={"adani enterpricthe most important "} details={"this is one of the best adani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most important"}></RockPostCard>
-    <RockPostCard date={"18-06-2026"} heading={"adani enterpricthe most important "} details={"this is one of the best adani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most important"}></RockPostCard>
-    <RockPostCard date={"18-06-2026"} heading={"adani enterpricthe most important "} details={"this is one of the best adani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most important"}></RockPostCard>
-    <RockPostCard date={"18-06-2026"} heading={"adani enterpricthe most important "} details={"this is one of the best adani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most important"}></RockPostCard>
-    <RockPostCard date={"18-06-2026"} heading={"adani enterpricthe most important "} details={"this is one of the best adani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most important"}></RockPostCard>
-    <RockPostCard date={"18-06-2026"} heading={"adani enterpricthe most important "} details={"this is one of the best adani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most importantadani enterpricthe most important"}></RockPostCard>
-  
-      
-       
-
-
+{
+  post.map((data , key)=>(
+    <RockPostCard data={data} key={key}></RockPostCard>
+  ))
+}
 </div>
 
 <Footer></Footer>

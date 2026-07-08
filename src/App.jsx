@@ -20,6 +20,7 @@ import IpoDetails from './pages/rockpage/rockIpos/ipoDetails'
 import Help from './pages/more/help'
 import AddSwingStock from './pages/admin/addStock'
 import AddIndexDirection from './pages/admin/addIndexDirection'
+import AddPost from './pages/admin/addPost'
 
 function App() {
  
@@ -90,6 +91,10 @@ function App() {
     {
       path:"/addIndexDirection",
       element:<><AddIndexDirection></AddIndexDirection></>
+    },
+      {
+      path:"/addPost",
+      element:<><AddPost></AddPost></>
     },
 
  // other page

@@ -9,13 +9,18 @@ import { serverTimestamp } from "firebase/firestore";
 
 
 //  rock swing stock add
-export const SwingStockService = async (swingstock)=>{
-try{
- await setDoc(doc(db, "swingstocks", swingstock.stockName),swingstock);
-}catch(error){
-console.log(error.message)
-}
-}
+export const SwingStockService = async (swingstock) => {
+  try {
+    await addDoc(collection(db, "swingstocks"), {
+      ...swingstock,
+      createdAt: serverTimestamp(),
+    });
+
+    console.log("Success");
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 
 
 // get all swing stock stock function 
@@ -84,5 +89,27 @@ console.log(error.message)
 // get all ipos 
 
 // add posts 
+export const addPost = async(data)=>{
+  try{
+   const res = await addDoc(collection(db, "post") ,{...data ,  createdAt: serverTimestamp()})
+   console.log("res")
+  }catch(error){
+    console.log(error.message)
+  }
+}
 
 // get all posts
+export const getAllPost = async ()=>{
+ try{
+  const querySnapshot = await getDocs(collection(db, "post"));
+if(querySnapshot == null) return null;
+const post = querySnapshot.docs.map((doc) => ({
+  id: doc.id,
+  ...doc.data(),
+}));
+ return post; 
+ }catch(error){
+  console.log(error.message)
+ }
+  
+}

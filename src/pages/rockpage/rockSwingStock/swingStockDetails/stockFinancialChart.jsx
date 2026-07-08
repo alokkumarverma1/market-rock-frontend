@@ -25,7 +25,7 @@ function StockFinanceChart({year , revenue}) {
     <div className="w-full">
       {/* Chart */}
       <div className="w-full h-70">
-        <ResponsiveContainer>
+        <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData} margin={{ top: 20, right: 0, left: 0, bottom: 0 }}>
             <XAxis dataKey="year" tick={{ fontSize: 10 }}/>
              <YAxis width={30} tick={{ fontSize: 10 }}/>

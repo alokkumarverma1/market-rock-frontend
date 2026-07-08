@@ -5,8 +5,7 @@ import Footer from "../../others/footer";
 
 function FullDetailsPost() {
   const location = useLocation();
-
-  const { heading, details, date } = location.state || {};
+  const data = location.state || {};
 
   return (
     <>
@@ -30,22 +29,22 @@ function FullDetailsPost() {
                 Rock Community
               </h2>
               <p className="text-sm text-gray-500">
-                {date}
+                {data.date}
               </p>
             </div>
           </div>
 
           {/* Heading */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            {heading}
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+            {data.heading}
           </h1>
 
           {/* Divider */}
           <div className="h-[1px] bg-gray-300 mb-8"></div>
 
           {/* Details */}
-          <p className="text-[15px] sm:text-[20px] leading-7 text-gray-700 whitespace-pre-line">
-            {details}
+          <p className="mt-8 text-lg leading-8 text-gray-700 whitespace-pre-liney">
+            {data.details}
           </p>
 
         </div>

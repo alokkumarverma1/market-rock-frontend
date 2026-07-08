@@ -13,8 +13,8 @@ function StockHoldings({holding}){
 
 
     return(<>
-    <div className="stockHoldings w-full h-50">
-     <ResponsiveContainer>
+    <div className="stockHoldings w-full h-50]">
+     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={data} layout="vertical" margin={{ top: 10, right: 20, left:0, bottom: 10 }}>
         <YAxis dataKey={"type"} type="category" tick={{ fontSize: 10 }}/>
         <XAxis type="number" hide width={40} tick={{ fontSize: 10 }}/>
