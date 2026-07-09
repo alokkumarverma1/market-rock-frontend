@@ -17,6 +17,10 @@ function AddIndexDirection() {
     name: "",
     price: "",
     direction: "",
+    sl:"",
+    entry:"",
+    minTarget:"",
+    maxTarget:"",
     time: "",
     date: "",
   });
@@ -97,6 +101,57 @@ function AddIndexDirection() {
               setIndexPrice({
                 ...indexPrice,
                 price: e.target.value,
+              })
+            }
+          />
+
+           <input
+            type="number"
+            placeholder="Current sl"
+            className="border p-3 rounded-lg"
+            value={indexPrice.sl}
+            onChange={(e) =>
+              setIndexPrice({
+                ...indexPrice,
+                sl: e.target.value,
+              })
+            }
+          />
+
+           <input
+            type="number"
+            placeholder="Current entry"
+            className="border p-3 rounded-lg"
+            value={indexPrice.entry}
+            onChange={(e) =>
+              setIndexPrice({
+                ...indexPrice,
+                entry: e.target.value,
+              })
+            }
+          />
+
+           <input
+            type="number"
+            placeholder="Current minTarget"
+            className="border p-3 rounded-lg"
+            value={indexPrice.minTarget}
+            onChange={(e) =>
+              setIndexPrice({
+                ...indexPrice,
+                minTarget: e.target.value,
+              })
+            }
+          />
+           <input
+            type="number"
+            placeholder="Current MaxTarget"
+            className="border p-3 rounded-lg"
+            value={indexPrice.maxTarget}
+            onChange={(e) =>
+              setIndexPrice({
+                ...indexPrice,
+                maxTarget: e.target.value,
               })
             }
           />

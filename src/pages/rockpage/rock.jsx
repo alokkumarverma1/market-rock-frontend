@@ -110,7 +110,7 @@ return(<>
 
 {/* rock index card */}
 <RockHeading heading={"Today tagete price"}></RockHeading>
-<div className=" w-full h-60 p-5 scroller flex gap-5 sm:mb-10">
+<div className=" w-full h-70 p-5 scroller flex gap-5 sm:mb-10">
   {
     indexPrice.length == 0 ? <div className="flex justify-center w-full h-full items-center text-gray-600">Loading...</div> : indexPrice.map((data ,key)=>(
       <RockIndexCard data={data} key={key}></RockIndexCard>
