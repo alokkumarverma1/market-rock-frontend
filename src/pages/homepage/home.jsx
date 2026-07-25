@@ -26,22 +26,20 @@ function Home(){
     <div className="first mt-20   w-full lg:w-137.5 p-2 lg:p-10 text-center lg:text-left">
       <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-1 sm:mb-5 font-bold metal-green">MARKET ROCK</h1>
       <p className="text-sm md:text-base">
-        The stock market is more than a game of numbers—it's a game of insight.
-        Track real-time market data, uncover hidden opportunities, master investing
-        from beginner to advanced, and make smarter buy and sell decisions with powerful analysis.
+       Learn the stock market with confidence. Access real-time market insights, educational resources, and practical analysis designed to help beginners and experienced traders make informed investment decisions.
       </p>
        <Link to={"/rock"}> <button className="h-10 font-semibold cursor-pointer w-28 text-white shape rounded-2xl mt-5 shadow-md shadow-gray-300 border border-white">Start</button></Link>
       <div className="iconsarea border border-green-300 mt-8 flex justify-around items-center text-green-700 text-[20px]  h-10  sm:mt-10 sm:w-50  rounded-2xl w-full">  
-        <a href="#" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
+        <a href="https://www.instagram.com/marketrock_1?igsh=MWZzZTNzY3pjeWRmNQ==" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
         <FaInstagram size={22} />
         </a>
-        <a href="#" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
+        <a href="https://youtube.com/@marketrock_10?si=guJ4S88WxXnmSMPL" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
         <FaYoutube size={22} />
         </a>
-        <a href="#" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
+        <a href="https://whatsapp.com/channel/0029VbD4jLZFcow8sZIyAq0x" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
         <FaWhatsapp size={22} />
         </a>
-        <a href="#" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
+        <a href="https://t.me/traderx55" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
         <FaTelegramPlane size={22} />
         </a>
       </div>
@@ -173,13 +171,13 @@ function Home(){
 </div>
    {/* right side */}
  <div className="right min-w-50 h-full p-3 flex justify-center items-center">
- <div className="min-h-40  max-h-50 min-w-55 max-w-70 rounded-2xl bg-gray-300"><img src="certificate.png" alt="" /></div>
+ <div className="min-h-40  max-h-50 min-w-55 max-w-70 rounded-2xl bg-gray-300"><img src="certificate.png" className="rounded-2xl" alt="" /></div>
    </div>
 </div>   
 
   {/* review section */}
  <Heading heading={"Some reviews"}></Heading>
-<div className="review w-full mb-20  scroller p-3 gap-10 bg-gray-50">
+<div className="review w-full mb-20  scroller p-3 gap-10 ">
 <ReviewCard
   name={"Rahul Sharma"}
   review={"Market Rock helped me understand market trends easily. The interface is simple and clean."}

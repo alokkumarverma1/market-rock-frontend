@@ -3,107 +3,159 @@ import Navbar from "../others/navbar";
 import Heading from "../others/heading";
 import { userProfileData } from "../../firebase/services/profileService";
 import { useNavigate } from "react-router-dom";
-import Result from "../others/result";
-import { onAuthStateChanged , getAuth } from "firebase/auth";
+import { onAuthStateChanged, getAuth } from "firebase/auth";
 import { Oval } from "react-loader-spinner";
 
 function Profile() {
-
   const [user, setUser] = useState({});
-  const [error,setError] = useState(true)
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
-  const [loading , setLoading] = useState(true)
 
-// call user
-useEffect(() => {
-try{
-  const auth = getAuth();
-  const unsub = onAuthStateChanged(auth ,async(user)=>{
-   if(!user) navigate("/result" , {state:{ code:500, value:false , next:"/login"}});
-   const userdata = await userProfileData(user)
-   setUser(userdata)  
-   setLoading(false)
-  })
-  return ()=> unsub();
-}catch(error){
- navigate("/result" , {state:{ code:500, value:false , next:"/login"}})
-}
+  useEffect(() => {
+    const auth = getAuth();
 
-}, []);
+    const unsub = onAuthStateChanged(auth, async (currentUser) => {
+      try {
+        if (!currentUser) {
+          navigate("/result", {
+            state: {
+              code: 500,
+              value: false,
+              next: "/login",
+            },
+          });
+          return;
+        }
 
+        const userdata = await userProfileData(currentUser);
+        setUser(userdata);
+      } catch (error) {
+        navigate("/result", {
+          state: {
+            code: 500,
+            value: false,
+            next: "/login",
+          },
+        });
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    return () => unsub();
+  }, [navigate]);
+
+  if (loading) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        <Oval height={40} width={40} color="#22c55e" />
+      </div>
+    );
+  }
 
   return (
-  <>
-  {loading == true ?
-  <div className="h-screen flex items-center justify-center w-full"><Oval height={40} width={40}  /></div>
-    :
-  <div className="">
-    <Navbar></Navbar>
-  <div className="min-h-screen bg-white pt-15 sm:mt-15 px-4 sm:px-8 pb-10">
-  {/* Profile Header */}
-  <div className="bg-green-200  rounded-3xl p-8 shadow-lg relative overflow-hidden">
-    {/* edit button */}
-    <div className="absolute top-3 bg-white h-7 w-7 rounded-[7px] flex justify-center items-center right-5"><i class="fa-solid fa-pen-to-square"></i></div>
-    {/* card */}
-    <div className="flex flex-col md:flex-row items-center gap-6">
+    <>
+      <Navbar />
 
-      {/* Avatar */}
-      <div className="h-32 w-32 rounded-full bg-white shadow-xl flex items-center justify-center">
-        <i className="fa-solid fa-user text-6xl text-green-300"></i>
-      </div>
+      <div className="min-h-screen bg-gray-50 pt-20 px-4 sm:px-8 pb-10">
+        {/* Profile Card */}
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-md border border-green-100 p-8">
+          <h1 className="text-3xl font-bold text-green-600">Welcome</h1>
+          <p className="text-gray-500 mt-2">
+            Continue your stock market learning journey with Market Rock.
+          </p>
+          <div className="grid md:grid-cols-2 gap-5 mt-8">
+            {/* Name */}
+            <div className="bg-gray-100 rounded-2xl p-5">
+              <div className="flex items-center gap-3">
+                <div className="h-10 w-10 rounded-full bg-green-100 flex justify-center items-center">
+                  <i className="fa-solid fa-user text-green-600"></i>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500"> Full Name</p>
+                  <p className="font-semibold text-gray-800">
+                    {user.name || "N/A"}
+                  </p>
+                </div>
+              </div>
+            </div>
 
-      {/* User Info */}
-      <div className="flex-1  text-center md:text-left">
-        <div className="flex flex-wrap gap-3 mt-5 justify-center md:justify-start">
-          <div className="bg-white h-10 p-2 flex gap-2 justify-center items-center  rounded-xl shadow">
-            <i className="fa-solid fa-user text-green-300"></i>
-           <p className="text-[14px]"> {user.name}</p>
+            {/* Email */}
+            <div className=" bg-gray-100 rounded-2xl p-5">
+              <div className="flex items-center gap-3">
+                <div className="h-10 w-10 rounded-full bg-green-100 flex justify-center items-center">
+                  <i className="fa-solid fa-envelope text-green-600"></i>
+                </div>
+
+                <div className="overflow-hidden">
+                  <p className="text-sm text-gray-500">Email Address</p>
+                  <p className="font-semibold text-gray-800 break-all">{user.email || "N/A"}</p>
+                </div>
+              </div>
+            </div>
+
           </div>
-           <div className="bg-white px-4 py-2 rounded-xl shadow">
-            <i className="fa-solid fa-location-dot text-green-300 mr-2"></i>
-            {user.city}
-          </div>
-          <div className="bg-white h-10 p-2 flex justify-center items-center  rounded-xl shadow">
-            <i className="fa-solid fa-envelope text-green-300 mr-1 sm:mr-2"></i>
-           <p className="text-[14px]"> {user.email}</p>
+        </div>
+
+        {/* Stats */}
+        <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-5 mt-8">
+
+          <div className="bg-white rounded-3xl border border-green-100 shadow-md p-6">
+            <p className="text-gray-500">
+              Courses
+            </p>
+
+            <h2 className="text-4xl font-bold text-green-600 mt-2">
+              0
+            </h2>
+
+            <p className="text-sm text-gray-400 mt-2">
+              Enrolled courses
+            </p>
           </div>
 
-        
+          <div className="bg-white rounded-3xl border border-green-100 shadow-md p-6">
+            <p className="text-gray-500">
+              Certificates
+            </p>
+
+            <h2 className="text-4xl font-bold text-green-600 mt-2">
+              0
+            </h2>
+
+            <p className="text-sm text-gray-400 mt-2">
+              Earned certificates
+            </p>
+          </div>
+
+        </div>
+
+        {/* Courses */}
+        <div className="max-w-4xl mx-auto mt-10">
+
+          <Heading heading="Your Courses" />
+
+          <div className="mt-5 bg-white border border-green-100 rounded-3xl shadow-md h-72 flex flex-col items-center justify-center">
+
+            <div className="h-20 w-20 rounded-full bg-green-100 flex items-center justify-center">
+              <i className="fa-solid fa-book-open text-3xl text-green-600"></i>
+            </div>
+
+            <h2 className="text-xl font-semibold text-gray-800 mt-5">
+              No Courses Yet
+            </h2>
+
+            <p className="text-gray-500 text-center mt-2 px-6 max-w-md">
+              You haven't enrolled in any courses yet. Start learning and build
+              your stock market knowledge with Market Rock.
+            </p>
+
+          </div>
+
         </div>
       </div>
-    </div>
-  </div>
-
-  {/* Stats */}
-  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
-    <div className="bg-white border-2 border-green-300 rounded-3xl p-6 shadow-md">
-      <p className="text-gray-500">Courses</p>
-      <h2 className="text-3xl font-bold text-green-300 mt-2">0</h2>
-    </div>
-
-    <div className="bg-white border-2 border-green-300 rounded-3xl p-6 shadow-md">
-      <p className="text-gray-500">Certificates</p>
-      <h2 className="text-3xl font-bold text-green-300 mt-2">0</h2>
-    </div>
-  </div>
-
-  {/* About */}
-  <div className="bg-white border-2 mb-10 border-green-300 rounded-3xl p-8 mt-8 shadow-md">
-  <h2 className="text-2xl font-semibold text-green-300 mb-4">About Me</h2>
-    <p className="text-gray-600">Manage your account and access your learning resources from one place.</p>
-  </div>
-
-{/* courser area */}
-<Heading heading={"Your course"}></Heading>
-<div className="course w-full min-h-100">
-
-</div>
-</div>
-
-  </div>
-  }
-  
-  </>
+    </>
   );
 }
 

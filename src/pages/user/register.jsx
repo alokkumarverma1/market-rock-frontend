@@ -14,7 +14,6 @@ function Register() {
   const googleHandle = async () => {
   try{
     const res = await userRegisterWithGoodle();
-    console.log(res)
     navigate("/result" , {state:{code:200 , value:true , next:"/"}})
   }catch(error){
     navigate("/result" , {state:{code:400 , value:false , next:"/register"}})

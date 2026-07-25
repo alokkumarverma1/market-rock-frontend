@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "../others/navbar";
-import { SwingStockService } from "../../firebase/services/rockService";
+import {addSwingStockService } from "../../firebase/services/rockService";
 import { useNavigate } from "react-router-dom";
+
 
 function AddSwingStock(){
 
@@ -46,13 +47,16 @@ const [swingStock, setSwingStock] = useState({
       year3: "",
       year4: ""
   },
+  profitType:{
+    type:"",
+  },
 
   holding: {
     promoter: "",
     fii: "",
     dii: "",
     public: ""
-  }
+  },
 });
 
 const handleNestedChange = (section, e) => {
@@ -69,7 +73,7 @@ const handleNestedChange = (section, e) => {
 const handleSummit = async (e)=>{
     e.preventDefault();
   try{
-    await SwingStockService(swingStock);
+    await addSwingStockService(swingStock);
     navigate("/result" , {state:{code:200 , value:true , next:"/"}})
   }catch(error){
     console.log(error.message)
@@ -127,7 +131,7 @@ const handleSummit = async (e)=>{
       className="w-full border border-green-300 p-2 rounded"
     />
 
-    <input name="support" placeholder="Support"
+    <input name="support" placeholder="stop loss"
       value={swingStock.rockAnalysis.support}
       onChange={(e) => handleNestedChange("rockAnalysis", e)}
       className="w-full border border-green-300 p-2 rounded"
@@ -156,13 +160,13 @@ const handleSummit = async (e)=>{
       className="w-full border border-green-300 p-2 rounded"
     />
 
-    <input name="lastWeek" placeholder="Last Week"
+    <input name="lastWeek" placeholder="Last month"
       value={swingStock.returnData.lastWeek}
       onChange={(e) => handleNestedChange("returnData", e)}
       className="w-full border border-green-300 p-2 rounded"
     />
 
-    <input name="lastDay" placeholder="Last Day"
+    <input name="lastDay" placeholder="Last week"
       value={swingStock.returnData.lastDay}
       onChange={(e) => handleNestedChange("returnData", e)}
       className="w-full border border-green-300 p-2 rounded"
@@ -289,8 +293,17 @@ const handleSummit = async (e)=>{
     onChange={(e) => handleNestedChange("profit", e)}
     className="w-full border border-green-300 p-2 rounded"
   />
+
+   <input
+    name="type"
+    placeholder="Profit type"
+    value={swingStock.profitType.type}
+    onChange={(e) => handleNestedChange("profitType", e)}
+    className="w-full border border-green-300 p-2 rounded"
+  />
 </div>
-{/* holding section  */}
+
+
 {/* Holding Data */}
 <div className="border p-3 rounded border-green-300 space-y-2">
   <h2 className="font-semibold">Holding Data</h2>
@@ -313,7 +326,7 @@ const handleSummit = async (e)=>{
 
   <input
     name="dii"
-    placeholder="DII Holding"
+    placeholder="retail"
     value={swingStock.holding.dii}
     onChange={(e) => handleNestedChange("holding", e)}
     className="w-full border border-green-300 p-2 rounded"
@@ -321,7 +334,7 @@ const handleSummit = async (e)=>{
 
   <input
     name="public"
-    placeholder="Public Holding"
+    placeholder="other"
     value={swingStock.holding.public}
     onChange={(e) => handleNestedChange("holding", e)}
     className="w-full border border-green-300 p-2 rounded"

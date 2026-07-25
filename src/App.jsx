@@ -21,6 +21,8 @@ import Help from './pages/more/help'
 import AddSwingStock from './pages/admin/addStock'
 import AddIndexDirection from './pages/admin/addIndexDirection'
 import AddPost from './pages/admin/addPost'
+import LivePage from './pages/learn/dailyLive/livePage'
+
 
 function App() {
  
@@ -61,6 +63,10 @@ function App() {
       path:"/learn",
       element:<><Learn></Learn></>
     },
+      {
+      path:"/joinLIve",
+      element:<><LivePage></LivePage></>
+    },
     
 
     // user profile
@@ -97,11 +103,14 @@ function App() {
       element:<><AddPost></AddPost></>
     },
 
- // other page
+ // user page
     {
       path:"/profile",
       element:<><Profile></Profile></>
     },
+
+// more page    
+  
     {
       path:"/result",
       element:<><Result></Result></>

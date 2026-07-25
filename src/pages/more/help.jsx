@@ -99,9 +99,8 @@ function Help() {
  <section className="max-w-6xl mx-auto px-6 -mt-12">
    <div className="grid md:grid-cols-3 gap-6">
      {cards.map((item, index) => (
-      <div
-       key={index} className="bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-2 duration-300 cursor-pointer border z-20 border-transparent hover:border-green-300" >
-            <div className="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center text-green-600 mb-6">
+      <div key={index} className="bg-white border border-green-300 rounded-3xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-2 duration-300 cursor-pointer  z-20 hover:border-green-300" >
+            <div className="w-16 h-16  rounded-2xl bg-green-100 flex items-center justify-center text-green-600 mb-6">
              {item.icon}
             </div>
             <h2 className="font-bold text-xl">{item.title}</h2>
@@ -114,7 +113,7 @@ function Help() {
         {/* FAQ */}
 
 <section className="max-w-5xl mx-auto px-6 py-20">
-       <h2 className="text-4xl font-bold text-center mb-12">Frequently Asked Questions </h2>
+       <h2 className="font-bold  sm:text-2xl text-[25px] text-center mb-12">Frequently Asked Questions </h2>
         <div className="space-y-5">
          {faq.map((item, index) => (
             <div key={index} className="bg-white rounded-2xl shadow-md overflow-hidden" >

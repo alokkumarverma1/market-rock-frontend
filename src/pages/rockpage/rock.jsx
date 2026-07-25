@@ -10,7 +10,7 @@ import Footer from "../others/footer";
 import IpoCard from "./rockIpos/ipoCard";
 import RightArrow from "../others/rightArrow";
 import SwingStockCard from "./rockSwingStock/swingStockCard";
-import { AllSwingStocksService } from "../../firebase/services/rockService";
+import { getAllSwingStocksService } from "../../firebase/services/rockService";
 import { AllIndexPrice ,getAllPost } from "../../firebase/services/rockService";
 
 
@@ -28,7 +28,7 @@ useEffect(()=>{
 // get all swing stock  
 const AllSwingStock = async ()=>{
    try{
-     const data = await AllSwingStocksService();
+     const data = await getAllSwingStocksService();
      setSwingstock(data)
    }catch(error){
     console.log("something wrong")
@@ -45,8 +45,12 @@ const getAllIndexPrice = async ()=>{
 
 // get all post 
 const allRockPost = async()=>{
-  const res =await getAllPost();
+ try{
+   const res =await getAllPost();
   setPost(res)
+ }catch(error){
+  console.log(error.message);
+ }
   
 }
 
@@ -79,13 +83,12 @@ allRockPost();
 
 return(<>
  <Navbar></Navbar>
-<div className="rockPage mt-10">
+<div className="rockPage mt-10 p-2 sm:p-4">
 
-{/* stock suggestion section  */}
+{/* swing stock suggestion section  */}
 <RockHeading heading={"Swing Stock"}></RockHeading>
-
-<div className="stocks  scroller h-60 gap-10 p-5">
-  {swingstock.length == 0 ? <div className="h-full w-full flex justify-center items-center text-gray-500"><p>loading...</p></div>:
+<div className="stocks  scroller h-60 gap-7 pt-5 pb-5 ">
+  {swingstock.length == 0 ? <div className="h-full w-full flex justify-center items-center text-gray-500"><p>No stock..</p></div>:
     swingstock.map((data , key)=>(
         <SwingStockCard data={data} key={data.id}></SwingStockCard>
     ))
@@ -96,23 +99,22 @@ return(<>
 
 {/* index suggestion section  */}
 <RockHeading heading={"Today index anlaysis"}></RockHeading>
-<div className="all-index w-full mb-10 flex p-3 gap-2 scroller">
+{/* <div className="all-index w-full mb-10 flex p-3 gap-2 scroller">
      <div className="factor h-15 min-w-30 border-green-300 border flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">BANKNIFTY</h1><p className="font-extralight">58700</p></div>
      <div className="factor h-15 min-w-30 border-green-300 border flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">NIFTY</h1><p className="font-extralight">26400</p></div>
      <div className="factor h-15 min-w-30 border-green-300 border flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">SENSEX</h1><p className="font-extralight">68500</p></div>
-
-</div>
+</div> */}
 
 <div className="index-chart h-70 sm:h-100  mb-20 sm:mb-0 mt-2 w-full">
 <IndexPredection vlaue={"60"}></IndexPredection>
 </div>
-</div>
+
 
 {/* rock index card */}
 <RockHeading heading={"Today tagete price"}></RockHeading>
-<div className=" w-full h-70 p-5 scroller flex gap-5 sm:mb-10">
+<div className=" w-full h-70 pt-5 pb-5 scroller flex gap-5 sm:mb-10">
   {
-    indexPrice.length == 0 ? <div className="flex justify-center w-full h-full items-center text-gray-600">Loading...</div> : indexPrice.map((data ,key)=>(
+    indexPrice.length == 0 ? <div className="flex justify-center w-full h-full items-center text-gray-600">No price...</div> : indexPrice.map((data ,key)=>(
       <RockIndexCard data={data} key={key}></RockIndexCard>
     ))
   }
@@ -128,23 +130,25 @@ return(<>
 
 {/* personal pnl of rock team */}
 <RockHeading heading={"Monthly profits"}></RockHeading>
-<div className="mynetworthcart  w-full p-2 mb-25 sm:mb-5 flex justify-center items-center">
+<div className="mynetworthcart  w-full sm:mb-5 flex justify-center items-center">
     <MyNetWorth data={netWorthData}></MyNetWorth>
 </div>
 
 
 {/* rock post for update */}
 <Heading heading={"All Post"}></Heading>
-<div className="rockpost mt-10 h-100 mb-20 sm:mb-5 w-full flex p-3 scroller flex-col gap-5">
+<div className="rockpost mt-10 min-h-100 mb-20  sm:mb-5 w-full flex p-3 scroller flex-col gap-5">
 {
-  post.map((data , key)=>(
+  post.length === 0 ? <div className="w-full h-full  flex justify-center items-center"><p className="text-gray-700">No post...</p></div> : post.map((data , key)=>(
     <RockPostCard data={data} key={key}></RockPostCard>
-  ))
+  )) 
 }
 </div>
 
-<Footer></Footer>
+ {/* end */}
 
+</div>
+<Footer></Footer>
  
     
     </>)

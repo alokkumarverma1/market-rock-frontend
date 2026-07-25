@@ -93,7 +93,7 @@ function AddIndexDirection() {
           />
 
           <input
-            type="number"
+            type="text"
             placeholder="Current Price"
             className="border p-3 rounded-lg"
             value={indexPrice.price}

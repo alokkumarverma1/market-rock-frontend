@@ -10,7 +10,7 @@ function About() {
 
    {/* Hero Section */}
   <section className="px-5 sm:px-16">
-  <div className="relative overflow-hidden rounded-[40px] shape2 px-8 py-20 sm:px-16 shadow-lg">
+  <div className="relative overflow-hidden rounded-[40px] shape2 p-5   sm:px-16 shadow-lg">
     {/* Background Shapes */}
     <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-white/30"></div>
     <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-white/20"></div>
@@ -18,7 +18,7 @@ function About() {
       <span className="inline-block bg-white text-green-400 px-5 py-2 rounded-full text-sm font-semibold shadow">
         ABOUT MARKET ROCK
       </span>
-      <h1 className="text-5xl sm:text-7xl font-bold text-white mt-6">Learn. Analyze.<br /> Grow Together.</h1>
+      <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mt-6">Learn. Analyze.<br /> Grow Together.</h1>
 
       <p className="text-white/90 mt-6 text-lg max-w-3xl mx-auto leading-8">
         We help learners and investors understand the stock market through
@@ -30,19 +30,16 @@ function About() {
 
         {/* About */}
         <section className="px-5 sm:px-16 py-10">
-          <div className="bg-white border-2 border-green-300 rounded-3xl p-10 shadow-md">
-
-            <h2 className="text-3xl font-bold mb-6">
+          <div className="bg-white border-2 border-green-300 rounded-3xl p-5 shadow-md">
+            <h2 className="text-2xl font-bold mb-6">
               Who We Are
             </h2>
-
             <p className="text-gray-600 leading-8 text-lg">
               Our platform is built to make stock market education easy and
               accessible for everyone. We provide learning resources,
               market analysis, and educational content to help users grow
               their financial knowledge.
             </p>
-
           </div>
         </section>
 
@@ -75,7 +72,7 @@ function About() {
         {/* Features */}
         <section className="px-5 sm:px-16 py-10">
 
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-[25px] font-bold text-center mb-5">
             What We Offer
           </h2>
 

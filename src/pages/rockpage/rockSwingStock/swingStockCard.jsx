@@ -3,25 +3,24 @@ import { Link } from "react-router-dom";
 import { deleteStock } from "../../../firebase/services/rockService";
 import { useNavigate } from "react-router-dom";
 
-function SwingStockCard({data}) {
-
+function SwingStockCard({data}){
 const navigate = useNavigate();
 const deleteItem = async ()=>{
- const res = await deleteStock(data.stockName);
+ const res = await deleteStock(data.id);
  if(res == true){
+  console.log("delete success")
  navigate("/result" , {state:{code:200 , value:true , next:"/rock"}})
  }else{
  navigate("/result" , {state:{code:401 , value:false , next:"/rock"}})
  }
- 
 }
 
   return (
-    <div className="rockcard h-50 min-w-60 max-w-60 p-4 bg-green-100 text-black rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between border border-white/20">
+    <div className={`rockcard h-50 min-w-60 max-w-60 p-3  text-black rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between border border-white/20 ${parseInt(data.rockAnalysis.currentPrice) > parseInt(data.rockAnalysis.minTarget) ? "bg-red-200" : "bg-green-200"}`}>
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex mb-2 justify-between items-center">
         <h1 className="font-bold text-lg "></h1>
-        <div className="bg-white/20 w-full  backdrop-blur-sm h-8  rounded-full flex items-center justify-between flex-row-reverse">
+        <div className=" w-full  backdrop-blur-sm h-8  rounded-full flex items-center justify-between flex-row-reverse">
           <i className="fa-solid fa-chart-line  text-sm"></i>
           <i className="fa-solid fa-trash cursor-pointer" onClick={deleteItem}></i>
         </div>
@@ -44,7 +43,7 @@ const deleteItem = async ()=>{
         </p>
         <Link state={data}  to={"/swingStockDetails"}><p className="cursor-pointer"><i class="fa-solid fa-arrow-right"></i></p></Link>
 
-        <div className="border-t border-white/20 pt-1 flex justify-center">
+        <div className="border-t border-white/20 mb-2 flex justify-center">
           <p className="text-[10px]">
            {data.date}
           </p>

@@ -1,6 +1,6 @@
 import { auth, db } from "../firebase";
 import { getAuth , onAuthStateChanged } from "firebase/auth";
-import { doc , addDoc, getDocs,setDoc,collection,updateDoc ,deleteDoc } from "firebase/firestore";
+import { doc , addDoc,query, getDocs,setDoc,collection,updateDoc ,deleteDoc, orderBy } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 
 
@@ -9,14 +9,12 @@ import { serverTimestamp } from "firebase/firestore";
 
 
 //  rock swing stock add
-export const SwingStockService = async (swingstock) => {
+export const addSwingStockService = async (swingstock) => {
   try {
     await addDoc(collection(db, "swingstocks"), {
       ...swingstock,
       createdAt: serverTimestamp(),
     });
-
-    console.log("Success");
   } catch (error) {
     console.log(error.message);
   }
@@ -24,9 +22,14 @@ export const SwingStockService = async (swingstock) => {
 
 
 // get all swing stock stock function 
-export const AllSwingStocksService =async ()=>{
+export const getAllSwingStocksService =async ()=>{
 try{
-const querySnapshot = await getDocs(collection(db, "swingstocks"));
+ const q = query(
+      collection(db, "swingstocks"),
+      orderBy("createdAt", "desc")
+    );
+
+ const querySnapshot = await getDocs(q);
 const stocks = querySnapshot.docs.map((doc) => ({
   id: doc.id,
   ...doc.data(),
@@ -52,7 +55,6 @@ export const AddDirection = async (data)=>{
   try{
   const stockRef = await doc(db, "indexDirection", "1");  
   const res = await updateDoc(stockRef , data);
-  console.log("update")
   }catch(error){
     console.log("update is faild")
   }
@@ -62,7 +64,6 @@ export const AddDirection = async (data)=>{
 export const AddIndexPrice =  async(data)=>{
 try{
   const res = await addDoc(collection(db, "indexPrice"), {...data,  createdAt: serverTimestamp()});
-  console.log("success")
 }catch(error){
   console.log(error.message)
 }

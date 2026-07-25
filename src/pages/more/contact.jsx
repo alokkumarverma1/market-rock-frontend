@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../others/navbar";
+import Footer from "../others/footer";
 
 function Contact() {
   return (
@@ -12,15 +13,15 @@ function Contact() {
         <div className="max-w-7xl mx-auto shape2 rounded-3xl p-6 sm:p-10 mb-16 sm:mb-20">
 
           <span className="bg-white/90 font-semibold text-green-400 px-4 py-2 rounded-full text-xs sm:text-sm ">
-            Contact Us
+            CONTACT US
           </span>
 
-          <h1 className="text-3xl sm:text-5xl md:text-7xl text-white font-bold mt-5 sm:mt-6 leading-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl text-white sm:font-bold font-extrabold mt-5 sm:mt-6 leading-tight">
             Let's build something
             <span className="block sm:inline"> together.</span>
           </h1>
 
-          <p className="text-white/90 mt-4 sm:mt-6 max-w-2xl text-sm sm:text-lg leading-7 sm:leading-8">
+          <p className="text-white/90 mt-6 text-lg max-w-3xl mx-auto leading-8">
             Have questions, feedback, or business inquiries? Our team is
             always ready to help and connect with you.
           </p>
@@ -72,7 +73,7 @@ function Contact() {
           </div>
 
           {/* FORM */}
-          <div className="bg-white rounded-3xl sm:rounded-[40px] p-6 sm:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.08)]">
+          {/* <div className="bg-white rounded-3xl sm:rounded-[40px] p-6 sm:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.08)]">
 
             <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
               Send a message
@@ -113,11 +114,11 @@ function Contact() {
             />
             <button className="shape rounded-2xl text-white w-30 h-10 font-bold border border-white shadow-md text-[17px]">Send</button>
 
-          </div>
-
+          </div> */}
         </div>
 
       </div>
+      <Footer></Footer>
     </>
   );
 }

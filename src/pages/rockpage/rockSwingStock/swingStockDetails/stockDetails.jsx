@@ -14,11 +14,9 @@ const location = useLocation();
 const stock = location.state;
 
 
-
-
     return(<>
     <Navbar></Navbar>
-    <div className="swingstockdetails mt-15">
+    <div className="swingstockdetails mt-15 p-3">
      {/* about stock */}
      {/* <div className="about-stock">
 
@@ -78,17 +76,28 @@ const stock = location.state;
        <StockMiniData name={"eps"} data={stock.keyFactors.eps}></StockMiniData>
      </div>
 
-     {/* financial data */}
-     <RockHeading heading={"Financial revenue"}></RockHeading>
+    {/* financial area */}
+    <div className="financial-area flex-col flex  sm:flex-row w-full justify-around ">
+
+      {/* revenue data */}
+    <div className="revenue-data w-full sm:w-[40%] ">
+      <RockHeading heading={"Financial revenue"}></RockHeading>
      <div className="financial-data min-h-40 w-full p-2">
-      <StockFinanceChart year={stock.year} revenue={stock.profit}></StockFinanceChart>
+      <StockFinanceChart year={stock.year} revenue={stock.profit} profitType={stock.profitType}></StockFinanceChart>
      </div>
+    </div>
      
      {/* holding statement */}
-     <RockHeading heading={"Holding data"}></RockHeading>
-     <div className="holding-data h-80 w-full">
+    <div className="holding-data  w-full sm:w-[40%] mt-10 sm:m-0">
+      <RockHeading heading={"Holding data"}></RockHeading>
+      <div className="holding-data h-60 w-full">
+      {console.log(stock.holding)}
       <StockHoldings holding={stock.holding}></StockHoldings>
-     </div>
+    </div>
+
+    </div>
+
+    </div>
      
      {/* disclamer */}
     <div className="disclamer bor min-h-30 w-full text-center p-2 mb-20">
