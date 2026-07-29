@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../others/navbar";
 import { AddDirection } from "../../firebase/services/rockService";
 import { AddIndexPrice } from "../../firebase/services/rockService";
@@ -23,7 +23,9 @@ function AddIndexDirection() {
     maxTarget:"",
     time: "",
     date: "",
+    result:"",
   });
+
 
   // Add Overall Index Direction
   const IndexDirection = async (e) => {
@@ -38,17 +40,26 @@ function AddIndexDirection() {
 
   };
 
+
+  // current date and time 
+
+   let update = async ()=>{
+    let d = new Date();
+    setIndexPrice({...indexPrice,time: d.toLocaleTimeString(),date: d.toLocaleDateString()})   
+  }
+
+
   // Add Trending Price
   const addTrendingPrice = async (e) => {
     e.preventDefault();
     try{
     const res = await AddIndexPrice(indexPrice);
     navigate("/result" , {state:{code:200 , value:true , next:"/rock"}})
-    }catch(erroe){
-     console.log(error.message)   
+    }catch(error){
     navigate("/result" , {state:{code:400 , value:false , next:"/rock"}})
     }
   };
+
 
   return (<>
     <Navbar></Navbar>
@@ -69,32 +80,24 @@ function AddIndexDirection() {
       </div>
 
 
-      {/* Trending Index Price */}
+      {/* add Trending Index Price */}
+
       <div className="bg-white shadow rounded-xl p-6">
         <h2 className="text-2xl font-bold mb-5">
           Trending Index Price
         </h2>
 
-        <form
-          onSubmit={addTrendingPrice}
-          className="grid md:grid-cols-2 gap-4"
-        >
-          <input
-            type="text"
-            placeholder="Index Name"
-            className="border p-3 rounded-lg"
-            value={indexPrice.name}
-            onChange={(e) =>
-              setIndexPrice({
-                ...indexPrice,
-                name: e.target.value,
-              })
-            }
-          />
+        <form onSubmit={addTrendingPrice} className="grid md:grid-cols-2 gap-4">
+
+          <select  className="border p-3 rounded-lg" value={indexPrice.name} onChange={(e)=> setIndexPrice({...indexPrice,name:e.target.value})}>
+            <option value="Banknifty">Index name</option>
+            <option value="Banknifty">Banknfty</option>
+            <option value="Nifty">Nifty</option>
+          </select>
 
           <input
             type="text"
-            placeholder="Current Price"
+            placeholder="index price"
             className="border p-3 rounded-lg"
             value={indexPrice.price}
             onChange={(e) =>
@@ -171,31 +174,8 @@ function AddIndexDirection() {
             <option value="put">put</option>
           </select>
 
-          <input
-            type="time"
-            className="border p-3 rounded-lg"
-            value={indexPrice.time}
-            onChange={(e) =>
-              setIndexPrice({
-                ...indexPrice,
-                time: e.target.value,
-              })
-            }
-          />
 
-          <input
-            type="date"
-            className="border p-3 rounded-lg md:col-span-2"
-            value={indexPrice.date}
-            onChange={(e) =>
-              setIndexPrice({
-                ...indexPrice,
-                date: e.target.value,
-              })
-            }
-          />
-
-          <button className="shape text-white py-3 rounded-lg md:col-span-2" >
+          <button className="shape text-white py-3 rounded-lg md:col-span-2"  onClick={update}>
             Save Index Price
           </button>
         </form>

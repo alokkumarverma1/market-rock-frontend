@@ -72,7 +72,8 @@ try{
 // get all index price
 export const AllIndexPrice =async ()=>{
 try{
-const querySnapshot = await getDocs(collection(db, "indexPrice"));
+  const q = query(collection(db, "indexPrice"),orderBy("createdAt", "desc"));
+const querySnapshot = await getDocs(q);
 if(querySnapshot == null) return null;
 const prices = querySnapshot.docs.map((doc) => ({
   id: doc.id,
@@ -84,6 +85,16 @@ console.log(error.message)
 }
 }
 
+// update index result 
+export const updateIndexResult = async(id ,data)=>{
+  try{
+    const docRef = doc(db, "indexPrice", id);
+   await updateDoc(docRef , {result: data});
+   return true;
+  }catch(error){
+  return error.message;
+  }
+}
 
 // add ipos 
 

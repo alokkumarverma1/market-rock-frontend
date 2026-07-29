@@ -106,15 +106,18 @@ return(<>
 </div> */}
 
 <div className="index-chart h-70 sm:h-100  mb-20 sm:mb-0 mt-2 w-full">
-<IndexPredection vlaue={"60"}></IndexPredection>
+<IndexPredection vlaue={"90"}></IndexPredection>
 </div>
 
 
 {/* rock index card */}
 <RockHeading heading={"Today tagete price"}></RockHeading>
-<div className=" w-full h-70 pt-5 pb-5 scroller flex gap-5 sm:mb-10">
+<div className="month-pnl h-10  w-full gap-10 flex justify-center items-center sm:w-50 shadow-md rounded-2xl">
+<p>Month P&L - </p> <p> 80%</p>
+</div>
+<div className=" w-full min-h-50 pt-5 pb-5 scroller flex gap-5 sm:mb-10">
   {
-    indexPrice.length == 0 ? <div className="flex justify-center w-full h-full items-center text-gray-600">No price...</div> : indexPrice.map((data ,key)=>(
+    indexPrice.length == 0 ? <div className="flex justify-center w-full h-full items-center text-gray-600">No Trades...</div> : indexPrice.map((data ,key)=>(
       <RockIndexCard data={data} key={key}></RockIndexCard>
     ))
   }

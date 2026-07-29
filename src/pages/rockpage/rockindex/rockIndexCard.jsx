@@ -1,79 +1,88 @@
 import React from "react";
+import { FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-function RockIndexCard({data}) {
-
-
+function RockIndexCard({ data }) {
+  console.log(data)
   const isCall = data.direction === "call";
+  const res = data.result === "";
+  const result = data.result >= 0;
 
   return (
-<div
-  className={`w-64 rounded-2xl min-w-60 max-w-60 h-60 p-3 shadow-md hover:shadow-xl transition-all duration-300
-  ${isCall ? "bg-green-100" : "bg-red-50" }`}>
-  {/* Header */}
-  <div className="flex justify-between items-center">
-    <div className="bg-white px-2 py-1 rounded-full shadow">
-      <h2 className="font-semibold text-xs">{data.name}</h2>
-    </div>
+    <div className={`w-64 min-w-60 relative max-w-60 h-75 pt-2 py-3 px-2 rounded-2xl border shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300
+      ${ isCall ? "bg-green-50 border-green-200" : "bg-red-50 border-red-200" }`}>
+        {/*edit icon  */}
+        <Link to={"/addResult"} state={data.id}><p className=" absolute top-2 left-30 cursor-pointer"><FaEdit></FaEdit></p></Link>
+      {/* Header */}
+      <div className="flex justify-between items-center">
+        <div className="bg-white px-3 py-1 rounded-full shadow-sm">
+          <h2 className="font-semibold text-xs tracking-wide"> {data.name}</h2>
+        </div>
 
-    <div className="w-8 h-8 rounded-full bg-white shadow flex justify-center items-center">
-      <i className="fa-solid fa-chart-line text-sm"></i>
-    </div>
-  </div>
-
-  {/* Price */}
-  <div className="mt-3 flex justify-between items-center">
-    <h1 className="text-xl font-bold">{data.price}</h1>
-
-    <span
-      className={`px-3 py-1 rounded-full text-[10px] font-semibold text-white ${
-        isCall ? "bg-green-600" : "bg-red-600"
-      }`}
-    >
-      {data.direction.toUpperCase()}
-    </span>
-  </div>
-
-  {/* Trade Details */}
-  <div className="mt-3 bg-white rounded-xl p-2 shadow">
-    <div className="grid grid-cols-2 gap-2">
-
-      <div className="bg-red-50 h-8 flex justify-start items-center rounded-lg p-2">
-        <p className="text-[10px] text-gray-500 pr-3">sl - </p>
-        <h3 className="font-bold text-sm">{data.sl}</h3>
+        <span className={`px-3 py-1 rounded-full text-[10px] font-bold text-white shadow-sm
+          ${isCall ? "bg-green-600" : "bg-red-600"}`}>
+          {data.direction.toUpperCase()}
+        </span>
       </div>
 
-      
-      <div className="bg-w bg-blue-50 h-8 flex justify-start items-center rounded-lg p-2">
-        <p className="text-[10px] text-gray-500 pr-3">Entry - </p>
-        <h3 className="font-bold text-sm">{data.entry}</h3>
+      {/* Trade Data */}
+      <div className="h-48 bg-white rounded-2xl border border-gray-100 shadow-sm mt-3 p-2">
+
+        {/* Price */}
+        <div className={`h-9 flex justify-center gap-3 items-center rounded-lg font-medium
+          ${isCall ? "bg-green-50" : "bg-red-50"}`}>
+            <p>price - </p>
+          <p>{data.price} </p>
+        </div>
+
+        {/* Other Details */}
+        <div className="grid grid-cols-2 gap-2 mt-2">
+          <div className="h-9 flex bg-red-100 justify-center items-center rounded-lg">
+            <p className="text-[12px]"> <span className="text-gray-500">sl - </span>{data.sl}</p>
+          </div>
+
+          <div className="h-9 flex bg-blue-100 justify-center items-center rounded-lg">
+            <p className="text-[12px]"> <span className="text-gray-500">en - </span>{data.entry}</p>
+          </div>
+
+          <div className="h-9 flex bg-green-100 justify-center items-center rounded-lg">
+            <p className="text-[12px]"> <span className="text-gray-500">minT - </span>{data.minTarget}</p>
+          </div>
+
+          <div className="h-9 flex bg-red-100 justify-center items-center rounded-lg">
+            <p className="text-[12px]"> <span className="text-gray-500">maxT - </span>{data.maxTarget}</p>
+          </div>
+
+        </div>
+
+        {/* Result */}
+        {
+          res ? 
+           <div className="mt-3 h-10 bg-gray-200 rounded-lg flex justify-center items-center font-semibold shadow-sm">
+           result wait ...
+        </div> 
+        :
+         <div className={`mt-3 h-10 rounded-lg flex justify-center items-center font-semibold shadow-sm
+          ${ result ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>
+          result {data.result} % 
+        </div>
+
+
+        }
+    
       </div>
 
-      
-      <div className="bg-green-50 h-8 flex justify-start items-center rounded-lg p-2">
-        <p className="text-[10px] text-gray-500 pr-3">min - </p>
-        <h3 className="font-bold text-sm">{data.minTarget}</h3>
+      {/* Footer */}
+      <div className="mt-3">
+        <div className="flex justify-between text-[10px] text-gray-500">
+          <span>{data.date}</span>
+          <span>{data.time}</span>
+        </div>
+        <p className="text-[8px] text-center text-gray-400 mt-2 leading-3">
+          Educational purposes only. Please trade at your own risk.
+        </p>
       </div>
-
-      
-      <div className="bg-green-50 h-8 flex justify-start items-center rounded-lg p-2">
-        <p className="text-[10px] text-gray-500 pr-3">max - </p>
-        <h3 className="font-bold text-sm">{data.maxTarget}</h3>
-      </div>
-
     </div>
-  </div>
-
-  {/* Footer */}
-  <div className="mt-3">
-    <div className=" flex justify-between pb-2 text-[10px] text-gray-600">
-      <span>{data.date}</span>
-      <span>{data.time}</span>
-    </div>
-     <p className="text-[7px] text-center text-gray-600 leading-3">
-    Educational purposes only. Please trade at your own risk.
-    </p>
-  </div>
-</div>
   );
 }
 

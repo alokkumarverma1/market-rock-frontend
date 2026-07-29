@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { db } from "../../../firebase/firebase";
 import { getDoc , doc } from "firebase/firestore";
 
-function IndexPredection() {
+function IndexPredection({value}) {
 
  const [indexDirection , setIndexdirection ] = useState({direction:0}) 
 
@@ -11,7 +11,7 @@ useEffect(()=>{
 // get index drection 
 const indexDirectionData = async ()=>{
   try{
-    const docRef =await doc(db, "indexDirection", "1");
+   const docRef =await doc(db, "indexDirection", "1");
   const docSnap = await getDoc(docRef);
   const data = docSnap.data();
   setIndexdirection(data)
@@ -59,8 +59,7 @@ indexDirectionData();
             </text>
           </svg>
 
-          {/* Needle */}
-         {/* Needle */}
+  {/* Needle */}
  <motion.div animate={{ rotate: angle }}
   transition={{duration: 1, type: "spring", stiffness: 90,  damping: 12,}}
   className="absolute left-1/2 bottom-[19%] origin-bottom z-20"
@@ -71,7 +70,7 @@ indexDirectionData();
     {/* Needle */}
     <div className="w-1 sm:w-1.5 h-[38vw] max-h-[10px] min-h-[90px] bg-slate-900 rounded-full shadow-lg" />
   </div>
-</motion.div>
+ </motion.div>
 
           {/* Center Dot */}
          <div className="absolute left-1/2 bottom-[13%] -translate-x-1/2 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-900 border-4 border-white shadow-lg"/>
@@ -81,9 +80,12 @@ indexDirectionData();
          </div>
 
         {/* Percentage */}
-        <div className="text-center bg-white h-15 shadow-xl border border-green-300 rounded-2xl flex gap-2 justify-center items-center mt-4">
+        <div className="text-center flex flex-col bg-white h-15 shadow-xl border border-green-300 rounded-2xl  justify-center items-center mt-4">
+        <div className="flex gap-2">
           <h1 className="text-[17px] font-bold">{Math.abs(score)}%</h1>
           <p className={` text-[17px] font-semibold ${sentimentColor}`}>{sentiment}</p>
+        </div>
+        <p className="text-[10px]">{indexDirection.date}</p>
         </div>
       </div>
     </div>

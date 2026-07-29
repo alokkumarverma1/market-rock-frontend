@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { useEffect } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router-dom'
 import Home from './pages/homepage/home'
@@ -22,10 +23,14 @@ import AddSwingStock from './pages/admin/addStock'
 import AddIndexDirection from './pages/admin/addIndexDirection'
 import AddPost from './pages/admin/addPost'
 import LivePage from './pages/learn/dailyLive/livePage'
+import { ImageOff } from 'lucide-react'
+import UpdateIndexResult from './pages/admin/updateIndexResult'
 
 
 function App() {
  
+
+
   const router = createBrowserRouter([
 
     // home page
@@ -98,6 +103,11 @@ function App() {
       path:"/addIndexDirection",
       element:<><AddIndexDirection></AddIndexDirection></>
     },
+    {
+      path:"/addResult",
+      element:<><UpdateIndexResult></UpdateIndexResult></>
+    },
+
       {
       path:"/addPost",
       element:<><AddPost></AddPost></>
