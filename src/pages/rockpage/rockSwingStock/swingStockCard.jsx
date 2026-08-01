@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function SwingStockCard({data}){
 const navigate = useNavigate();
+
 const deleteItem = async ()=>{
  const res = await deleteStock(data.id);
  if(res == true){

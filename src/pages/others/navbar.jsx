@@ -5,6 +5,8 @@ import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { userProfileData } from "../../firebase/services/profileService";
 import { RiVipDiamondFill } from "react-icons/ri";
+import { FaGraduationCap } from "react-icons/fa";
+import { LuNotebookPen } from "react-icons/lu";
 
 
 function Navbar(){
@@ -18,9 +20,8 @@ function Navbar(){
         setShow(!show);
     }
 
-    // chek user login or not 
+ // chek user login or not 
  useEffect(() => {
-
   const auth = getAuth();
   const unsubscribe = onAuthStateChanged(auth,async (user) => {
     if (user) {
@@ -33,7 +34,6 @@ function Navbar(){
   });
 
 // get user auth
-
   return () => unsubscribe();
 }, []);
 
@@ -63,7 +63,9 @@ function Navbar(){
         </div>
         <li  className="cursor-pointer   rounded-2xl w-full hover:bg-gray-100 p-1 h-9 sm:w-20"><Link to={"/"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <i class="fa-solid fa-house font-serif"></i><span>Home</span> </Link></li>
         <li  className="cursor-pointer  rounded-2xl w-full hover:bg-gray-100 p-1 h-9 sm:w-20"><Link to={"/rock"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <RiVipDiamondFill className=" text-[20px]" /><span>Rock</span> </Link></li>
-        <li  className="cursor-pointer rounded-2xl w-full hover:bg-gray-100 p-1 h-9 sm:w-20"><Link to={"/learn"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <i class="fa-solid fa-book-open"></i><span>Learn</span> </Link></li>
+        <li  className="cursor-pointer rounded-2xl w-full hover:bg-gray-100 p-1 h-9 sm:w-20"><Link to={"/journal"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <i class="fa-solid fa-book-open"></i><span>Journal</span> </Link></li>
+        <li  className="cursor-pointer rounded-2xl w-full hover:bg-gray-100 p-1 h-9 sm:w-20"><Link to={"/learn"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <FaGraduationCap size={22} /><span>Learn</span> </Link></li>
+
         <div className={`moreOption  relative  rounded-2xl hover:bg-gray-100 p-1 h-9 w-40  sm:w-20 `}>
         <li  className={`moreOption  cursor-pointer  rounded-2xl flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full `}> <i class="fa-solid fa-ellipsis-vertical"></i>More</li>
             <div className="other-option bg-white absolute  top-6 -left-1 min-h-30 w-40 rounded-2xl shadow-md ">

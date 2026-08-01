@@ -25,6 +25,7 @@ import AddPost from './pages/admin/addPost'
 import LivePage from './pages/learn/dailyLive/livePage'
 import { ImageOff } from 'lucide-react'
 import UpdateIndexResult from './pages/admin/updateIndexResult'
+import Journal from './pages/trade-journal/Journal'
 
 
 function App() {
@@ -62,6 +63,11 @@ function App() {
       element:<><IpoDetails></IpoDetails></>
     },
 
+    // general section 
+     {
+      path:"/journal",
+      element:<><Journal></Journal></>
+     },
 
     // learn section 
     {

@@ -87,6 +87,11 @@ return(<>
 
 {/* swing stock suggestion section  */}
 <RockHeading heading={"Swing Stock"}></RockHeading>
+
+<div className="swing-search w-full h-9 mb-2 ">
+<input type="text" name="" className="w-full h-full rounded-[10px] outline-none bg-gray-100 p-3" placeholder="serch stock" />
+</div>
+
 <div className="stocks  scroller h-60 gap-7 pt-5 pb-5 ">
   {swingstock.length == 0 ? <div className="h-full w-full flex justify-center items-center text-gray-500"><p>No stock..</p></div>:
     swingstock.map((data , key)=>(
@@ -96,15 +101,8 @@ return(<>
 </div>
 <RightArrow></RightArrow>
 
-
-{/* index suggestion section  */}
-<RockHeading heading={"Today index anlaysis"}></RockHeading>
-{/* <div className="all-index w-full mb-10 flex p-3 gap-2 scroller">
-     <div className="factor h-15 min-w-30 border-green-300 border flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">BANKNIFTY</h1><p className="font-extralight">58700</p></div>
-     <div className="factor h-15 min-w-30 border-green-300 border flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">NIFTY</h1><p className="font-extralight">26400</p></div>
-     <div className="factor h-15 min-w-30 border-green-300 border flex flex-col justify-center items-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-75"><h1 className="text-[12px]">SENSEX</h1><p className="font-extralight">68500</p></div>
-</div> */}
-
+{/* index predection */}
+<RockHeading heading={"Index prediction"}></RockHeading>
 <div className="index-chart h-70 sm:h-100  mb-20 sm:mb-0 mt-2 w-full">
 <IndexPredection vlaue={"90"}></IndexPredection>
 </div>
@@ -112,10 +110,10 @@ return(<>
 
 {/* rock index card */}
 <RockHeading heading={"Today tagete price"}></RockHeading>
-<div className="month-pnl h-10  w-full gap-10 flex justify-center items-center sm:w-50 shadow-md rounded-2xl">
-<p>Month P&L - </p> <p> 80%</p>
-</div>
-<div className=" w-full min-h-50 pt-5 pb-5 scroller flex gap-5 sm:mb-10">
+ {/* <div className="month-pnl mt-2  h-10  w-full gap-10 flex justify-center items-center sm:w-50 shadow-md border border-gray-300 rounded-2xl">
+   <p className="text-[13px]">Month P&L - </p> <p className="font-semibold"> 80%</p>
+ </div> */}
+ <div className=" w-full min-h-50 pt-5 pb-5 scroller flex gap-5 sm:mb-10">
   {
     indexPrice.length == 0 ? <div className="flex justify-center w-full h-full items-center text-gray-600">No Trades...</div> : indexPrice.map((data ,key)=>(
       <RockIndexCard data={data} key={key}></RockIndexCard>
