@@ -1,21 +1,51 @@
-import { BsGraphUpArrow } from "react-icons/bs";
+import {
+  BsGraphUpArrow,
+  BsBullseye,
+  BsCheckCircleFill,
+  BsXCircleFill,
+} from "react-icons/bs";
+import { FaChartLine } from "react-icons/fa";
 
 function StrategyCard() {
   return (
-    <>
-    <div className="strategy-card border border-green-500 p-3 h-50 transition-shadow duration-100 min-w-65 max-w-80 rounded-2xl shadow-md hover:shadow-xl">
-    <h1 className="text-[20px] font-light">BreakDown strategy</h1>
-    <p className="text-[13px]">strategy tyep</p>
-    <div className="data grid h-20 w-full mt-5 grid-cols-2 gap-1">
-        <div className="vlaue rounded-[10px] text-blue-600 bg-blue-100 flex gap-1 justify-center items-center"><p className=" text-[11px]">Trade - </p><h1 className="text-[16px]">300</h1></div>
-        <div className="vlaue rounded-[10px] text-green-500 bg-green-100 flex gap-1 justify-center items-center"><p className=" text-[11px]">Win - </p><h1 className="text-[18px]">300</h1></div>
-        <div className="vlaue rounded-[10px] text-red-500 bg-red-100 flex gap-1 justify-center items-center"><p className=" text-[11px]">Loss - </p><h1 className="text-[18px]">300</h1></div>
-        <div className="vlaue rounded-[10px] bg-green-100 flex gap-1 justify-center items-center"><p className="text-gray-400 text-[11px]">Acuracy - </p><h1 className="text-[18px]">70%</h1></div>  
-    </div>
+    <div className="bg-white min-w-65 max-w-80 min-h-52 rounded-2xl border border-gray-200 p-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+      <div className="flex items-center justify-between flex-col">
+          <h1 className="text-[18px] font-bold text-gray-800">BreakDown Strategy</h1>
+          <p className="text-[12px] text-gray-500 mt-0.5">Intraday Strategy</p>
+      </div>
 
+      {/* Stats */}
+      <div className="grid grid-cols-2 grid-rows-2 gap-2 mt-2">
+        <div className="rounded-xl border border-blue-100 bg-blue-50 p-2">
+          <div className="flex items-center gap-1 text-blue-600 text-[11px] font-medium">
+            <FaChartLine size={12} /><span>Trades</span>
+          </div>
+          <h2 className="text-[18px] font-bold text-gray-800"> 300</h2>
+        </div>
 
+        <div className="rounded-xl border border-green-100 bg-green-50 p-2">
+          <div className="flex items-center gap-1 text-green-600 text-[11px] font-medium">
+            <BsCheckCircleFill size={12} /> <span>Wins</span>
+          </div>
+          <h2 className="text-[18px] font-bold text-gray-800 mt-1">  170</h2>
+        </div>
+
+        <div className="rounded-xl border border-red-100 bg-red-50 p-2">
+          <div className="flex items-center gap-1 text-red-600 text-[11px] font-medium">
+            <BsXCircleFill size={12} /> <span>Losses</span>
+          </div>
+          <h2 className="text-[18px] font-bold text-gray-800 mt-1">130</h2>
+        </div>
+
+        <div className="rounded-xl border border-emerald-100 bg-emerald-50 p-2">
+          <div className="flex items-center gap-1 text-emerald-600 text-[11px] font-medium">
+            <BsBullseye size={12} /> <span>Accuracy</span>
+          </div>
+          <h2 className="text-[18px] font-bold text-gray-800 mt-1"> 70%</h2>
+        </div>
+
+      </div>
     </div>
-    </>
   );
 }
 

@@ -28,7 +28,7 @@ function StockFinanceChart({year , revenue , profitType}) {
       <div className="w-full h-50">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
-            <XAxis dataKey="year" tick={{ fontSize: 10 }}/>
+           <XAxis dataKey="year" tick={{ fontSize: 10 }}/>
            <Bar dataKey="revenue" fill="#86efac" radius={[6, 6, 0, 0]}>
            <LabelList dataKey="revenue" style={{ fontSize: "13px" }}  position="top" formatter={(value) => `${value} ${profitType.type}`}/>
           </Bar>
