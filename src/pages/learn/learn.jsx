@@ -48,17 +48,18 @@ function Learn(){
 
     {/* free resource */}
  <RockHeading heading={"Free resource"}></RockHeading>
-  <div className="grid scroller pt-5 pb-5  gap-4">
-  <FreeVideoCard />
-  <FreeVideoCard />
-  <FreeVideoCard />
-  <FreeVideoCard />
-
+  <div className="flex justify-start items-start scroller pt-5 pb-5  gap-4">
+  <FreeVideoCard id={"r2LzjTUs3lo"} title={"Support resistance"} channel={"pushkar raj thakur"} />
+  <FreeVideoCard id={"ZsKGhc0AXKs"} title={"Candilastic patter"} channel={"neeraj joshi"}></FreeVideoCard>
+  <FreeVideoCard id={"L2OochgcO3E"} title={"Price action"} channel={"trade with purab"}></FreeVideoCard>
+  <FreeVideoCard id={"OVs1Tj2y4Eg"} title={"Risk reward"} channel={"stock learners"}></FreeVideoCard>
+  <FreeVideoCard id={"mazWDsIf2Cg"} title={"Trading psychology"} channel={"a digital bloger"}></FreeVideoCard>
   </div>
    <RightArrow></RightArrow>
     </div>
      <Footer></Footer>
     </>)
+ 
 }
 
 export default Learn;

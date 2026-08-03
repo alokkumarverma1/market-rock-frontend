@@ -9,6 +9,7 @@ import {
   BsGraphUpArrow,       // Profit
   BsGraphDownArrow,     // Loss
 } from "react-icons/bs";
+import Footer from "../others/footer";
 
 
 function Journal(){
@@ -134,16 +135,10 @@ function Journal(){
      </div>
 
 
-
-
-   {/* extra */}
-    <div className="extra h-40  w-full"></div>
-
-
-
-
         
     </div>
+    
+    <Footer></Footer>
     </>)
 }
 

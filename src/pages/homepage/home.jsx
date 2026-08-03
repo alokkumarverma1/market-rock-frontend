@@ -6,70 +6,67 @@ import Footer from "../others/footer";
 import ReviewCard from "./reviewCard";
 import IndexPredection from "../rockpage/rockindex/IndexPredection";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { FaInstagram, FaYoutube, FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
-import {
-  BookOpen,
-  ChartCandlestick,
-  ShieldCheck,
-  MessageCircleMore,
-} from "lucide-react";
-
+import {BookOpen,ChartCandlestick,ShieldCheck,MessageCircleMore,} from "lucide-react";
+import HeroSection from "./hero-section";
 
 
 function Home(){
     return(<>
     <Navbar></Navbar>
-<div className="home-page min-h-screen w-full pl-3 pr-3">
+<div className="home-page min-h-screen w-full bg-gray-50  dark:bg-black dark:text-white">
   {/* hero section */}
-  <div className="relative h-screen  flex lg:flex-row justify-center md:justify-around  flex-col-reverse items-center w-full overflow-hidden">
-    {/* LEFT SECTION */}
-    <div className="first mt-20   w-full lg:w-137.5 p-2 lg:p-10 text-center lg:text-left">
-      <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-1 sm:mb-5 font-bold metal-green">MARKET ROCK</h1>
-      <p className="text-sm md:text-base">
-       Learn the stock market with confidence. Access real-time market insights, educational resources, and practical analysis designed to help beginners and experienced traders make informed investment decisions.
-      </p>
-       <Link to={"/rock"}> <button className="h-10 font-semibold cursor-pointer w-28 text-white shape rounded-2xl mt-5 shadow-md shadow-gray-300 border border-white">Start</button></Link>
-      <div className="iconsarea border border-green-300 mt-8 flex justify-around items-center text-green-700 text-[20px]  h-10  sm:mt-10 sm:w-50  rounded-2xl w-full">  
-        <a href="https://www.instagram.com/marketrock_1?igsh=MWZzZTNzY3pjeWRmNQ==" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
-        <FaInstagram size={22} />
-        </a>
-        <a href="https://youtube.com/@marketrock_10?si=guJ4S88WxXnmSMPL" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
-        <FaYoutube size={22} />
-        </a>
-        <a href="https://whatsapp.com/channel/0029VbD4jLZFcow8sZIyAq0x" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
-        <FaWhatsapp size={22} />
-        </a>
-        <a href="https://t.me/traderx55" className="text-green-700 hover:text-green-500 hover:scale-110 transition-all duration-300">
-        <FaTelegramPlane size={22} />
-        </a>
-      </div>
-  </div>
+   <HeroSection></HeroSection>
 
-    {/* RIGHT SECTION */}
-<div className="secend mt-10 relative flex justify-center items-center">
-  {/* Outer Ring */}
-  <div className="outer-circle sm:h-60 sm:w-60 h-50 w-50 md:h-70 md:w-70 lg:h-[300px] lg:w-[300px] rounded-full flex justify-center items-center">
-    {/* Middle Ring */}
-    <div className="middle-circle h-[85%] w-[85%] rounded-full flex justify-center items-center">
-      {/* Inner Ring */}
-      <div className="inner-circle h-[85%] w-[85%] rounded-full flex  justify-center items-center relative z-20">
-        <img src="logo.png" alt="" className="mt-9"/>
+  {/* icon area */}
+ <div className="icon-area mb-10 w-full max-w-xl mx-auto px-4">
+      <div className="bg-white border flex-col sm:flex-row border-slate-200/80 shadow-lg shadow-slate-200/50 rounded-2xl p-3.5 sm:p-4 flex items-center justify-between gap-3 backdrop-blur-md">
+        
+        {/* Text Section */}
+        <div className="text-left">
+          <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-600">
+            Join Community
+          </p>
+          <p className="text-slate-800 text-xs sm:text-sm font-semibold">
+            Connect with Traders
+          </p>
+        </div>
+
+        {/* Social Icons Section */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          
+          {/* WhatsApp */}
+          <a href="https://whatsapp.com" target="_blank" rel="noreferrer"aria-label="WhatsApp Community"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-all duration-200 transform hover:-translate-y-1 active:scale-95 shadow-xs">
+            <FaWhatsapp className="text-xl sm:text-2xl" />
+          </a>
+
+          {/* Instagram */}
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram Profile"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-pink-50 border border-pink-100 text-pink-600 flex items-center justify-center hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 hover:text-white transition-all duration-200 transform hover:-translate-y-1 active:scale-95 shadow-xs" >
+            <FaInstagram className="text-xl sm:text-2xl" />
+          </a>
+
+          {/* YouTube */}
+          <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube Channel"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center hover:bg-red-600 hover:text-white transition-all duration-200 transform hover:-translate-y-1 active:scale-95 shadow-xs">
+            <FaYoutube className="text-xl sm:text-2xl" />
+          </a>
+
+         <a  href="https://t.me/yourchannel" target="_blank" rel="noreferrer" aria-label="Telegram Channel"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sky-50 border border-sky-100 text-sky-500 flex items-center justify-center hover:bg-sky-500 hover:text-white transition-all duration-200 transform hover:-translate-y-1 active:scale-95 shadow-xs">
+            <FaTelegramPlane className="text-lg sm:text-xl pr-0.5" />
+          </a>
+
+        </div>
+
       </div>
     </div>
-  </div>
-</div>
-  </div>
 
-
-
-     {/* other section  */}
-    <div className="cardsection h-40 mb-10 gap-2 w-full flex justify-around items-start">
-    <Homecard  number={"100+"} data={"Active user"}></Homecard>
-    <Homecard number={"23%"} data={"Grow last year"}></Homecard>
-    <Homecard number={"#1"} data={"Stock market learning"}></Homecard>
-    </div>
-
-
+  {/* other content */}
+  <div className="other-content w-full px-3">
+    
 {/* rock ai section  */}
 <div className="relative w-[90%] border-gray-200 shadow-md h-44 m-auto  rounded-2xl overflow-hidden">
   {/* animated border */}
@@ -90,11 +87,12 @@ function Home(){
   </div>
 </div>
 
+
 {/* Learn Section */}
 <Heading heading={"First invest your time, not money"} />
-    <div className="grid md:grid-cols-2 gap-6 ">
+    <div className="grid md:grid-cols-2 gap-6  ">
       {/* Card 1 */}
-      <div className="group bg-white border border-green-300 rounded-3xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+      <div className="group bg-linear-to-br from-green-100 via-white to-white rounded-3xl p-7 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
         <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
           <BookOpen size={30} className="text-green-700" />
         </div>
@@ -106,7 +104,7 @@ function Home(){
       </div>
 
       {/* Card 2 */}
-      <div className="group bg-white border border-green-300 rounded-3xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+      <div className="group bg-white rounded-3xl p-7 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
         <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
           <ChartCandlestick size={30} className="text-green-700" />
         </div>
@@ -118,7 +116,7 @@ function Home(){
       </div>
 
       {/* Card 3 */}
-      <div className="group bg-white border border-green-300 rounded-3xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+      <div className="group bg-white  rounded-3xl p-7 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
         <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
           <ShieldCheck size={30} className="text-green-700" />
         </div>
@@ -130,7 +128,7 @@ function Home(){
       </div>
 
       {/* Card 4 */}
-      <div className="group bg-white border border-green-300 rounded-3xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+      <div className="group bg-white  rounded-3xl p-7 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
         <div className="h-14 w-14 rounded-2xl bg-green-300/20 flex items-center justify-center mb-5 group-hover:bg-green-300 transition">
           <MessageCircleMore size={30} className="text-green-700" />
         </div>
@@ -144,7 +142,7 @@ function Home(){
 
   {/* cirtificate area */}
   <Heading heading={"Learn & Get Certified"}></Heading>   
-  <div className="certificate min-h-90 border shadow-md border-green-300  mb-10 rounded-2xl p-1 minh-90 w-full flex sm:flex-row flex-col gap-5 justify-around items-center">
+  <div className="certificate min-h-90  shadow-md bg-white  mb-10 rounded-2xl p-1 minh-90 w-full flex sm:flex-row flex-col gap-5 justify-around items-center">
    {/* left side */}
  <div className="left w-full  sm:w-1/2 flex flex-col gap-4 p-2 rounded-2xl bg-white">
   <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-100 hover:bg-gray-100 transition">
@@ -223,6 +221,8 @@ function Home(){
       </div>
 
 
+
+  </div>
 </div>
       {/* footer */}
       <Footer></Footer>

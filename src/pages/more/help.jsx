@@ -11,6 +11,7 @@ import {
   CreditCard,
   ChevronDown,
 } from "lucide-react";
+import Footer from "../others/footer";
 
 function Help() {
   const [open, setOpen] = useState(null);
@@ -139,6 +140,7 @@ function Help() {
           </div>
 </section>
       </div>
+      <Footer></Footer>
     </>
   );
 }
