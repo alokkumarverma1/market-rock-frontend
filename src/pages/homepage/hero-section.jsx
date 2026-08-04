@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <div className="relative  bg-white w-full flex items-center justify-center overflow-hidden  dark:bg-black dark:text-white text-slate-900 pt-16 pb-12">
+    <div className="relative  bg-gray-50 dark:bg-black dark:text-white  w-full flex items-center justify-center overflow-hidden   pt-16 pb-12">
       
       {/* Background Grid & Ambient Glow */}
-        <div className="absolute top-10 left-10 w-80 h-80 bg-green-200 rounded-full blur-[140px] pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-100 rounded-full blur-[150px] pointer-events-none"></div>
+        <div className="absolute top-10 left-10 w-80 h-80 bg-green-200 dark:bg-gray-600 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-100 dark:bg-gray-600 rounded-full blur-[150px] pointer-events-none"></div>
       
       {/* Floating Animated Badges (Safely positioned on sides) */}
       
@@ -85,14 +85,13 @@ export default function HeroSection() {
 
       {/* Main Hero Content */}
       <div className="relative z-10 mt-20 w-full max-w-4xl text-center px-4">
-        
         {/* Main Heading */}
-      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-emerald-700 leading-[1.08]">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight bg-linear-to-r from-emerald-600 via-teal-600 to-emerald-900 dark:bg-linear-to-r dark:from-emerald-400 dark:via-teal-500 dark:to-emerald-600  bg-clip-text text-transparent leading-[1.08]">
        MARKET ROCK
       </h1>
 
         {/* Subtitle Paragraph */}
-        <p className="mt-5 max-w-2xl mx-auto text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
+        <p className="mt-5 max-w-2xl mx-auto  dark:text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
           Learn the stock market with confidence. Access real-time market insights, educational resources, and practical analysis designed to help beginners and experienced traders make informed investment decisions.
         </p>
 
@@ -104,45 +103,45 @@ export default function HeroSection() {
         </div>
 
         {/* Compact Stats Cards */}
-        <div className="w-full max-w-3xl mx-auto mt-10">
+        <div className="w-full max-w-3xl mx-auto mt-10 dark:text-gray-300">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             
             {/* Card 1 */}
-            <div className="bg-white border dark:bg-zinc-900 border-slate-200/80 shadow-xs rounded-xl py-4 px-3 flex flex-col justify-center items-center text-center">
-              <p className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-900 bg-clip-text text-transparent font-extrabold text-2xl sm:text-3xl tracking-tight">
+            <div className="bg-white dark:border-none  dark:bg-zinc-800 border border-slate-300 shadow-xs rounded-xl py-4 px-3 flex flex-col justify-center items-center text-center">
+              <p className="bg-linear-to-r from-emerald-600 via-teal-600 to-emerald-900 bg-clip-text text-transparent font-extrabold text-2xl sm:text-3xl tracking-tight">
                 1,550+
               </p>
-              <p className="text-slate-500 font-medium text-xs sm:text-sm mt-1">
+              <p className=" font-medium text-xs sm:text-sm mt-1">
                 Active Traders
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white border dark:bg-zinc-900 border-slate-200/80 shadow-xs rounded-xl py-4 px-3 flex flex-col justify-center items-center text-center">
-              <p className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-900 bg-clip-text text-transparent font-extrabold text-2xl sm:text-3xl tracking-tight">
+            <div className="bg-white border dark:border-none  dark:bg-zinc-800  border-slate-300 shadow-xs rounded-xl py-4 px-3 flex flex-col justify-center items-center text-center">
+              <p className="bg-linear-to-r from-emerald-600 via-teal-600 to-emerald-900 bg-clip-text text-transparent font-extrabold text-2xl sm:text-3xl tracking-tight">
                 #1
               </p>
-              <p className="text-slate-500 font-medium text-xs sm:text-sm mt-1">
+              <p className="font-medium text-xs sm:text-sm mt-1">
                 Learning Platform
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white border dark:bg-zinc-900 border-slate-200/80 shadow-xs rounded-xl py-4 px-3 flex flex-col justify-center items-center text-center">
-              <p className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-900 bg-clip-text text-transparent font-extrabold text-2xl sm:text-3xl tracking-tight">
+            <div className="bg-white border dark:border-none  dark:bg-zinc-800 border-slate-200/80 shadow-xs rounded-xl py-4 px-3 flex flex-col justify-center items-center text-center">
+              <p className="bg-linear-to-r from-emerald-600 via-teal-600 to-emerald-900 bg-clip-text text-transparent font-extrabold text-2xl sm:text-3xl tracking-tight">
                 24/7
               </p>
-              <p className="text-slate-500 dark:text-gray-300 font-medium text-xs sm:text-sm mt-1">
+              <p className=" dark:text-gray-300 font-medium text-xs sm:text-sm mt-1">
                 Market update
               </p>
             </div>
 
              {/* Card 4 */}
-            <div className="bg-white border dark:bg-zinc-900 border-slate-200/80 shadow-xs rounded-xl py-4 px-3 flex flex-col justify-center items-center text-center">
-              <p className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-900 bg-clip-text text-transparent font-extrabold text-2xl sm:text-3xl tracking-tight">
+            <div className="bg-white border dark:border-none  dark:bg-zinc-800 border-slate-200/80 shadow-xs rounded-xl py-4 px-3 flex flex-col justify-center items-center text-center">
+              <p className="bg-linear-to-r from-emerald-600 via-teal-600 to-emerald-900 bg-clip-text text-transparent font-extrabold text-2xl sm:text-3xl tracking-tight">
                 23%
               </p>
-              <p className="text-slate-500 font-medium text-xs sm:text-sm mt-1">
+              <p className=" font-medium text-xs sm:text-sm mt-1">
               Annual Return
               </p>
             </div>

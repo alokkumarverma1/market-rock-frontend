@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../others/navbar";
 import Footer from "../others/footer";
 import Heading from "../others/heading";
-import RockHeading from "../rockpage/rockHeading";
+import SmallHeading from "../others/smallHeading";
 import RightArrow from "../others/rightArrow";
 import FreeVideoCard from "./freeResource/freeVideoCard";
 import { Link } from "react-router-dom";
@@ -13,14 +13,14 @@ function Learn(){
     <div className="mt-10 sm:mt-20 p-2 w-full min-h-screen">
 
     {/* rock course */}
-    <RockHeading heading={"Our courses"}></RockHeading>
+    <SmallHeading heading={"Our courses"}></SmallHeading>
     <div className="learn-with-rock-tema flex justify-center items-center w-full min-h-65 rounded-2xl gap-5 p-5 flex-wrap">
     <p>No course...</p>
     </div> 
 
 
    {/* Live Market */}
-  <RockHeading heading={"Learn in Live Market"} />
+  <SmallHeading heading={"Learn in live market"}></SmallHeading>
   <div className="w-full max-w-3xl rounded-2xl mt-5 mb-5  m-auto bg-white shadow-md p-4 sm:p-5">
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
       {/* Left Side */}
@@ -47,7 +47,7 @@ function Learn(){
 
 
     {/* free resource */}
- <RockHeading heading={"Free resource"}></RockHeading>
+ <SmallHeading heading={"Free resource"}></SmallHeading>
   <div className="flex justify-start items-start scroller pt-5 pb-5  gap-4">
   <FreeVideoCard id={"r2LzjTUs3lo"} title={"Support resistance"} channel={"pushkar raj thakur"} />
   <FreeVideoCard id={"ZsKGhc0AXKs"} title={"Candilastic patter"} channel={"neeraj joshi"}></FreeVideoCard>

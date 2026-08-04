@@ -66,7 +66,14 @@ setDark(!dark);
     <div className="navbar  flex fixed bg-white dark  right-0  sm:w-full w-40 z-40 top-0 sm:justify-center justify-end items-center">
         {/* max area navbar  */}   
      <div className={`middle z-50  shadow-md  bg-white   border-gray-200 sm:rounded-bl-2xl flex sm:justify-center   sm:rounded-br-2xl sm:h-12 h-screen sm:w-[80%] w-90 ${show ? "sm:flex hidden" : "flex sm:hidden"}`}>
-      <ul className="w-full rounded-2xl  bg-white  z-50 h-full p-2 sm:p-0 flex   pb-2 pt-3 sm:justify-around   flex-col sm:flex-row items-center  gap-2">
+      <ul className="w-full rounded-2xl   bg-white  z-50 h-full p-2 sm:p-0 flex   pb-2 pt-3 sm:justify-around   flex-col sm:flex-row items-center  gap-2">
+        {/* change thems */}
+        <div onClick={changeThems} className="w-16 h-8  rounded-full bg-gray-300 dark:bg-slate-700 fixed top-2 right-3 z-50 shadow-md cursor-pointer  items-center p-1 transition">
+          <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-md transition-transform duration-300 dark:translate-x-8 ">
+            {dark ? <FaSun className="text-yellow-500 text-xs"/> :  <FaMoon className="text-slate-700 text-xs"/>}
+          </div>
+        </div>
+
          <li className="w-full  sm:hidden mb-5  flex justify-startpl-2"><i class="fa-solid fa-xmark cursor-pointer" onClick={change}></i></li>
          <div className={`profile  flex gap-2 sm:hidden w-full h-15 mb-2 flex-col justify-center items-center ${login ? "block" : "hidden"}` }>
            <Link to={"/profile"} >
@@ -109,13 +116,9 @@ setDark(!dark);
      </div>
 
      {/* change-thems */}
-       <div onClick={changeThems} className="w-16 h-8 rounded-full bg-gray-300 dark:bg-slate-700 fixed top-3 right-3 z-50 shadow-md cursor-pointer flex items-center p-1 transition">
+    <div onClick={changeThems} className="w-16 h-6 hidden sm:flex rounded-full bg-gray-300 dark:bg-slate-700 fixed top-3 right-3 z-50 shadow-md cursor-pointer  items-center p-1 transition">
       <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-md transition-transform duration-300 dark:translate-x-8 ">
-        {
-          dark 
-          ? <FaMoon className="text-slate-700 text-xs"/> 
-          : <FaSun className="text-yellow-500 text-xs"/>
-        }
+        {dark ? <FaSun className="text-yellow-500 text-xs"/> :  <FaMoon className="text-slate-700 text-xs"/>}
       </div>
     </div>
 

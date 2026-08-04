@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../../others/navbar";
-import RockHeading from "../../rockHeading";
+import SmallHeading from "../../../others/smallHeading";
 import StockChart from "./stockChart";
 import StockFinanceChart from "./stockFinancialChart";
 import StockHoldings from "./stockHoldings";
@@ -22,7 +22,7 @@ const stock = location.state;
 
      </div> */}
      {/* stock chart */}
-     <RockHeading heading={"Stock chart"} ></RockHeading>
+     <SmallHeading heading={"Stock chart"}></SmallHeading>
      <div className="chartarea h-60 w-full flex justify-center items-center">
        <p>Comming soon...</p>
      </div>
@@ -30,7 +30,7 @@ const stock = location.state;
 
 {/* Rock Team Analysis */}
 
-<RockHeading heading={"Rock Team Analysis"} />
+<SmallHeading heading={"Rock anlaysis"}></SmallHeading>
   <div className="grid grid-cols-2 md:grid-cols-3 gap-5 p-1">
     <div className="bg-gray-50 rounded-xl p-4">
       <p className="text-gray-500 text-sm">current price</p>
@@ -58,7 +58,7 @@ const stock = location.state;
   </div>
 
      {/* return of stock */}
-     <RockHeading heading={"Return data data"}></RockHeading>
+     <SmallHeading heading={"Return data"}></SmallHeading>
      <div className="return-data p-2 mb-10 flex flex-wrap gap-3 w-full">
        <StockMiniData name={"Last year"} data={stock.returnData.lastYear + "%"}></StockMiniData>
        <StockMiniData name={"last 6 month"} data={stock.returnData.last6Month + "%"}></StockMiniData>
@@ -67,7 +67,7 @@ const stock = location.state;
      </div>
 
      {/* key fector */}
-     <RockHeading heading={"key factor"} ></RockHeading>
+     <SmallHeading heading={"Key factor"}></SmallHeading>
      <div className="fundamentaldata p-2 mb-10 flex flex-wrap gap-3 w-full">
        <StockMiniData name={"pe ration"} data={stock.keyFactors.peRatio}></StockMiniData>
        <StockMiniData name={"marketCap"} data={stock.keyFactors.marketCap}></StockMiniData>
@@ -81,7 +81,7 @@ const stock = location.state;
 
       {/* revenue data */}
     <div className="revenue-data w-full sm:w-[40%] ">
-      <RockHeading heading={"Financial revenue"}></RockHeading>
+     <SmallHeading heading={"Financial revenue"}></SmallHeading>
      <div className="financial-data min-h-40 w-full p-2">
       <StockFinanceChart year={stock.year} revenue={stock.profit} profitType={stock.profitType}></StockFinanceChart>
      </div>
@@ -89,7 +89,7 @@ const stock = location.state;
      
      {/* holding statement */}
     <div className="holding-data  w-full sm:w-[40%] mt-10 sm:m-0">
-      <RockHeading heading={"Holding data"}></RockHeading>
+      <SmallHeading heading={"Holding data"}></SmallHeading>
       <div className="holding-data h-60 w-full">
       {console.log(stock.holding)}
       <StockHoldings holding={stock.holding}></StockHoldings>

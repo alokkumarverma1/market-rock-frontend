@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../others/navbar";
-import RockHeading from "./rockHeading";
+import SmallHeading from "../others/smallHeading";
 import RockPostCard from "./rockPost/rockPostCard";
 import RockIndexCard from "./rockindex/rockIndexCard";
 import Heading from "../others/heading";
@@ -83,10 +83,10 @@ allRockPost();
 
 return(<>
  <Navbar></Navbar>
-<div className="rockPage mt-10 p-2 sm:p-4">
+<div className="rockPage bg-gray-50 dark:bg-black mt-10 p-2 sm:p-4">
 
 {/* swing stock suggestion section  */}
-<RockHeading heading={"Swing Stock"}></RockHeading>
+<SmallHeading heading={"Swing Stock"}></SmallHeading>
 
 <div className="swing-search w-full h-9 mb-2 ">
 <input type="text" name="" className="w-full h-full rounded-[10px] outline-none bg-gray-100 p-3" placeholder="serch stock" />
@@ -102,14 +102,14 @@ return(<>
 <RightArrow></RightArrow>
 
 {/* index predection */}
-<RockHeading heading={"Index prediction"}></RockHeading>
+<SmallHeading heading={"Index prediction"}></SmallHeading>
 <div className="index-chart h-70 sm:h-100  mb-20 sm:mb-0 mt-2 w-full">
 <IndexPredection vlaue={"90"}></IndexPredection>
 </div>
 
 
 {/* rock index card */}
-<RockHeading heading={"Today tagete price"}></RockHeading>
+<SmallHeading heading={"Today target price"}></SmallHeading>
  {/* <div className="month-pnl mt-2  h-10  w-full gap-10 flex justify-center items-center sm:w-50 shadow-md border border-gray-300 rounded-2xl">
    <p className="text-[13px]">Month P&L - </p> <p className="font-semibold"> 80%</p>
  </div> */}
@@ -123,14 +123,14 @@ return(<>
 <RightArrow></RightArrow>
 
 {/* most popular ipo*/}
-<RockHeading heading={"Best upcoming ipos"}></RockHeading>
+<SmallHeading heading={"Best upcoming ipos"}></SmallHeading>
 <div className="ipo-details w-full h-55 justify-center items-center p-5  flex scroller gap-3">
 <h1 className="text-gray-600">Comming soon...</h1>
 </div>
 <RightArrow></RightArrow>
 
 {/* personal pnl of rock team */}
-<RockHeading heading={"Monthly profits"}></RockHeading>
+<SmallHeading heading={"Monthly profit"}></SmallHeading>
 <div className="mynetworthcart  w-full sm:mb-5 flex justify-center items-center">
     <MyNetWorth data={netWorthData}></MyNetWorth>
 </div>
