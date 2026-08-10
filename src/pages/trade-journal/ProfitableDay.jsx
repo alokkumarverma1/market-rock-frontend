@@ -11,6 +11,9 @@ import {
 } from "recharts";
 
 function ProfitableDays() {
+
+ 
+
   const data = [
     { day: "Mon", trades: 19 },
     { day: "Tue", trades: 16 },
@@ -20,7 +23,7 @@ function ProfitableDays() {
   ];
 
   return (
-    <div className="w-full h-full bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
+    <div className="w-full h-full bg-white dark:bg-zinc-900 dark:border-none rounded-2xl border border-gray-200 shadow-sm p-4">
 
       {/* Header */}
       <div className="mb-3">
@@ -61,29 +64,20 @@ function ProfitableDays() {
               axisLine={false}
             />
 
-            <Tooltip
-              cursor={{ fill: "#f0fdf4" }}
-              contentStyle={{
-                borderRadius: "10px",
-                border: "1px solid #d1fae5",
-                boxShadow: "0 8px 20px rgba(0,0,0,.08)",
-              }}
-            />
-
             <Bar
               dataKey="trades"
               fill="#22c55e"
               radius={[8, 8, 0, 0]}
               animationDuration={800}
             >
-              <LabelList
-                dataKey="trades"
-                position="top"
-                style={{
-                  fill: "#374151",
-                  fontSize: 12,
-                  fontWeight: 600,
-                }}
+            <LabelList
+              dataKey="trades"
+               position="top"
+              style={{
+               fill: "#22c55e",
+               fontSize: 12,
+                fontWeight: 600,
+               }}
               />
             </Bar>
           </BarChart>

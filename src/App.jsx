@@ -7,8 +7,6 @@ import Home from './pages/homepage/home'
 import Rock from './pages/rockpage/rock'
 import FullDetailsPost from './pages/rockpage/rockPost/fullDetailsPost'
 import Learn from './pages/learn/learn'
-import Register from './pages/user/register'
-import Login from './pages/user/login'
 import Admin from './pages/admin/admin'
 import UserProfile from './pages/user/userProfile'
 import Result from './pages/others/result'
@@ -20,12 +18,14 @@ import RockAi from './pages/homepage/rockAi/rockAi'
 import IpoDetails from './pages/rockpage/rockIpos/ipoDetails'
 import Help from './pages/more/help'
 import AddSwingStock from './pages/admin/addStock'
-import AddIndexDirection from './pages/admin/addIndexDirection'
-import AddPost from './pages/admin/addPost'
 import LivePage from './pages/learn/dailyLive/livePage'
 import { ImageOff } from 'lucide-react'
 import UpdateIndexResult from './pages/admin/updateIndexResult'
 import Journal from './pages/trade-journal/Journal'
+import AddIndexPrice from './pages/admin/addIndexPrice'
+import AddRockPost from './pages/admin/addRockPost'
+import SingIn from './pages/user/singIn'
+import AddUserData from './pages/user/addUserData'
 
 
 function App() {
@@ -87,14 +87,15 @@ function App() {
     },
 
     // login 
-      {
-      path:"/login",
-      element:<><Login></Login></>
+    {
+      path:"/singIn",
+      element:<><SingIn></SingIn></>
     },
     {
-      path:"/register",
-      element:<><Register></Register></>
+      path:"/addUserData",
+      element:<><AddUserData></AddUserData></>
     },
+ 
 
     // admin pannel
     {
@@ -106,17 +107,17 @@ function App() {
       element:<><AddSwingStock></AddSwingStock></>
     },
     {
-      path:"/addIndexDirection",
-      element:<><AddIndexDirection></AddIndexDirection></>
-    },
-    {
       path:"/addResult",
       element:<><UpdateIndexResult></UpdateIndexResult></>
+    },
+    {
+     path:"/addIndexPrice",
+     element:<><AddIndexPrice></AddIndexPrice></>
     },
 
       {
       path:"/addPost",
-      element:<><AddPost></AddPost></>
+      element:<><AddRockPost></AddRockPost></>
     },
 
  // user page

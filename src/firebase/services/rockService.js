@@ -1,127 +1,62 @@
 import { auth, db } from "../firebase";
 import { getAuth , onAuthStateChanged } from "firebase/auth";
-import { doc , addDoc,query, getDocs,setDoc,collection,updateDoc ,deleteDoc, orderBy } from "firebase/firestore";
+import { doc , addDoc,query, getDocs ,getDoc,setDoc,collection,updateDoc ,deleteDoc, orderBy } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 
 
 
-
-
-
-//  rock swing stock add
-export const addSwingStockService = async (swingstock) => {
+// get all swing stock stock  
+export const getAllSwingStocksService = async () => {
   try {
-    await addDoc(collection(db, "swingstocks"), {
-      ...swingstock,
-      createdAt: serverTimestamp(),
-    });
+    return (await getDocs(
+      query(collection(db, "swingstocks"), orderBy("createdAt", "desc"))
+    )).docs.map(doc => ({ id: doc.id, ...doc.data() }));
   } catch (error) {
-    console.log(error.message);
+      return null;
   }
 };
 
 
-// get all swing stock stock function 
-export const getAllSwingStocksService =async ()=>{
-try{
- const q = query(
-      collection(db, "swingstocks"),
-      orderBy("createdAt", "desc")
-    );
 
- const querySnapshot = await getDocs(q);
-const stocks = querySnapshot.docs.map((doc) => ({
-  id: doc.id,
-  ...doc.data(),
-}));
- return stocks;   
-}catch(error){
-console.log(error.message)
-}
-}
 
-// delete swing stock
-export const deleteStock = async (id)=>{
- try{
-await deleteDoc(doc(db , "swingstocks" , id))
-return true;
- }catch(error){
-  return false;
- }
-}
 
-// add index data
-export const AddDirection = async (data)=>{
-  try{
-  const stockRef = await doc(db, "indexDirection", "1");  
-  const res = await updateDoc(stockRef , data);
-  }catch(error){
-    console.log("update is faild")
-  }
-}
-
-// add index prices 
-export const AddIndexPrice =  async(data)=>{
-try{
-  const res = await addDoc(collection(db, "indexPrice"), {...data,  createdAt: serverTimestamp()});
-}catch(error){
-  console.log(error.message)
-}
-}
 
 // get all index price
 export const AllIndexPrice =async ()=>{
 try{
-  const q = query(collection(db, "indexPrice"),orderBy("createdAt", "desc"));
-const querySnapshot = await getDocs(q);
-if(querySnapshot == null) return null;
-const prices = querySnapshot.docs.map((doc) => ({
-  id: doc.id,
-  ...doc.data(),
-}));
- return prices;   
+  const res = await getDocs(query(collection(db,"indexPrice"),orderBy("createdAt", "desc")));
+  const data = res.docs.map(doc=>({id:doc.id, ...doc.data()}));
+  return data;
 }catch(error){
-console.log(error.message)
+  return [];
 }
-}
+};
 
-// update index result 
-export const updateIndexResult = async(id ,data)=>{
-  try{
-    const docRef = doc(db, "indexPrice", id);
-   await updateDoc(docRef , {result: data});
-   return true;
+
+// get index profit in a month
+export const IndexMonthProfit =async()=>{
+ try{
+ const docRef = doc(db, "allprofit","1");
+  const docSnap = await getDoc(docRef);
+  if(docSnap.exists()){
+    return docSnap.data();
+  }
   }catch(error){
-  return error.message;
+    return false
   }
 }
 
-// add ipos 
 
-// get all ipos 
 
-// add posts 
-export const addPost = async(data)=>{
-  try{
-   const res = await addDoc(collection(db, "post") ,{...data ,  createdAt: serverTimestamp()})
-   console.log("res")
-  }catch(error){
-    console.log(error.message)
-  }
-}
 
 // get all posts
 export const getAllPost = async ()=>{
  try{
-  const querySnapshot = await getDocs(collection(db, "post"));
-if(querySnapshot == null) return null;
-const post = querySnapshot.docs.map((doc) => ({
-  id: doc.id,
-  ...doc.data(),
-}));
- return post; 
+  const querySnapshot = await getDocs(query(collection(db, "post"),orderBy("createdAt", "desc")));
+  const res = querySnapshot.docs.map( doc =>({id:doc.id,...doc.data()}))
+ return res; 
  }catch(error){
-  console.log(error.message)
+  return [];
  }
   
 }

@@ -29,7 +29,7 @@ function LossReason() {
   ];
 
   return (
-    <div className="w-full h-full bg-white p-4 rounded-2xl shadow-md border border-gray-100">
+    <div className="w-full h-full bg-white dark:text-white dark:bg-zinc-800 dark:border-none p-4 rounded-2xl shadow-md border border-gray-100">
 
       {/* Header */}
       <div className="mb-4">
@@ -59,14 +59,7 @@ function LossReason() {
             tick={{ fontSize: 12 , }}
           />
 
-          <Tooltip
-            cursor={{ fill: "#f8fafc" }}
-            contentStyle={{
-              borderRadius: "12px",
-              border: "1px solid #e5e7eb",
-              boxShadow: "0 6px 18px rgba(0,0,0,.08)",
-            }}
-          />
+         
 
           <Bar
             dataKey="value"
@@ -74,14 +67,14 @@ function LossReason() {
             animationDuration={900}
           >
             {reason.map((_, index) => (
-              <Cell key={index} fill={colors[index]} />
+              <Cell key={index} fill={"#ef4444"} />
             ))}
 
             <LabelList
               dataKey="value"
               position="top"
               style={{
-                fill: "#374151",
+                fill: "#ef4444",
                 fontSize: 12,
                 fontWeight: 600,
               }}

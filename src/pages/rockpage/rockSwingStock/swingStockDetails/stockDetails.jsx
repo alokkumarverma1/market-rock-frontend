@@ -16,14 +16,14 @@ const stock = location.state;
 
     return(<>
     <Navbar></Navbar>
-    <div className="swingstockdetails mt-15 p-3">
+    <div className="swingstockdetails pt-10 sm:pt-15 p-3 bg-white dark:bg-zinc-800">
      {/* about stock */}
      {/* <div className="about-stock">
 
      </div> */}
      {/* stock chart */}
      <SmallHeading heading={"Stock chart"}></SmallHeading>
-     <div className="chartarea h-60 w-full flex justify-center items-center">
+     <div className="chartarea h-60 dark:text-gray-300 w-full flex justify-center items-center">
        <p>Comming soon...</p>
      </div>
 
@@ -32,23 +32,23 @@ const stock = location.state;
 
 <SmallHeading heading={"Rock anlaysis"}></SmallHeading>
   <div className="grid grid-cols-2 md:grid-cols-3 gap-5 p-1">
-    <div className="bg-gray-50 rounded-xl p-4">
+    <div className="bg-gray-100 rounded-xl p-4">
       <p className="text-gray-500 text-sm">current price</p>
       <h3 className="sm:text-2xl text-[18px] font-bold mt-1">₹{stock.rockAnalysis.currentPrice}</h3>
     </div>
-    <div className="bg-gray-50 rounded-xl p-4">
+    <div className="bg-gray-100 rounded-xl p-4">
       <p className="text-gray-500 text-sm">Expected  Range</p>
       <h3 className="sm:text-2xl text-[18px] font-bold text-green-600 mt-1">
        ₹{stock.rockAnalysis.minTarget} -  {stock.rockAnalysis.maxTarget}
       </h3>
     </div>
-    <div className="bg-gray-50 rounded-xl p-4">
+    <div className="bg-gray-100 rounded-xl p-4">
       <p className="text-gray-500 text-sm">Key Support</p>
       <h3 className="sm:text-2xl text-[18px] font-bold text-red-500 mt-1">
         ₹{stock.rockAnalysis.support}
       </h3>
     </div>
-    <div className="bg-gray-50 rounded-xl p-4">
+    <div className="bg-gray-100 rounded-xl p-4">
       <p className="text-gray-500 text-sm">Confidence</p>
       <div className="w-full bg-gray-200 h-2 rounded-full mt-3">
       <div className="bg-green-600 h-2 rounded-full" style={{ width: `${stock.rockAnalysis.confidence}%` }}/>
@@ -101,8 +101,8 @@ const stock = location.state;
      
      {/* disclamer */}
     <div className="disclamer bor min-h-30 w-full text-center p-2 mb-20">
-      <h1 className="font-bold text-2xl">⚠️ <b>Disclaimer:</b></h1>
-      <p className="text-[11px] text-gray-600 leading-5 p-2">
+      <h1 className="font-bold text-2xl dark:text-white">⚠️ <b>Disclaimer:</b></h1>
+      <p className="text-[11px] text-gray-600 dark:text-gray-300 leading-5 p-2">
       This platform is created for educational and informational purposes only. 
       All stock data, charts, financial metrics, and analysis shown here are for learning purposes and do not constitute financial or investment advice.  
       Stock prices, company data, and other information may change or be updated after publication. 

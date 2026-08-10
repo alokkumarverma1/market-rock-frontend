@@ -15,7 +15,7 @@ import Footer from "../others/footer";
 function Journal(){
     return(<>
     <Navbar></Navbar>
-    <div className="general mt-10 sm:mt-20 p-2 bg-gray-50">
+    <div className="general mt-10 sm:pt-5 p-2 bg-gray-50 dark:bg-black">
         {/* strategy cards */}
         <SmallHeading heading={"Your strategy"}></SmallHeading>
         <div className="strategycards scroller py-2  gap-5 ">
@@ -24,21 +24,15 @@ function Journal(){
               <StrategyCard></StrategyCard>
                <StrategyCard></StrategyCard>
                 <StrategyCard></StrategyCard>
-             <StrategyCard></StrategyCard>
-              <StrategyCard></StrategyCard>
-               <StrategyCard></StrategyCard>
-                <StrategyCard></StrategyCard>
-             <StrategyCard></StrategyCard>
-              <StrategyCard></StrategyCard>
-               <StrategyCard></StrategyCard>
+            
         </div>
 
     {/* nymber of trades */}
      <SmallHeading heading={"Trades summary"}></SmallHeading>
-     <div className="bg-white rounded-2xl border border-gray-200 shadow-md p-5 hover:shadow-xl transition-all">
+     <div className="bg-white dark:bg-zinc-800 dark:border-gray-500 dark:text-white rounded-2xl border border-gray-200 shadow-md p-5 hover:shadow-xl transition-all">
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 dark:text-gray-300">
             Week • Month • Year
           </p>
       </div>
@@ -46,21 +40,18 @@ function Journal(){
       {/* Table */}
       <div className="space-y-3">
         {/* Week */}
-         <div className="grid grid-cols-4 items-center bg-gray-50 rounded-xl p-3">
-          <div className="flex items-center gap-2 font-semibold text-gray-700">
+         <div className="grid grid-cols-4 items-center bg-gray-50 dark:bg-zinc-900 rounded-xl p-3">
+          <div className="flex items-center gap-2 font-semibold text-gray-700 dark:text-white">
             Week
           </div>
-
           <div className="text-center">
             <p className="text-xs text-gray-400">Trades</p>
             <h3 className="font-bold text-lg">13</h3>
           </div>
-
           <div className="text-center text-green-600">
             <p className="text-xs text-green-400">Profit</p>
             <h3 className="font-bold text-lg">10</h3>
           </div>
-
           <div className="text-center text-red-600">
             <p className="text-xs text-red-400">Loss</p>
             <h3 className="font-bold text-lg ">3</h3>
@@ -68,46 +59,40 @@ function Journal(){
         </div>
 
         {/* Month */}
-         <div className="grid grid-cols-4 items-center bg-gray-50 rounded-xl p-3">
-          <div className="flex items-center gap-2 font-semibold text-gray-700">
-            Month
+            <div className="grid grid-cols-4 items-center bg-gray-50 dark:bg-zinc-900 rounded-xl p-3">
+          <div className="flex items-center gap-2 font-semibold text-gray-700 dark:text-white">
+            Week
           </div>
-
           <div className="text-center">
             <p className="text-xs text-gray-400">Trades</p>
-            <h3 className="font-bold text-lg">45</h3>
+            <h3 className="font-bold text-lg">13</h3>
           </div>
-
           <div className="text-center text-green-600">
             <p className="text-xs text-green-400">Profit</p>
-            <h3 className="font-bold text-lg">29</h3>
+            <h3 className="font-bold text-lg">10</h3>
           </div>
-
           <div className="text-center text-red-600">
             <p className="text-xs text-red-400">Loss</p>
-            <h3 className="font-bold text-lg ">16</h3>
+            <h3 className="font-bold text-lg ">3</h3>
           </div>
         </div>
 
         {/* Year */}
-        <div className="grid grid-cols-4 items-center bg-gray-50 rounded-xl p-3">
-          <div className="flex items-center gap-2 font-semibold text-gray-700">
-            Year
+         <div className="grid grid-cols-4 items-center bg-gray-50 dark:bg-zinc-900 rounded-xl p-3">
+          <div className="flex items-center gap-2 font-semibold text-gray-700 dark:text-white">
+            Week
           </div>
-
           <div className="text-center">
             <p className="text-xs text-gray-400">Trades</p>
-            <h3 className="font-bold text-lg">234</h3>
+            <h3 className="font-bold text-lg">13</h3>
           </div>
-
           <div className="text-center text-green-600">
             <p className="text-xs text-green-400">Profit</p>
-            <h3 className="font-bold text-lg">180</h3>
+            <h3 className="font-bold text-lg">10</h3>
           </div>
-
           <div className="text-center text-red-600">
             <p className="text-xs text-red-400">Loss</p>
-            <h3 className="font-bold text-lg ">54</h3>
+            <h3 className="font-bold text-lg ">3</h3>
           </div>
         </div>
       </div>
@@ -128,7 +113,7 @@ function Journal(){
          <div className="profit-day  w-full sm:w-[45%]">
              <SmallHeading heading={"Profitable days"}></SmallHeading>
              <div className="loss-reason h-96 w-full mt-2">
-             <ProfitableDays></ProfitableDays>
+             <ProfitableDays ></ProfitableDays>
               </div>
          </div>
 

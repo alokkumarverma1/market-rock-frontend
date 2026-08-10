@@ -8,10 +8,10 @@ import { FaChartLine } from "react-icons/fa";
 
 function StrategyCard() {
   return (
-    <div className="bg-white min-w-65 max-w-80 min-h-52 rounded-2xl border border-gray-200 p-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+    <div className="bg-white dark:bg-zinc-800 dark:border-none dark:text-white min-w-65 max-w-80  min-h-52 rounded-2xl  p-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
       <div className="flex items-center justify-between flex-col">
-          <h1 className="text-[18px] font-bold text-gray-800">BreakDown Strategy</h1>
-          <p className="text-[12px] text-gray-500 mt-0.5">Intraday Strategy</p>
+          <h1 className="text-[18px] font-bold text-gray-800 dark:text-white">BreakDown Strategy</h1>
+          <p className="text-[12px] text-gray-500 dark:text-gray-400 mt-0.5">Intraday Strategy</p>
       </div>
 
       {/* Stats */}

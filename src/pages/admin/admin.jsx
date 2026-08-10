@@ -5,11 +5,12 @@ import Navbar from "../others/navbar";
 function Admin(){
     return(<>
     <Navbar></Navbar>
-    <div className="admin flex w-full min-h-screen justify-start gap-10 p-3 mt-20">
+     <div className="admin w-full pt-15 bg-white dark:bg-black min-h-screen grid-cols-1 sm:grid-cols-2 grid md:grid-cols-3 gap-5">
         <ControlCard name={"Addstock"} link={"/addStock"}></ControlCard> 
-        <ControlCard name={"AddIndex"} link={"/addIndexDirection"}></ControlCard> 
-        <ControlCard name={"AddPost"} link={"/addpost"}></ControlCard>   
-    </div>
+        <ControlCard name={"AddIndex"} link={"/addIndexPrice"}></ControlCard> 
+        <ControlCard name={"AddPost"} link={"/addpost"}></ControlCard>  
+
+     </div>
     
     </>)
 }

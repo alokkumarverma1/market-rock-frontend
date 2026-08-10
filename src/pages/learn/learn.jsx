@@ -10,11 +10,11 @@ import { Link } from "react-router-dom";
 function Learn(){
     return(<>
     <Navbar></Navbar>
-    <div className="mt-10 sm:mt-20 p-2 w-full min-h-screen">
+    <div className="mt-10 sm:pt-5 p-2 w-full min-h-screen bg-gray-50 dark:bg-black dark:text-white">
 
     {/* rock course */}
     <SmallHeading heading={"Our courses"}></SmallHeading>
-    <div className="learn-with-rock-tema flex justify-center items-center w-full min-h-65 rounded-2xl gap-5 p-5 flex-wrap">
+    <div className="learn-with-rock-tema flex justify-center items-center w-full min-h-65 rounded-2xl gap-5 p-5 flex-wrap text-gray-400">
     <p>No course...</p>
     </div> 
 

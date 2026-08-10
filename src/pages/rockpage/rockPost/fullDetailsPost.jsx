@@ -11,7 +11,7 @@ function FullDetailsPost() {
     <>
       <Navbar />
 
-      <div className="min-h-screen bg-gray-100  pt-24 px-4 pb-20">
+      <div className="min-h-screen bg-gray-50  dark:bg-black dark:text-white  pt-24 px-4 pb-20">
         <div className="max-w-4xl mx-auto">
 
           {/* Profile Section */}
@@ -25,7 +25,7 @@ function FullDetailsPost() {
             </div>
 
             <div>
-              <h2 className="font-semibold text-lg text-gray-900">
+              <h2 className="font-semibold text-lg ">
                 Rock Community
               </h2>
               <p className="text-sm text-gray-500">
@@ -35,7 +35,7 @@ function FullDetailsPost() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-bold  leading-tight">
             {data.heading}
           </h1>
 
@@ -43,7 +43,7 @@ function FullDetailsPost() {
           <div className="h-[1px] bg-gray-300 mb-8"></div>
 
           {/* Details */}
-          <p className="mt-8 text-lg leading-8 text-gray-700 whitespace-pre-liney">
+          <p className="mt-8 text-lg leading-8  whitespace-pre-liney">
             {data.details}
           </p>
 

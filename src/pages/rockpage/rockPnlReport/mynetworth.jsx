@@ -19,7 +19,7 @@ const data = [
 
 function MonthlyProfitChart() {
   return (
-    <div className="w-full h-[280px] sm:h-80 bg-white rounded-3xl p-1 sm:p-4 shadow overflow-hidden">
+    <div className="w-full h-[280px] sm:h-80 bg-white dark:bg-zinc-800 rounded-3xl p-1 sm:p-4 shadow overflow-hidden">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart
           data={data}
@@ -32,13 +32,7 @@ function MonthlyProfitChart() {
           }}
         >
           <defs>
-            <linearGradient
-              id="greenGradient"
-              x1="0"
-              y1="0"
-              x2="0"
-              y2="1"
-            >
+            <linearGradient  id="greenGradient" x1="0" y1="0" x2="0" y2="1" >
               <stop
                 offset="0%"
                 stopColor="#22c55e"

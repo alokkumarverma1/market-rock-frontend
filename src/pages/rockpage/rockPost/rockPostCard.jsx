@@ -5,16 +5,16 @@ function RockPostCard({data}) {
   return (
     <>
       <Link to={"/rockPostDetails"} state={data}>
-        <div className="rockpostcard p-3 min-h-3  rounded-2xl shadow-md hover:shadow-xl w-full">
+        <div className="rockpostcard p-3 min-h-3 bg-white dark:bg-zinc-800 dark:text-white  rounded-2xl shadow-md hover:shadow-xl w-full">
           
           <div className="flex w-full mb-1 items-center gap-2">
             <div className="h-5 w-5 rounded-full overflow-hidden">
               <img src="logo.png" alt="" />
             </div>
-            <h1 className="text-base sm:text-lg font-bold text-gray-900 leading-snug">{data.heading}</h1>
+            <h1 className="text-base sm:text-lg font-bold  leading-snug">{data.heading}</h1>
           </div>
 
-          <p className="ml-3text-xs sm:text-sm xl:text-[15px] text-gray-600 leading-6 line-clamp-3">
+          <p className="ml-3text-xs sm:text-sm xl:text-[15px] text-gray-600 dark:text-zinc-400 leading-6 line-clamp-3">
             {data.details}
           </p>
 

@@ -4,8 +4,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getAuth} from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
-import { userProfileData } from "../../../firebase/services/profileService";
-
+import { userProfileData } from "../../../firebase/services/userServiceFb";
 function RockIndexCard({ data }) {
 
   const [user , setUser] = useState("");
@@ -14,6 +13,7 @@ function RockIndexCard({ data }) {
   const isCall = data.direction === "call";
   const res = data.result === "";
   const result = data.result>= 0;
+
    // chek user login or not 
    useEffect(() => {
     if(result > 0){
@@ -37,9 +37,9 @@ function RockIndexCard({ data }) {
   return (
     <div className={`w-64 min-w-60 relative max-w-60 dark:text-white h-69 pt-2 py-3 px-2 rounded-2xl border shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300
       ${ isCall ? "bg-green-50 border-green-200 dark:bg-zinc-800 dark:border-none " : "bg-red-50 border-red-200 dark:border-none dark:bg-zinc-800" }`}>
-        {/*edit icon  */}
-
-         {user == "admin" ? <Link to={"/addResult"} state={data.id}><p className=" absolute top-2 left-30 cursor-pointer"><FaEdit></FaEdit></p></Link> : ""}
+      {/*edit icon  */}
+         {user == "admin" ? <Link to={"/updateIndexProfit"} state={data.id}><p className=" absolute top-2 left-30 cursor-pointer"><FaEdit></FaEdit></p></Link> : ""}
+ 
       {/* header */}
       <div className="flex justify-between items-center">
         <div className="bg-white dark:bg-zinc-600 px-3 py-2 rounded-full shadow-sm">
@@ -58,26 +58,26 @@ function RockIndexCard({ data }) {
         {/* Price */}
         <div className={`h-9 flex justify-center gap-3 items-center rounded-lg font-medium
           ${isCall ? "bg-green-50 dark:bg-zinc-900" : "bg-red-50 dark:bg-zinc-700"}`}>
-            <p className="text-[13px] text-gray-300">price - </p>
+            <p className="text-[13px] text-gray-900 dark:text-gray-300">price - </p>
           <p className="">{data.price} </p>
         </div>
 
         {/* Other Details */}
         <div className="grid grid-cols-2 gap-2 mt-2">
           <div className="h-9 flex bg-red-100 dark:bg-zinc-700 justify-center items-center rounded-lg">
-            <p className="text-[12px]"> <span className="text-gray-500">sl - </span>{data.sl}</p>
+            <p className="text-[12px]"> <span className="text-gray-900 dark:text-gray-300">sl - </span>{data.sl}</p>
           </div>
 
           <div className="h-9 flex bg-blue-100 dark:bg-zinc-700 justify-center items-center rounded-lg">
-            <p className="text-[12px]"> <span className="text-gray-500">en - </span>{data.entry}</p>
+            <p className="text-[12px]"> <span className="text-gray-900 dark:text-gray-300">en - </span>{data.entry}</p>
           </div>
 
           <div className="h-9 flex bg-green-100 dark:bg-zinc-700 justify-center items-center rounded-lg">
-            <p className="text-[12px]"> <span className="text-gray-500">minT - </span>{data.minTarget}</p>
+            <p className="text-[12px]"> <span className="text-gray-900 dark:text-gray-300">minT - </span>{data.minTarget}</p>
           </div>
 
           <div className="h-9 flex bg-green-200 dark:bg-zinc-700 justify-center items-center rounded-lg">
-            <p className="text-[12px]"> <span className="text-gray-500">maxT - </span>{data.maxTarget}</p>
+            <p className="text-[12px]"> <span className="text-gray-900 dark:text-gray-300">maxT - </span>{data.maxTarget}</p>
           </div>
 
         </div>
@@ -101,7 +101,7 @@ function RockIndexCard({ data }) {
 
       {/* Footer */}
       <div className="mt-2">
-        <div className="flex justify-between text-[10px] text-gray-500 dark:text-zinc-300">
+        <div className="flex justify-between text-[10px] text-gray-700 dark:text-zinc-300">
           <span>{data.date}</span>
           <span>{data.time}</span>
         </div>

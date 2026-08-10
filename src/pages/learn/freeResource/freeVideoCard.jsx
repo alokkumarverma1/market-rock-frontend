@@ -11,7 +11,7 @@ function FreeVideoCard({id , title , channel}) {
       rel="noopener noreferrer"
       className="block w-full"
     >
-      <div className="bg-white min-w-60 max-w-60 rounded-xl overflow-hidden shadow hover:shadow-lg transition duration-300">
+      <div className="bg-white dark:bg-zinc-800 dark:text-white min-w-60 max-w-60 rounded-xl overflow-hidden shadow hover:shadow-lg transition duration-300">
 
         {/* Thumbnail */}
         <div className="relative aspect-video group">
@@ -24,7 +24,7 @@ function FreeVideoCard({id , title , channel}) {
 
         {/* Content */}
         <div className="p-3">
-          <h2 className="text-sm font-semibold text-gray-800 line-clamp-2 leading-5">
+          <h2 className="text-sm font-semibold  line-clamp-2 leading-5">
             {title}
           </h2>
 
