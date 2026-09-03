@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
-import { getAuth, signOut } from "firebase/auth";
+import { onAuthStateChanged,getAuth, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { userProfileData } from "../../firebase/services/userServiceFb";
 import { RiVipDiamondFill } from "react-icons/ri";
@@ -55,7 +54,7 @@ setDark(!dark);
  const userLogout = async ()=>{
   const auth = getAuth();
   await signOut(auth);
-   navigate("/result" , {state:{ code:200, value:true , next:"/"}})
+   navigate("/result" , {state:{ message:"Logout seccess", value:true , next:"/"}})
   
  }
 
@@ -82,7 +81,7 @@ setDark(!dark);
         </div>
         <li  className="cursor-pointer   rounded-2xl w-full  p-1 h-9 sm:w-20"><Link to={"/"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <i class="fa-solid fa-house font-serif"></i><span>Home</span> </Link></li>
         <li  className="cursor-pointer  rounded-2xl w-full  p-1 h-9 sm:w-20"><Link to={"/rock"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <RiVipDiamondFill className=" text-[20px]" /><span>Rock</span> </Link></li>
-        <li  className="cursor-pointer rounded-2xl w-full  p-1 h-9 sm:w-20"><Link to={"/journal"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <i class="fa-solid fa-book-open"></i><span>Journal</span> </Link></li>
+        <li  className="cursor-pointer rounded-2xl w-full  p-1 h-9 sm:w-20"><Link to={"/rockAi"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <i class="fa-solid fa-book-open"></i><span>RockAi</span> </Link></li>
         <li  className="cursor-pointer rounded-2xl w-full  p-1 h-9 sm:w-20"><Link to={"/learn"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <FaGraduationCap size={22} /><span>Learn</span> </Link></li>
 
         <div className={`moreOption  relative  rounded-2xl  p-1 h-9 w-40  sm:w-20 `}>

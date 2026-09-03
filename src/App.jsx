@@ -14,18 +14,17 @@ import Profile from './pages/user/userProfile'
 import About from './pages/more/about'
 import Contact from './pages/more/contact'
 import SwingStockDetails from './pages/rockpage/rockSwingStock/swingStockDetails/stockDetails'
-import RockAi from './pages/homepage/rockAi/rockAi'
 import IpoDetails from './pages/rockpage/rockIpos/ipoDetails'
 import Help from './pages/more/help'
 import AddSwingStock from './pages/admin/addStock'
 import LivePage from './pages/learn/dailyLive/livePage'
 import { ImageOff } from 'lucide-react'
 import UpdateIndexResult from './pages/admin/updateIndexResult'
-import Journal from './pages/trade-journal/Journal'
 import AddIndexPrice from './pages/admin/addIndexPrice'
 import AddRockPost from './pages/admin/addRockPost'
 import SingIn from './pages/user/singIn'
 import AddUserData from './pages/user/addUserData'
+import RockAi from './pages/rockAi/RockAi'
 
 
 function App() {
@@ -65,8 +64,8 @@ function App() {
 
     // general section 
      {
-      path:"/journal",
-      element:<><Journal></Journal></>
+      path:"/rockAi",
+      element:<><RockAi></RockAi></>
      },
 
     // learn section 

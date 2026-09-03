@@ -1,6 +1,10 @@
 import React from "react";
 import { userSingIn } from "../../firebase/services/userServiceFb";
 import { useNavigate } from "react-router-dom";
+import { login } from "../service/userSerivce";
+import { signOut } from "firebase/auth";
+import { tokenValue } from "../service/jwtDecode";
+
 
 function SingIn() {
 
@@ -13,15 +17,18 @@ function SingIn() {
       navigate("/addUserData" , {state:{id:res.uid, email:res.email}});
       return;
     }
+    const data = await login(res.uid);
+    localStorage.setItem("token" , data)
+    const dec = tokenValue();
     navigate("/")
    }catch(error){
-    navigate("/result",{state:{code:500, value:false }})
+    navigate("/result",{state:{message:"something wrong", value:false ,next:"/"}})
    }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
-      <div className="w-full max-w-md bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+    <div className="min-h-screen bg-white dark:bg-black flex items-center justify-center px-4">
+      <div className="w-full max-w-md bg-white dark:bg-zinc-800 text-white  rounded-2xl p-8 shadow-sm">
 
         {/* Logo / Brand */}
         <div className="text-center mb-8">
@@ -29,7 +36,7 @@ function SingIn() {
             <span className="text-white text-2xl font-bold"><img src="/logo.png" alt="" /></span>
           </div>
 
-          <p className="text-gray-500 mt-2 text-sm">
+          <p className="text-gray-500 dark:text-white mt-2 text-sm">
             Sign in to continue to your Market Rock account
           </p>
         </div>
@@ -45,12 +52,12 @@ function SingIn() {
             className="w-5 h-5"
           />
 
-          <span className="text-gray-700 font-medium">
+          <span className="text-gray-700 hover:text-black dark:text-white font-medium">
             Continue with Google
           </span>
         </button>
         {/* Footer */}
-        <p className="text-center text-xs text-gray-400 mt-8">
+        <p className="text-center text-xs text-gray-400 dark:text-white mt-8">
           By continuing, you agree to Market Rock's terms and privacy policy.
         </p>
 
