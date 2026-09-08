@@ -3,9 +3,7 @@ import { userSingIn } from "../../firebase/services/userServiceFb";
 import { useNavigate } from "react-router-dom";
 import { login } from "../service/userSerivce";
 import { signOut } from "firebase/auth";
-import { tokenValue } from "../service/jwtDecode";
-
-
+import { ProtectRouts } from "../service/protectRouts";
 function SingIn() {
 
   const navigate = useNavigate();
@@ -18,8 +16,8 @@ function SingIn() {
       return;
     }
     const data = await login(res.uid);
-    localStorage.setItem("token" , data)
-    const dec = tokenValue();
+    localStorage.setItem("token", data)
+    ProtectRouts();
     navigate("/")
    }catch(error){
     navigate("/result",{state:{message:"something wrong", value:false ,next:"/"}})

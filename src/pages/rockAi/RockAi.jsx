@@ -5,7 +5,7 @@ function RockAi() {
  
 return(<>
 <Navbar></Navbar>
-<div className="rock-ai h-900 w-full bg-white pt-13 sm:pt-20 dark:bg-black">
+<div className="rock-ai h-screen w-full bg-white pt-11 sm:pt-13 dark:bg-black">
   {/* top area */}
   <div className="top-area h-15 w-full flex items-center pl-4 gap-4">
     <div className="index-anlaysis h-10 min-w-25 cursor-pointer hover:shadow-xl transition-shadow  flex justify-center items-center p-2 rounded-2xl dark:text-white shadow-md border border-gray-300 dark:border-none  dark:bg-zinc-800"> Index</div>
@@ -13,7 +13,7 @@ return(<>
   </div>
 
   {/* chat boat chat area */}
-  <div className="chat-boat min-h-30 ">
+  <div className="chat-boat h-[70%] bg-gray-100 ">
     
 
 

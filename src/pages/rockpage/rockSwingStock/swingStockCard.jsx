@@ -35,7 +35,7 @@ const auth = getAuth();
       <h1>{data.stockName}</h1>
     </div>
     <p className="text-[10px] mb-3 text-gray-400 text-center">Educational purposes only. Please trade at your own risk. first learn no earn</p>
-     <Link state={data} to={"/swingStockDetails"}><p className="dark:text-white bg-gray-200 dark:bg-zinc-900  rounded-[10px] p-1 px-4 cursor-pointer text-[14px]">explore </p></Link>
+     <Link state={data} to={"/swingStockDetails"}><p className="dark:text-white bg-gray-100 dark:bg-zinc-900  rounded-[10px] p-1 px-4 cursor-pointer text-[14px]">explore </p></Link>
    </div>
   );
 }

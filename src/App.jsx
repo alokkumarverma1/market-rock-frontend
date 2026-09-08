@@ -25,8 +25,7 @@ import AddRockPost from './pages/admin/addRockPost'
 import SingIn from './pages/user/singIn'
 import AddUserData from './pages/user/addUserData'
 import RockAi from './pages/rockAi/RockAi'
-
-
+import { ProtectRouts } from './pages/service/protectRouts'
 function App() {
  
 
@@ -44,32 +43,12 @@ function App() {
     },
 
     // rock page
-
     {
       path:"/rock",
       element:<><Rock></Rock></>
     },
-    {
-      path:"/swingStockDetails",
-      element:<><SwingStockDetails></SwingStockDetails></>
-    },
-      {
-      path:"/rockPostDetails",
-      element:<><FullDetailsPost></FullDetailsPost></>
-    },
-    {
-      path:"/ipoDetails",
-      element:<><IpoDetails></IpoDetails></>
-    },
 
-    // general section 
      {
-      path:"/rockAi",
-      element:<><RockAi></RockAi></>
-     },
-
-    // learn section 
-    {
       path:"/learn",
       element:<><Learn></Learn></>
     },
@@ -77,16 +56,11 @@ function App() {
       path:"/joinLIve",
       element:<><LivePage></LivePage></>
     },
-    
-
-    // user profile
-    {
-      path:"/profile",
-      element:<><UserProfile></UserProfile></>
-    },
-
-    // login 
-    {
+     {
+      path:"/rockAi",
+      element:<><RockAi></RockAi></>
+     },
+      {
       path:"/singIn",
       element:<><SingIn></SingIn></>
     },
@@ -94,10 +68,42 @@ function App() {
       path:"/addUserData",
       element:<><AddUserData></AddUserData></>
     },
- 
 
+    //  user protect routs
+
+    {
+      element:<ProtectRouts allowRole={["USER"]} />,
+      children:[
+      {
+      path:"/swingStockDetails",
+      element:<><SwingStockDetails></SwingStockDetails></>
+      },
+      {
+      path:"/rockPostDetails",
+      element:<><FullDetailsPost></FullDetailsPost></>
+      },
+      {
+      path:"/ipoDetails",
+      element:<><IpoDetails></IpoDetails></>
+      },
+         {
+      path:"/profile",
+      element:<><UserProfile></UserProfile></>
+    },
+       {
+      path:"/profile",
+      element:<><Profile></Profile></>
+    },
+
+
+      ]
+    },
+    
     // admin pannel
     {
+      element:<ProtectRouts allowRole={["ADMIN"]}/>,
+      children:[
+         {
       path:"/admin",
       element:<><Admin></Admin></>
     },
@@ -118,12 +124,9 @@ function App() {
       path:"/addPost",
       element:<><AddRockPost></AddRockPost></>
     },
-
- // user page
-    {
-      path:"/profile",
-      element:<><Profile></Profile></>
+      ]
     },
+   
 
 // more page    
   

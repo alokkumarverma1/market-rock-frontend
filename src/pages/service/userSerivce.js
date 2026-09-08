@@ -4,6 +4,7 @@ import axios from "axios";
 // loign 
 export const login= async(data)=>{
 
+// login 
 const res = await axios.post("http://localhost:8080/user/login",data,
     { headers:{"Content-Type": "text/plain"} }
     )
@@ -11,7 +12,7 @@ const res = await axios.post("http://localhost:8080/user/login",data,
  return res.data;
 }
 
-// add new user
+// register
 export const register = async(data)=>{
     const res = await axios.post("http://localhost:8080/user/register",data);
     return res.data;

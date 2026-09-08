@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { userProfileData } from "../../firebase/services/userServiceFb";
 import { RiVipDiamondFill } from "react-icons/ri";
 import { FaGraduationCap } from "react-icons/fa";
-import { LuNotebookPen } from "react-icons/lu";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 
@@ -54,6 +53,7 @@ setDark(!dark);
  const userLogout = async ()=>{
   const auth = getAuth();
   await signOut(auth);
+  localStorage.setItem("token")
    navigate("/result" , {state:{ message:"Logout seccess", value:true , next:"/"}})
   
  }
