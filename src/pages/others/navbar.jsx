@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { onAuthStateChanged,getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { userProfileData } from "../../firebase/services/userServiceFb";
 import { RiVipDiamondFill } from "react-icons/ri";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaSun, FaMoon } from "react-icons/fa";
+import { jwtDecode } from "jwt-decode";
 
 
 function Navbar(){
 
     const [show,setShow] = useState(true);
     const [login , setLogin] = useState(false)
-    const [user , setUser] = useState({});
+    const [role , setRole] = useState();
     const[dark,setDark] = useState(false);
     const navigate = useNavigate()
 
@@ -22,19 +22,18 @@ function Navbar(){
 
  // chek user login or not 
  useEffect(() => {
-  const auth = getAuth();
-  const unsubscribe = onAuthStateChanged(auth,async (user) => {
-    if (user) {
-     const userdata = await userProfileData(user)
-     setUser(userdata)
-     setLogin(true);
-    } else {
-      setLogin(false);
-    }
-  });
-
-// get user auth
-  return () => unsubscribe();
+ const chekRole = ()=>{
+  const token = localStorage.getItem("token");
+  if(!token){
+    setLogin(false);
+    setRole(null);
+    return;
+  }
+  setLogin(true)
+  const data = jwtDecode(token);
+  setRole(data.role)
+}
+chekRole();
 }, []);
 
 // cange thems 
@@ -53,7 +52,7 @@ setDark(!dark);
  const userLogout = async ()=>{
   const auth = getAuth();
   await signOut(auth);
-  localStorage.setItem("token")
+  localStorage.removeItem("token")
    navigate("/result" , {state:{ message:"Logout seccess", value:true , next:"/"}})
   
  }
@@ -91,14 +90,14 @@ setDark(!dark);
                       <li  className="cursor-pointer h-10 rounded-2xl w-full  text-center flex justify-center items-center "><Link to={"/about"}>About</Link></li>
                       <li  className="cursor-pointer h-10 rounded-2xl mb-2 w-full  text-center flex justify-center items-center "><Link to={"/contact"}>Contact</Link></li>
                       <li  className="cursor-pointer hidden  h-10 rounded-2xl mb-2 w-full  text-center sm:flex justify-center items-center "><Link to={"/help"}>Help</Link></li>
-                      <li  className={`cursor-pointer h-10 rounded-2xl mb-2 hidden w-full  text-center  justify-center items-center  ${user?.role == "admin" ? "sm:block" : "hidden"}`}><Link to={"/admin"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full pl-1"><i class="fa-solid fa-user-shield "></i> Admin</Link></li>
+                      <li  className={`cursor-pointer h-10 rounded-2xl mb-2 hidden w-full  text-center  justify-center items-center  ${role == "ADMIN" ? "sm:block" : "hidden"}`}><Link to={"/admin"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full pl-1"><i class="fa-solid fa-user-shield "></i> Admin</Link></li>
                       <button className={`border-red-600 mt-3  border-2 bg-red-500 text-white mb-3 w-full rounded-2xl h-9 cursor-pointer ${login == true ? " hidden sm:block" : "hidden"}`} onClick={userLogout}> <i className="fa-solid fa-right-from-bracket"></i> Logout</button> 
                 </ul>
             </div>
         </div>
         <li  className={`cursor-pointer    rounded-2xl w-full  p-1 h-9 sm:w-20 ${login == true ? "hidden sm:flex" : "hidden"}`}><Link to={"/profile"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <i className="fa-solid fa-user text-black dark:text-white"></i></Link></li>
         <li  className="cursor-pointer sm:hidden  rounded-2xl w-full  p-1 h-9 sm:w-20"><Link to={"/help"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full"> <i class="fa-solid fa-circle-question"></i><span>Help</span> </Link></li>
-        <li  className={`cursor-pointer sm:hidden  h-10 rounded-2xl mb-2 w-full  text-center  justify-center items-center ${user.role == "admin" ? "" : "hidden"}`}><Link to={"/admin"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full pl-1"><i class="fa-solid fa-user-shield"></i> Admin</Link></li>
+        <li  className={`cursor-pointer sm:hidden  h-10 rounded-2xl mb-2 w-full  text-center  justify-center items-center ${role == "ADMIN" ? "" : "hidden"}`}><Link to={"/admin"} className="flex gap-6 sm:gap-3 justify-start items-center sm:justify-center h-full w-full pl-1"><i class="fa-solid fa-user-shield"></i> Admin</Link></li>
         <button className={`border-red-600 mt-3 sm:hidden border-2 bg-red-500 text-white mb-3 w-full rounded-2xl h-9 cursor-pointer ${login == true ? "block" : "hidden"}`} onClick={userLogout}> <i className="fa-solid fa-right-from-bracket"></i> Logout</button> 
         <li  className={`cursor-pointer mt-2 sm:mt-0 ${login == true ? "hidden" : "block"} `}><Link to={"/singIn"}><button className="shape text-white border-white shadow-md h-9 w-20 rounded-2xl cursor-pointer">sing in</button></Link></li>
       </ul>

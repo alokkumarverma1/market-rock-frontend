@@ -72,7 +72,7 @@ function App() {
     //  user protect routs
 
     {
-      element:<ProtectRouts allowRole={["USER"]} />,
+      element:<ProtectRouts allowRole={["USER" , "ADMIN"]} />,
       children:[
       {
       path:"/swingStockDetails",

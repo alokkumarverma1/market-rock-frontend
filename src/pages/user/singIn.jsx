@@ -17,7 +17,6 @@ function SingIn() {
     }
     const data = await login(res.uid);
     localStorage.setItem("token", data)
-    ProtectRouts();
     navigate("/")
    }catch(error){
     navigate("/result",{state:{message:"something wrong", value:false ,next:"/"}})

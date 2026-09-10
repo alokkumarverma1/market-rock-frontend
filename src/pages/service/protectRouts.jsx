@@ -3,7 +3,7 @@ import { jwtDecode } from "jwt-decode";
 export const  ProtectRouts = ({allowRole , next})=>{
     const token = localStorage.getItem("token");
      if (!token) {
-        return <Navigate to="/login" />;
+        return <Navigate to="/singin" />;
     }
 
     // decode role
