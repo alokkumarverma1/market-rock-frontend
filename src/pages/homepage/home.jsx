@@ -4,8 +4,6 @@ import Homecard from "./homecard";
 import Heading from "../others/heading";
 import Footer from "../others/footer";
 import ReviewCard from "./reviewCard";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { FaInstagram, FaYoutube, FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
 import {BookOpen,ChartCandlestick,ShieldCheck,MessageCircleMore,} from "lucide-react";
 import HeroSection from "./hero-section";
@@ -55,20 +53,6 @@ function Home(){
   {/* other content */}
   <div className="other-content w-full px-3">
     
-  {/* rock ai section  */}
-   <div className="rock-ai relative overflow-auto flex flex-col justify-center shadow-md items-center gap-5 h-45 rounded-2xl bg-white dark:bg-zinc-800 w-[90%] m-auto">
-     <div className="absolute r-10 left-0 h-30 w-30 rounded-full  bg-emerald-200 dark:bg-zinc-500 blur-3xl animate-pulse" />
-     <div className="absolute  right-0 h-30 w-30 rounded-full  bg-emerald-200 dark:bg-zinc-500 blur-3xl animate-pulse" />
-   <h1 className="text-2xl font-extrabold">Anlaysis with Ai</h1>
-   <Link to={"/rockai"}>
-   <button className="px-10  py-2.5 rounded-xl text-white font-bold text-sm tracking-wider shadow-lg shadow-emerald-600/20 bg-linear-to-r from-emerald-500 via-teal-600 to-emerald-700 hover:opacity-95 transition-all cursor-pointer">
-            EXPLORE
-   </button>
-   </Link>
-
-   </div>
-
-
   {/* Learn Section */}
 <Heading heading={"First invest your time, not money"} />
     <div className="grid md:grid-cols-2 gap-6  ">

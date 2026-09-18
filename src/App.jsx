@@ -26,6 +26,8 @@ import SingIn from './pages/user/singIn'
 import AddUserData from './pages/user/addUserData'
 import RockAi from './pages/rockAi/RockAi'
 import { ProtectRouts } from './pages/service/protectRouts'
+import AiStock from './pages/rockAi/AiStock/AiStock'
+import AiIndex from './pages/rockAi/AiIndex/AiIndex'
 function App() {
  
 
@@ -41,11 +43,19 @@ function App() {
       path:"/rockAi",
       element:<><RockAi></RockAi></>
     },
+    {
+      path:"/rockAi/Stocks",
+      element:<><AiStock></AiStock></>
+    },
 
     // rock page
     {
       path:"/rock",
       element:<><Rock></Rock></>
+    },
+    {
+      path:"/AiIndex",
+      element:<><AiIndex></AiIndex></>
     },
 
      {
@@ -90,13 +100,11 @@ function App() {
       path:"/profile",
       element:<><UserProfile></UserProfile></>
     },
-       {
+    {
       path:"/profile",
       element:<><Profile></Profile></>
     },
-
-
-      ]
+        ]
     },
     
     // admin pannel

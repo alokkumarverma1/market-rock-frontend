@@ -41,7 +41,7 @@ function Learn(){
         </div>
       </div>
       {/* Right Side */}
-      <Link to={"/joinLive"}> <button className="w-full sm:w-auto cursor-pointer bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-xl font-semibold transition">coming soon..</button></Link>
+      {/* <Link to={"/joinLive"}> <button className="w-full sm:w-auto cursor-pointer bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-xl font-semibold transition">coming soon..</button></Link> */}
        </div>
   </div>
 

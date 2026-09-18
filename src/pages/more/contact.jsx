@@ -5,7 +5,7 @@ import Footer from "../others/footer";
 function Contact() {
   const contactInfo = [
     { icon: "fa-envelope", title: "Email Address", value: "rockteamsupport@gmail.com" },
-    { icon: "fa-location-dot", title: "Location", value: "Uttar Pradesh, India" },
+    { icon: "fa-location-dot", title: "Location", value: " ballia Uttar Pradesh, India" },
   ];
 
   return (

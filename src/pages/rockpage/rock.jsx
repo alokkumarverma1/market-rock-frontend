@@ -96,8 +96,9 @@ return(<>
 {/* swing stock suggestion section  */}
 <SmallHeading heading={"Swing Stock"}></SmallHeading>
 
-<div className="swing-search w-full h-11 mb-2 ">
-<input type="text" name="" className="w-full h-full rounded-2xl outline-none border border-gray-300  dark:text-white dark:bg-zinc-800 p-3" placeholder="serch stock" onChange={(e) => setSearch(e.target.value)} />
+<div className="mb-2 flex h-[46px] w-full items-center rounded-xl border border-zinc-200 bg-white px-4 shadow-sm transition focus-within:border-emerald-500/60 dark:border-zinc-800 dark:bg-zinc-900/80 dark:shadow-2xl dark:shadow-black/20">
+    <span className="mr-3 text-lg text-zinc-400 dark:text-zinc-500">⌕</span>
+    <input type="text" placeholder="Search stock..." onChange={e => setSearch(e.target.value)} className="w-full bg-transparent text-sm text-zinc-900 outline-none placeholder:text-zinc-400 dark:text-white dark:placeholder:text-zinc-600" />
 </div>
 
 <div className="stocks  scroller h-40  gap-4 pt-5 pb-5 ">

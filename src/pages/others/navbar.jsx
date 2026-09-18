@@ -110,7 +110,7 @@ setDark(!dark);
 
      {/* icon area  */}
      <div className="icon w-full bg-white dark:bg-zinc-800  top-0 fixed shadow-md sm:shadow-none ">
-      <img src="logo.png" alt="" className="h-10 w-10"/>
+      <img src="m.png" alt="" className="h-10 w-10"/>
      </div>
 
      {/* change-thems */}
